@@ -1,0 +1,129 @@
+<gx-panel-body>
+    <gx-form name="form" gx-submit="!form.$invalid && save()">
+        <div class="row m-b-md">
+            <div class="col-xs-12">
+                <caption>
+                    <span class="h2 text-muted">gx-form-button</span>
+                </caption>
+                <p class="text-muted m-t">O framework trás uma lista de directivas para uso de botões. Tais diretivas facilitam a composição dos layouts padrão das telas com formulários.</p>
+            </div>
+        </div>
+
+        <div class="line line-dashed b-b line-lg pull-in"></div>
+
+        <div class="row m-t-md">
+            <div class="col-xs-12">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th width="150" class="hidden-xs">Modelo</th>
+                            <th width="50">Tipos / Método</th>
+                            <th width="50">Obrigatório</th>
+                            <th width="50">Descrição</th>
+                            <th width="100">Marcação HTML</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="hidden-xs">
+                                <gx-form-button stereotype="get"></gx-form-button>
+                            </td>
+                            <td><code>get</code></td>
+                            <td>não</td>
+                            <td>Botão pesquisar das telas que utilizam o GUX</td>
+                            <td><code> 	&lt;gx-form-button stereotype="get"&gt;&lt;/gx-form-button&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td class="hidden-xs">
+                                <gx-form-button stereotype="post"></gx-form-button>
+                            </td>
+                            <td><code>post</code></td>
+                            <td>não</td>
+                            <td>Botão utlizado para gravar ações de formulários</td>
+                            <td><code> 	&lt;gx-form-button stereotype="post"&gt;&lt;/gx-form-button&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td class="hidden-xs">
+                                <gx-form-button stereotype="put"></gx-form-button>
+                            </td>
+                            <td><code>put</code></td>
+                            <td>não</td>
+                            <td>Botão utlizado para gravar ações de formulários</td>
+                            <td><code> 	&lt;gx-form-button stereotype="put"&gt;&lt;/gx-form-button&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td class="hidden-xs">
+                                <gx-form-button stereotype="cancel" on-click="voltar"></gx-form-button>
+                            </td>
+                            <td><code>cancel</code></td>
+                            <td>não</td>
+                            <td>Botão Cancelar</td>
+                            <td><code> 	&lt;gx-form-button stereotype="cancel"&gt;&lt;/gx-form-button&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td class="hidden-xs">
+                                <gx-form-button stereotype="back" on-click="voltar"></gx-form-button>
+                            </td>
+                            <td><code>back</code></td>
+                            <td>não</td>
+                            <td>Botão voltar</td>
+                            <td><code> 	&lt;gx-form-button stereotype="back"&gt;&lt;/gx-form-button&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td class="hidden-xs">
+                                <gx-form-button stereotype="clean"></gx-form-button>
+                            </td>
+                            <td><code>clean</code></td>
+                            <td>não</td>
+                            <td>Botão limpar, reseta todos os campos do form atribuído.</td>
+                            <td><code> 	&lt;gx-form-button stereotype="clean"&gt;&lt;/gx-form-button&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="text-muted m-t">O objetivo destas directivas é facilitar as composições de tela com uso dos padrões do GUX, todavia, é possível utilizar HTML nativo com seletores pré formatados do tema. Veja um exemplo:</p>
+        <div class="row m-t-md m-b-lg">
+            <div class="col-md-2 col-xs-12">
+                <span class="h4 text-muted">Button addon</span>
+                <br /><button class="btn btn-info btn-addon btn-lg"><i class="ion-ios-bolt"></i>Oi amigão!</button>
+
+            </div>
+
+            <div class="col-md-8 col-xs-12">
+                <br /><code>&lt;button class="btn m-b-xs btn-sm btn-info btn-addon btn-lg"&gt;&lt;i class="ion-ios-bolt"&gt;&lt;/i&gt;&lt;/button&gt;</code>
+                <p class="text-muted">No entanto, esta estrutura não permite o uso do atributo "stereotype".</p>
+
+            </div>
+        </div>
+
+    </gx-form>
+
+    <div class="row m-t-md">
+        <!-- Nota -->
+        <div class="m-l-lg">
+            <a class="pull-left thumb-sm avatar">
+                <img src="images/ux-avatar.png" alt="UX Designer">
+            </a>
+            <div class="m-l-xxl panel b-a">
+                <div class="panel-heading pos-rlt">
+                    <span class="arrow left pull-up"></span>
+                    <span>Método <strong>POST</strong> define o padrão como botão <strong>Gravar</strong>.</span>
+                    <br>
+                    <span>Método <strong>PUT</strong> define o padrão como botão <strong>Atualizar</strong>.</span>
+                    <br>
+                    <span>Método <strong>GET</strong> define o padrão como botão <strong>Pesquisar</strong>.</span>
+                    <br>
+                    <span>Método <strong>CLEAN</strong>(reset) define o padrão como botão <strong>Limpar</strong> .</span>
+                    <br>
+                    <span>Método <strong>CANCEL</strong> define o padrão como botão <strong>Cancelar</strong>.</span>
+                    <br>
+                    <span>Método <strong>BACK</strong> define o padrão como botão <strong>Voltar</strong>.</span>
+                </div>
+            </div>
+        </div>
+        <!-- end -->
+    </div>
+
+
+</gx-panel-body>

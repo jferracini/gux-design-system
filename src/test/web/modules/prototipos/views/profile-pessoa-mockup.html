@@ -1,0 +1,478 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm animated fadeIn" ng-controller="ProfileMockupController">
+
+    <div class="col">
+        <div style="background:url(images/banner-1.jpg) center center; background-size:cover">
+            <div class="wrapper-lg bg-white-opacity">
+                <div class="row m-t">
+                    <div class="col-sm-7">
+                        <!--
+                        <span href class="thumb-lg pull-left m-r">
+                            <img src="images/profile-2.jpg" class="img-circle md-whiteframe-z0">
+                            <i class="on no-border bottom"></i>
+                        </span>
+-->
+                        <a ui-sref="home.prototipos.profile-mockup">
+                            <span class="thumb-lg avatar m-t-sm pull-left m-r">
+                                <img src="images/profile-2.jpg" class="img-full md-whiteframe-z0" alt="..."> 
+                                <i class="blue-400 no-border bottom wrapper-sm"></i>
+                                  <md-tooltip md-direction="bottom">Usuário ativo</md-tooltip>
+                            </span>
+                        </a>
+                        <div class="clear m-b">
+                            <div class="m-b m-t-sm">
+                                <span class="h2 text-black">William Bradley Pitt</span>
+                                <br>
+                                <small class="text-dark">Contato da <a ui-sref="home.prototipos.empresa-mockup">ENEX.</a></small>
+                                <br>
+                                <desc class="text-muted">usuário: <span class="text-dark">BradPitt0606</span></desc>
+                            </div>
+                            <p class="m-b">
+                                <a href class="btn btn-sm btn-rounded btn-default btn-icon"><i class="fa fa-phone"></i>
+                                    <md-tooltip md-direction="bottom">11-3175-6432</md-tooltip>
+                                </a>
+                                <a href class="btn btn-sm btn-rounded btn-default btn-icon"><i class="fa fa-mobile"></i>
+                                    <md-tooltip md-direction="bottom">11-99594-6740</md-tooltip>
+                                </a>
+                                <a href class="btn btn-sm btn-rounded btn-default btn-icon"><i class="fa fa-envelope-o"></i>
+                                    <md-tooltip md-direction="bottom">jferracini@yahoo.com.br</md-tooltip>
+                                </a>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-5 hidden-xs">
+                        <div class="pull-right pull-none-xs text-center">
+
+                            <a href data-target="#tab-2" role="tab" data-toggle="tab" aria-expanded="false" class="m-b-md inline m">
+                                <span class="h1 block font-thin">2</span>
+                                <small>agentes
+                                        <br>associados</small>
+                                <md-tooltip md-direction="bottom">Veja a lista completa</md-tooltip>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="v-box" ng-controller="ProfileMockupController as demo" ng-cloak>
+            <!--
+            <a href="" class="md-btn md-fab m-r-xxl md-fab-offset pull-right green-400">
+                <i class="fa fa-refresh text-white"></i>
+            </a>
+-->
+
+            <md-fab-speed-dial ng-hide="demo.hidden" md-direction="left" md-open="demo.isOpen" class="md-scale md-fab m-r-xl md-fab-offset pull-right" ng-class="{ 'md-hover-full': demo.hover }" ng-mouseenter="demo.isOpen=true" ng-mouseleave="demo.isOpen=false">
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab md-primary">
+                        <md-tooltip md-direction="right" md-visible="tooltipVisible">Ações</md-tooltip>
+                        <i class="fa fa-bars"></i>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <div ng-repeat="item in demo.items">
+                        <md-button aria-label="{{item.name}}" class="md-fab md-raised md-mini" ng-click="demo.openDialog($event, item)">
+                            <!-- md-visible="tooltipVisible"  -->
+                            <md-tooltip md-direction="{{item.direction}}" md-autohide="true">
+                                {{item.name}}
+                            </md-tooltip>
+                            <i class="{{item.icon}}" aria-label="{{item.name}}"></i>
+                        </md-button>
+                    </div>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+
+
+            <div class="wrapper-md b-b bg-white">
+
+                <span class="h3 font-thin">Cadastro</span>
+
+
+
+            </div>
+
+            <div class="nav-tabs-alt">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a data-target="#tab-1" role="tab" data-toggle="tab" aria-expanded="true">Dados</a>
+                    </li>
+                    <li class="">
+                        <a data-target="#tab-2" role="tab" data-toggle="tab" aria-expanded="false">Agentes associados</a>
+                    </li>
+                    <li class="">
+                        <a data-target="#tab-3" role="tab" data-toggle="tab" aria-expanded="false">Atribuições</a>
+                    </li>
+                </ul>
+            </div>
+
+            <form required="true" name="form">
+                <div class="row-row">
+                    <div class="cell scrollable hover">
+                        <div class="cell-inner">
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="tab-1">
+                                    <div class="wrapper">
+                                        <gx-panel class="animated fadeInDown">
+                                            <gx-panel-body>
+
+
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <h4 class="text-muted pull-left"><i class="fa fa-user pull-left"></i>Informações pessoais</h4>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <span class="pull-right">
+                                                            <a href ng-click="showCustomToast()" class="btn btn-sm btn-success btn-rounded btn-icon"><i class="fa fa-check"></i>
+                                                                <md-tooltip md-direction="left">Salvar alterações</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-print"></i>
+                                                                <md-tooltip md-direction="top">Imprimir</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-download"></i>
+                                                                <md-tooltip md-direction="right">Baixar</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                        
+                </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="line line-dashed b-b line-lg"></div>
+
+                                                <div class="row wrapper-xs">
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>Nome</label>
+                                                        <input class="input-lg" ng-model="valorName" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>Sobrenome</label>
+                                                        <input class="input-lg" ng-model="valorName2" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs m-t-n-lg">
+                                                    <div class="radio m-l-xs">
+                                                        <label class="i-checks m-r">
+                                                            <input type="radio" name="a" value="option2" checked="">
+                                                            <i></i> CPF
+
+                                                        </label>
+                                                        <label class="i-checks m-r">
+                                                            <input type="radio" name="a" value="option3">
+                                                            <i></i> RG
+
+                                                        </label>
+                                                        <label class="i-checks m-r">
+                                                            <input type="radio" name="a" value="option4">
+                                                            <i></i> Outro
+
+                                                        </label>
+                                                    </div>
+                                                    <md-input-container class="md-primary col-xs-10">
+                                                        <label>Número do Documento</label>
+                                                        <input class="input-lg" ng-model="cpf" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-xs-2">
+                                                        <label>Org. Expedidor</label>
+                                                        <input class="input-lg" ng-model="valorExp" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>E-mail (principal)</label>
+                                                        <input class="input-lg" ng-model="valorPhone1" type="email">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>E-mail (pessoal)</label>
+                                                        <input class="input-lg" ng-model="valorPhone2" type="email">
+                                                    </md-input-container>
+                                                </div>
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>Telefone (comercial)</label>
+                                                        <input class="input-lg" ng-model="valorEmail" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>Telefone (celular)</label>
+                                                        <input class="input-lg" ng-model="valorEmail2" type="text">
+                                                    </md-input-container>
+
+                                                    <button class="btn btn-default btn-lg btn-block m-b"><i class="fa fa-phone pull-left"></i> Novo telefone</button>
+
+                                                </div>
+
+
+
+
+                                                <h4 class="text-muted"><i class="fa fa-map-marker pull-left"></i>Endereços</h4>
+                                                <div class="line line-dashed b-b line-lg"></div>
+                                                <h5 class="text-muted m-b font-bold">Principal</h6>
+
+
+                                                    <div class="row wrapper-xs">
+
+                                                        <md-input-container class="md-primary col-sm-8 col-xs-12">
+                                                            <label>Logradouro (rua, avenida, alameda, etc.)</label>
+                                                            <input class="input-lg" ng-model="valorRua" type="text">
+                                                        </md-input-container>
+                                                        <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                            <label>Número</label>
+                                                            <input class="input-lg" ng-model="valorNum" type="text">
+                                                        </md-input-container>
+
+                                                    </div>
+
+                                                    <div class="row wrapper-xs">
+
+                                                        <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                            <label>Cidade</label>
+                                                            <input class="input-lg" ng-model="valorCidade" type="text">
+                                                        </md-input-container>
+
+                                                        <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                            <label>Estado</label>
+                                                            <input class="input-lg" ng-model="valorEstado" type="text">
+                                                        </md-input-container>
+
+                                                        <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                            <label>País</label>
+                                                            <input class="input-lg" ng-model="valorPais" type="text">
+                                                        </md-input-container>
+
+                                                    </div>
+
+                                                    <div class="row wrapper-xs">
+
+                                                        <md-input-container class="md-primary col-sm-12">
+                                                            <label>Complemento</label>
+                                                            <input class="input-lg" ng-model="valorComplemento" type="text">
+                                                        </md-input-container>
+
+                                                    </div>
+
+                                                    <h5 class="text-muted m-b font-bold">Endereço adicional</h6>
+
+                                                        <span class="text-danger">Nenhum endereço adicional cadastrado.</span>
+
+                                                        <div class="row wrapper-xs">
+
+                                                            <button class="btn btn-default btn-lg btn-block"><i class="fa fa-map-marker pull-left"></i> Novo endereço</button>
+
+                                                        </div>
+
+
+
+                                            </gx-panel-body>
+
+
+                                        </gx-panel>
+
+
+
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="tab-2">
+                                    <div class="wrapper">
+                                        <gx-panel class="animated fadeInDown">
+                                            <gx-panel-body>
+
+                                                Agentes associados
+
+                                            </gx-panel-body>
+
+                                        </gx-panel>
+
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="tab-3">
+                                    <div class="wrapper">
+                                        <gx-panel class="animated fadeInDown">
+                                            <gx-panel-body>
+
+                                                Conjunto de Atribuições que englobam permissões de acesso.
+
+                                            </gx-panel-body>
+
+                                        </gx-panel>
+
+                                    </div>
+
+                                </div>
+                                <span class="text-xs text-muted">
+                                        <a href back-button class="m-l md-raised btn-fw m-b-sm md-fab md-button md-default-theme md-mini">
+                                        <i class="fa fa-arrow-left"></i></a> voltar
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+    </div>
+
+    <div class="col w-lg bg-light lter b-l bg-auto">
+
+        <div class="wrapper dk">
+            <div class="row">
+
+                <div class="col-md-10 pull-left">
+                    <h4>Configurações</h4>
+                    <small>ajustes do perfil do contato</small>
+                </div>
+                <!--
+                        <div class="btn-group dropdown col-md-2 pull-right">
+                            <a href="" class="dropdown btn btn-md btn-link text-info pull-right" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-vertical"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href=""><i class="fa fa-plus m-r-sm"></i>Adicionar novos paineis no dashboard</a></li>
+                                    <li><a href=""><i class="fa fa-recycle m-r-sm"></i>Restaurar padrões do sistema</a></li>
+                                </ul>
+                        </div>
+-->
+
+            </div>
+        </div>
+
+        <!-- configurações -->
+
+        <div class="wrapper lter">
+
+            <h4 class="m-t-xs m-b-xs"><i class="fa fa-tachometer m-r text-muted" aria-hidden="true"></i>Seu dashboard</h4>
+            <desc class="text-muted">Configure o que você quer ver no seu dashboard!</desc>
+
+            <ul class="list-group no-bg no-borders pull-in">
+                <li class="list-group-item">
+                    <h5>Visualizar status de cadastro:</h5>
+                    <div class="clear">
+
+                        <div class="clear">
+                            <p>
+                                <label class="md-switch">
+                            <input type="checkbox" checked="">
+                            <i class="blue-grey"></i> Aprovado
+                        </label>
+                            </p>
+                            <p>
+                                <label class="md-switch">
+                            <input type="checkbox" checked="">
+                            <i class="blue-grey"></i> Em progresso
+                        </label>
+                            </p>
+                            <p>
+                                <label class="md-switch">
+                            <input type="checkbox">
+                            <i class="blue-grey"></i> Em espera
+                        </label>
+                            </p>
+                            <p>
+                                <label class="md-switch">
+                            <input type="checkbox" checked="">
+                            <i class="blue-grey"></i> Pendências
+                        </label>
+                            </p>
+                            <p>
+                                <label class="md-switch">
+                            <input type="checkbox" checked="">
+                            <i class="blue-grey"></i> Cadastro reprovado
+                        </label>
+                            </p>
+
+                        </div>
+
+                </li>
+
+            </ul>
+
+            <h4 class="m-t-xs m-b-xs"><i class="fa fa-bell m-r text-muted" aria-hidden="true"></i>Suas Notificações</h4>
+            <desc class="text-muted">Quais status você considera importante receber notificações?</desc>
+
+            <ul class="list-group no-bg no-borders pull-in">
+
+                <li class="list-group-item">
+                    <h5>Receber status de cadastro:</h5>
+                    <div class="clear">
+                        <p>
+                            <label class="md-switch">
+                        <input type="checkbox">
+                        <i class="blue-grey"></i> Aprovado
+                    </label>
+                        </p>
+                        <p>
+                            <label class="md-switch">
+                        <input type="checkbox" checked="">
+                        <i class="blue-grey"></i> Em progresso
+                    </label>
+                        </p>
+                        <p>
+                            <label class="md-switch">
+                        <input type="checkbox" checked="">
+                        <i class="blue-grey"></i> Em espera
+                    </label>
+                        </p>
+                        <p>
+                            <label class="md-switch">
+                        <input type="checkbox" checked="">
+                        <i class="blue-grey"></i> Pendências
+                    </label>
+                        </p>
+                        <p>
+                            <label class="md-switch">
+                        <input type="checkbox" checked="">
+                        <i class="blue-grey"></i> Cadastro reprovado
+                    </label>
+                        </p>
+
+                    </div>
+                </li>
+
+
+            </ul>
+
+            <!-- versões - painel de admin CCEE -->
+            <div class="panel b-a">
+                <h4 class="font-thin padder"><i class="fa fa-history m-r-sm text-warning" aria-hidden="true"></i>Versões</h4>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <p>Edição por <a href class="text-info">Murilo Ferro</a> endereço principal </p>
+                        <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                    </li>
+                    <li class="list-group-item">
+                        <p>Inclusão por <a href class="text-info">Murilo Ferro</a> de endereço adicional </p>
+                        <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                    </li>
+                    <li class="list-group-item">
+                        <p>Edição por <a href class="text-info">Murilo Ferro</a> endereço principal </p>
+                        <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                    </li>
+                    <li class="list-group-item">
+                        <p>Inclusão por <a href class="text-info">Murilo Ferro</a> de endereço adicional </p>
+                        <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                    </li>
+                    <li class="list-group-item">
+                        <p>Edição por <a href class="text-info">Murilo Ferro</a> endereço principal </p>
+                        <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                    </li>
+                    <li class="list-group-item">
+                        <p>Inclusão por <a href class="text-info">Murilo Ferro</a> de endereço adicional </p>
+                        <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            </div>
+
+        </div>

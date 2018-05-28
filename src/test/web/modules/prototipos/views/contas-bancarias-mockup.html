@@ -1,0 +1,270 @@
+<div class="row" ng-controller="ProfileMockupController">
+    
+    <form required="true" name="form">
+        
+    <div class="col-md-4">
+
+                <md-card class="bg-white wrapper w-full">
+
+                    <md-card-header>
+                        <md-card-avatar>
+                            <img src="images/icons/1470873536_vector_65_04.svg">
+                        </md-card-avatar>
+                        
+                        <md-card-header-text>
+                            <span class="md-title text-info">Conta MCP</span>
+                            <span class="text-muted text-xs">Descrição da conta Mercado de Curto Prazo.</span>
+                            
+                        </md-card-header-text>
+                    </md-card-header>    
+                        
+                <md-card-content>
+
+                    <div class="panel bg-light lter no-padder">
+                        <div class="row">
+                            <div class="col-xs-4 b-r">
+                                <small class="text-muted block">Banco</small>
+                                <span class="text-md text-dark">Bradesco</span>
+                            </div>
+                            <div class="col-xs-3 b-r">
+                                <small class="text-muted block">Agência</small>
+                                <span class="text-md text-info">{{agenciaMcp}}</span>
+                            </div>
+                            <div class="col-xs-5">
+                                <small class="text-muted block">Conta</small>
+                                <span class="text-md text-info">{{contaMcp}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </md-card-content>
+                    
+                <md-card-actions layout="row" layout-align="start center" class="layout-align-start-center layout-row">
+
+                    <div class="btn-group dropdown">
+                        <a href="" class="dropdown btn btn-md btn-link m-r-xs" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="openConta = !openConta" href=""><i class="ion-ios-arrow-forward m-r-sm"></i>Solicitar alteração da conta</a></li>
+                            <li><a href=""><i class="ion-ios-arrow-forward m-r-xs"></i>Solicitar envio de dados de conta</a></li>
+
+                        </ul>
+                    </div>
+                    
+                    <em class="text-xs text-muted">Última alteração <span class="text-info">Fev 23, 2013</span></em>
+
+                    
+
+                </md-card-actions>  
+                    
+                    
+
+                </md-card>
+        
+                <div ng-init="openConta = false" ng-show="openConta" class="panel card m-l-xs w-full text-center animated fadeIn">
+                    <h5 class="text-muted">Alteração de dados da conta MCP</h5>
+                    <div class="panel-body wrapper b b-light">
+                        <md-input-container class="md-default-theme w-full block">
+                            <label for="label">Agência</label>
+                            <input type="text" id="label" ng-model="agenciaMcp" class="ng-pristine ng-valid md-input ng-touched" aria-invalid="false" disabled>
+                            <div class="text-xs text-danger">Não é possível trocar a agência.</div>
+                        </md-input-container>
+                        <md-input-container class="md-default-theme w-full block">
+                            <label for="content">Conta</label>
+                            <input type="text" id="content" ng-model="contaMcp" class="ng-pristine ng-untouched ng-valid md-input" aria-invalid="false">
+                            <div class="text-xs text-muted">Alterações de conta serão verificadas em até 2 dias úteis.</div>
+                        </md-input-container>
+
+                        <button class="btn m-b-xs btn-info btn-addon btn-block" ng-click="confirm = !confirm"><i class="fa fa-send"></i>Enviar solicitação de alteração</button>
+                        <div ng-init="confirm = false" ng-show="confirm" class="animated fadeIn text-success">
+                            <i class="ion-thumbsup fa-2x m-r-xs text-muted block"></i>
+                            <span class="font-bold h5">Solicitação enviada! </span>
+                            <p class="text-xs">Aguarde o retorno da CCEE para confirmação da alteração.</p>
+                            <p class="text-xs">Sua nova conta aparecerá somente após esta confirmação. Acompanhe suas notificações.</p>
+                        </div>
+                        
+                    </div>
+                    <a ng-click="openConta = !openConta" class="m-t text-xs"><i class="fa fa-close m-r-xs text-muted"></i> fechar</a>
+                </div>
+
+    </div>
+    
+    <div class="col-md-4">
+
+                <md-card class="bg-white wrapper w-full">
+
+                    <md-card-header>
+                        <md-card-avatar>
+                            <img src="images/icons/1470873536_vector_65_04.svg">
+                        </md-card-avatar>
+                        
+                        <md-card-header-text>
+                            <span class="md-title text-info">Conta Cotas</span>
+                            <span class="text-muted text-xs">Descrição da conta Cotas.</span>
+                            
+                        </md-card-header-text>
+                    </md-card-header>    
+                        
+                <md-card-content>
+
+                    <div class="panel bg-light lter no-padder">
+                        <div class="row">
+                            <div class="col-xs-4 b-r">
+                                <small class="text-muted block">Banco</small>
+                                <span class="text-md text-dark">Bradesco</span>
+                            </div>
+                            <div class="col-xs-3 b-r">
+                                <small class="text-muted block">Agência</small>
+                                <span class="text-md text-info">{{agenciaCotas}}</span>
+                            </div>
+                            <div class="col-xs-5">
+                                <small class="text-muted block">Conta</small>
+                                <span class="text-md text-info">{{contaCotas}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </md-card-content>
+                    
+                <md-card-actions layout="row" layout-align="start center" class="layout-align-start-center layout-row">
+
+                    <div class="btn-group dropdown">
+                        <a href="" class="dropdown btn btn-md btn-link m-r-xs" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="openContaC = !openContaC" href=""><i class="ion-ios-arrow-forward m-r-sm"></i>Solicitar alteração da conta</a></li>
+                            <li><a href=""><i class="ion-ios-arrow-forward m-r-xs"></i>Solicitar envio de dados de conta</a></li>
+
+                        </ul>
+                    </div>
+                    
+                    <em class="text-xs text-muted">Última alteração <span class="text-info">Fev 23, 2013</span></em>
+
+                    
+
+                </md-card-actions>  
+                    
+                    
+
+                </md-card>
+        
+                <div ng-init="openContaC = false" ng-show="openContaC" class="panel card m-l-xs w-full text-center animated fadeIn">
+                    <h5 class="text-muted">Alteração de dados da conta Cotas</h5>
+                    <div class="panel-body wrapper b b-light">
+                        <md-input-container class="md-default-theme w-full block">
+                            <label for="label">Agência</label>
+                            <input type="text" id="label" ng-model="agenciaCotas" class="ng-pristine ng-valid md-input ng-touched" aria-invalid="false" disabled>
+                            <div class="text-xs text-danger">Não é possível trocar a agência.</div>
+                        </md-input-container>
+                        <md-input-container class="md-default-theme w-full block">
+                            <label for="content">Conta</label>
+                            <input type="text" id="content" ng-model="contaCotas" class="ng-pristine ng-untouched ng-valid md-input" aria-invalid="false">
+                            <div class="text-xs text-muted">Alterações de conta serão verificadas em até 2 dias úteis.</div>
+                        </md-input-container>
+
+                        <button class="btn m-b-xs btn-info btn-addon btn-block" ng-click="confirmC = !confirmC"><i class="fa fa-send"></i>Enviar solicitação de alteração</button>
+                        <div ng-init="confirmC = false" ng-show="confirmC" class="animated fadeIn text-success">
+                            <i class="ion-thumbsup fa-2x m-r-xs text-muted block"></i>
+                            <span class="font-bold h5">Solicitação enviada! </span>
+                            <p class="text-xs">Aguarde o retorno da CCEE para confirmação da alteração.</p>
+                            <p class="text-xs">Sua nova conta aparecerá somente após esta confirmação. Acompanhe suas notificações.</p>
+                        </div>
+                        
+                    </div>
+                    <a ng-click="openContaC = !openContaC" class="m-t text-xs"><i class="fa fa-close m-r-xs text-muted"></i> fechar</a>
+                </div>
+
+    </div>    
+    
+    <div class="col-md-4">
+
+                <md-card class="bg-white wrapper w-full">
+
+                    <md-card-header>
+                        <md-card-avatar>
+                            <img src="images/icons/1470873536_vector_65_04.svg">
+                        </md-card-avatar>
+                        
+                        <md-card-header-text>
+                            <span class="md-title text-info">Conta Exportação</span>
+                            <span class="text-muted text-xs">Descrição da conta Exportação.</span>
+                            
+                        </md-card-header-text>
+                    </md-card-header>    
+                        
+                <md-card-content>
+
+                    <div class="panel bg-light lter no-padder">
+                        <div class="row">
+                            <div class="col-xs-4 b-r">
+                                <small class="text-muted block">Banco</small>
+                                <span class="text-md text-dark">Bradesco</span>
+                            </div>
+                            <div class="col-xs-3 b-r">
+                                <small class="text-muted block">Agência</small>
+                                <span class="text-md text-info">{{agenciaExport}}</span>
+                            </div>
+                            <div class="col-xs-5">
+                                <small class="text-muted block">Conta</small>
+                                <span class="text-md text-info">{{contaExport}}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </md-card-content>
+                    
+                <md-card-actions layout="row" layout-align="start center" class="layout-align-start-center layout-row">
+
+                    <div class="btn-group dropdown">
+                        <a href="" class="dropdown btn btn-md btn-link m-r-xs" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a ng-click="openContaE = !openContaE" href=""><i class="ion-ios-arrow-forward m-r-sm"></i>Solicitar alteração da conta</a></li>
+                            <li><a href=""><i class="ion-ios-arrow-forward m-r-xs"></i>Solicitar envio de dados de conta</a></li>
+
+                        </ul>
+                    </div>
+                    
+                    <em class="text-xs text-muted">Última alteração <span class="text-info">Fev 23, 2013</span></em>
+
+                    
+
+                </md-card-actions>  
+                    
+                    
+
+                </md-card>
+        
+                <div ng-init="openContaE = false" ng-show="openContaE" class="panel card m-l-xs w-full text-center animated fadeIn">
+                    <h5 class="text-muted">Alteração de dados da conta Exportação</h5>
+                    <div class="panel-body wrapper b b-light">
+                        <md-input-container class="md-default-theme w-full block">
+                            <label for="label">Agência</label>
+                            <input type="text" id="label" ng-model="agenciaExport" class="ng-pristine ng-valid md-input ng-touched" aria-invalid="false" disabled>
+                            <div class="text-xs text-danger">Não é possível trocar a agência.</div>
+                        </md-input-container>
+                        <md-input-container class="md-default-theme w-full block">
+                            <label for="content">Conta</label>
+                            <input type="text" id="content" ng-model="contaExport" class="ng-pristine ng-untouched ng-valid md-input" aria-invalid="false">
+                            <div class="text-xs text-muted">Alterações de conta serão verificadas em até 2 dias úteis.</div>
+                        </md-input-container>
+
+                        <button class="btn m-b-xs btn-info btn-addon btn-block" ng-click="confirmE = !confirmE"><i class="fa fa-send"></i>Enviar solicitação de alteração</button>
+                        <div ng-init="confirmE = false" ng-show="confirmE" class="animated fadeIn text-success">
+                            <i class="ion-thumbsup fa-2x m-r-xs text-muted block"></i>
+                            <span class="font-bold h5">Solicitação enviada! </span>
+                            <p class="text-xs">Aguarde o retorno da CCEE para confirmação da alteração.</p>
+                            <p class="text-xs">Sua nova conta aparecerá somente após esta confirmação. Acompanhe suas notificações.</p>
+                        </div>
+                        
+                    </div>
+                    <a ng-click="openContaE = !openContaE" class="m-t text-xs"><i class="fa fa-close m-r-xs text-muted"></i> fechar</a>
+                </div>
+
+    </div> 
+                
+    </form>    
+</div>

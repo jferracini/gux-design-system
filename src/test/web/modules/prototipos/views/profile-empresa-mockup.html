@@ -1,0 +1,830 @@
+<div id="personalaside" class="hbox hbox-auto-xs hbox-auto-sm animated fadeIn" ng-controller="ProfileMockupController">
+
+    <div class="col">
+        <div style="background:url(images/banner-1.jpg) center center; background-size:cover">
+            <div class="wrapper-lg bg-white-opacity">
+                <div class="row m-t">
+                    <div class="col-sm-7">
+                        <!--
+                        <span href class="thumb-lg pull-left m-r">
+                            <img src="images/profile-2.jpg" class="img-circle md-whiteframe-z0">
+                            <i class="on no-border bottom"></i>
+                        </span>
+-->
+                        <a ui-sref="home.prototipos.empresa-mockup">
+                            <span class="thumb-lg avatar m-t-sm pull-left m-r">
+                                <img src="images/icons/1470873534_vector_65_12.svg" class="img-full md-whiteframe-z0 blue-grey-50" alt="..."> 
+                                <i class="green-A700 no-border bottom wrapper-sm">                                    <md-tooltip md-direction="bottom">Aderido</md-tooltip>
+</i>
+                            </span>
+                        </a>
+                        <div class="clear m-b">
+                            <div class="m-b m-t-sm">
+                                <span class="h4 text-muted font-bold">ENEX<md-tooltip md-direction="right">Sigla</md-tooltip></span>
+                                <span class="h2 text-success clear">Comercializadora Lorem Ipsum S.A.</span>
+                                <desc class="text-muted">Classe: </desc><small class="text-dark m-r-xs">Comercialização</small>
+                                <!--                                <desc class="text-muted">Classe: </desc>Consumidor Especial</small>-->
+
+                            </div>
+                            <p class="m-b">
+                                <a href class="btn btn-md btn-rounded btn-default btn-icon"><i class="fa fa-phone"></i>
+                                    <md-tooltip md-direction="bottom">11-3175-6432</md-tooltip>
+                                </a>
+
+                                <a href class="btn btn-md btn-rounded btn-default btn-icon"><i class="fa fa-envelope-o"></i>
+                                    <md-tooltip md-direction="bottom">jferracini@yahoo.com.br</md-tooltip>
+                                </a>
+                                <a href class="btn btn-md btn-rounded btn-icon" ng-class="adesao ? 'btn-danger animated flash' : 'btn-info'">
+                                    <i ng-class="adesao ? 'fa fa-unlink animated flash' : 'fa fa-link'"></i>
+                                    <md-tooltip md-direction="bottom">{{ adesao ? 'Desligado' : 'Aderido' }}</md-tooltip>
+                                </a>
+                                <a href class="btn btn-md btn-rounded btn-info btn-icon"><i class="ion-android-calendar"></i>
+                                    <md-tooltip md-direction="bottom">Vigência</md-tooltip>
+                                </a>
+                                <a ng-show="varejista" href class="btn btn-md btn-rounded btn-success btn-icon animated flash"><i class="fa fa-sitemap"></i>
+                                    <md-tooltip md-direction="bottom">Comercializador Varejista</md-tooltip>
+                                </a>
+                                <a ng-show="justificar" href class="btn btn-md btn-rounded btn-danger btn-icon animated flash"><i class="fa fa-dollar"></i>
+                                    <md-tooltip md-direction="bottom">Inadimplente</md-tooltip>
+                                </a>
+                                <a ng-show="monitoramento" href class="btn btn-md btn-rounded btn-danger btn-icon animated flash"><i class="ion-flag"></i>
+                                    <md-tooltip md-direction="bottom">Em monitoramento</md-tooltip>
+                                </a>
+                                
+
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="col-sm-5 hidden-xs">
+
+                        <!--
+                        <div class="pull-right pull-none-xs text-center">
+
+                            <a href data-target="#tab-2" role="tab" data-toggle="tab" aria-expanded="false" class="m-b-md inline m text-muted">
+                                <span class="h1 block font-thin">56</span>
+                                <small>total de pontos
+                                        <br>cadastrados</small>
+                                    <md-tooltip md-direction="bottom">Veja a lista completa</md-tooltip>
+                            </a>
+                        </div>
+-->
+
+                        <div class="pull-right pull-none-xs text-center">
+
+                            <a href ui-sref="home.prototipos.empresa-representada-lista-mockup" aria-expanded="false" class="m-b-md inline m text-info">
+                                <span class="h1 block font-thin">2</span>
+                                <small>agentes
+                                        <br>representados</small>
+                                <md-tooltip md-direction="bottom">Veja a lista completa</md-tooltip>
+                            </a>
+                        </div>
+
+                        <div class="pull-right pull-none-xs text-center">
+
+                            <a href ui-sref="home.prototipos.profile-list-mockup" aria-expanded="false" class="m-b-md inline m text-info">
+                                <span class="h1 block font-thin">4</span>
+                                <small>contatos 
+                                        <br>relacionados</small>
+                                <md-tooltip md-direction="bottom">Veja a lista completa</md-tooltip>
+                            </a>
+                        </div>
+                        <div class="pull-right text-center clearfix m-r-lg m-t-md hidden-xs">
+
+                            <!--
+                            <a ng-click="showMotivos($event)" class="btn btn-sm btn-default btn-addon btn-block btn-rounded"><i class="ion-network"></i> 
+                                Rede de relacionamento
+                                    <md-tooltip md-direction="bottom">Consultar lista de representações, empresas e pessoas</md-tooltip>
+                            </a>
+-->
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="v-box" ng-controller="ProfileMockupController as actions" ng-cloak>
+            <!--
+            <a href="" class="md-btn md-fab m-r-xxl md-fab-offset pull-right green-400">
+                <i class="fa fa-refresh text-white"></i>
+            </a>
+-->
+
+            <md-fab-speed-dial ng-hide="actions.hidden" md-direction="left" md-open="actions.isOpen" class="md-fling md-fab m-r-xl md-fab-offset pull-right" ng-class="{ 'md-hover-full': actions.hover }" ng-mouseenter="actions.isOpen=true" ng-mouseleave="actions.isOpen=true">
+                <md-fab-trigger>
+                    <md-button aria-label="menu" class="md-fab md-primary">
+                        <md-tooltip md-direction="right" md-visible="tooltipVisible">Ações</md-tooltip>
+                        <i class="fa fa-bars"></i>
+                    </md-button>
+                </md-fab-trigger>
+                <md-fab-actions>
+                    <div ng-repeat="item in actions.items">
+                        <!--                        <md-button aria-label="{{item.name}}" class="{{item.class}}" ng-click="showCustomToast()"> -->
+                        <md-button aria-label="{{item.name}}" class="{{item.class}}" ng-click="btnend()">
+
+                            <!-- md-visible="tooltipVisible"  -->
+                            <md-tooltip md-direction="{{item.direction}}" md-autohide="true">
+                                {{item.name}}
+                            </md-tooltip>
+                            <i class="{{item.icon}}" aria-label="{{item.name}}"></i>
+                        </md-button>
+                    </div>
+                </md-fab-actions>
+            </md-fab-speed-dial>
+
+
+            <div class="wrapper-md b-b bg-white">
+
+                <span class="h3 font-thin">Cadastro</span>
+
+
+
+            </div>
+
+            <div class="nav-tabs-alt">
+                <ul class="nav nav-tabs nav-justified">
+                    <li class="active">
+                        <a data-target="#tab-1" role="tab" data-toggle="tab" aria-expanded="true">Cadastro</a>
+                    </li>
+                    <li class="">
+                        <a data-target="#tab-2" role="tab" data-toggle="tab" aria-expanded="false">Perfis do Agente</a>
+                    </li>
+                    <!--
+                    <li class="">
+                        <a data-target="#tab-3" role="tab" data-toggle="tab" aria-expanded="false">Contatos</a>
+                    </li>
+-->
+                    <li class="">
+                        <a data-target="#tab-4" role="tab" data-toggle="tab" aria-expanded="false">Tipos de Contato</a>
+                    </li>
+                    <li class="">
+                        <a data-target="#tab-5" role="tab" data-toggle="tab" aria-expanded="false"> Assuntos Financeiros</a>
+                    </li>
+                    <li class="">
+                        <a data-target="#tab-6" role="tab" data-toggle="tab" aria-expanded="false">Documentos</a>
+                    </li>
+
+                </ul>
+            </div>
+
+<form required="true" name="form">
+    <div class="row-row">
+        <div class="cell hover">
+                <div class="cell-inner">
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab-1">
+                                    <div class="wrapper">
+                                        <gx-panel class="animated fadeInUp">
+                                            <gx-panel-body>
+
+
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <h4 class="text-muted pull-left"><i class="ion-information-circled pull-left m-r-sm"></i>Informações cadastrais</h4>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <span class="pull-right">
+                                                            <a href scroll-to="app" ng-click="showCustomToast()" class="btn btn-sm btn-success btn-rounded btn-icon"><i class="fa fa-check"></i>
+                                                                <md-tooltip md-direction="left">Salvar alterações</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-print"></i>
+                                                                <md-tooltip md-direction="top">Imprimir</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-download"></i>
+                                                                <md-tooltip md-direction="right">Baixar</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-copy"></i>
+                                                                <md-tooltip md-direction="right">Copiar estes dados para sua área de transferência.</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                        
+                </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="line line-dashed b-b line-lg"></div>
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>Razão Social</label>
+                                                        <input class="input-lg" ng-model="valorRs" type="text" md-maxlength="100">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                                                        <label>Nome Fantasia</label>
+                                                        <input class="input-lg" ng-model="valorNf" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs m-t-n-lg">
+
+                                                    <md-input-container class="md-primary col-xs-6">
+                                                        <label>CNPJ</label>
+                                                        <input class="input-lg" ng-model="cnpj" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-xs-6">
+                                                        <label>Ramo de Atividade</label>
+                                                        <input class="input-lg" ng-model="valorRa" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs">
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Sigla do Agente</label>
+                                                        <input class="input-lg" ng-model="valorSa" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Classe</label>
+                                                        <input class="input-lg" ng-model="valorClasse" type="text">
+                                                    </md-input-container>
+
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Categoria</label>
+                                                        <input class="input-lg" ng-model="valorCat" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs m-t-n-lg">
+
+                                                    <md-input-container class="md-primary col-xs-6">
+                                                        <label>CNAE</label>
+                                                        <input class="input-lg" ng-model="cnae" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-xs-6">
+                                                        <label>Tipo de Empresa </label>
+                                                        <input class="input-lg" ng-model="valorTipo" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs m-t-n-lg">
+
+                                                    <md-input-container class="md-primary col-xs-6">
+                                                        <label>Endereço do Site </label>
+                                                        <input class="input-lg" ng-model="valorWww" type="text">
+                                                    </md-input-container>
+
+                                                    <md-input-container class="md-primary col-sm-6 col-xs-6">
+                                                        <label>E-mail</label>
+                                                        <input class="input-lg" ng-model="valorEmail3" type="email">
+                                                    </md-input-container>
+
+                                                </div>
+
+
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-xs-12">
+                                                        <label>Telefone (comercial)</label>
+                                                        <input class="input-lg" ng-model="valorPhone1" type="text">
+                                                    </md-input-container>
+
+                                                    <button class="btn btn-default btn-lg btn-block m-b"><i class="fa fa-phone pull-left"></i> Novo telefone</button>
+
+                                                </div>
+
+
+
+
+                                                <h4 class="text-muted"><i class="fa fa-map-marker pull-left"></i>Endereços</h4>
+                                                <div class="line line-dashed b-b line-lg"></div>
+                                                <h5 class="text-muted m-b font-bold">Principal</h6>
+
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-8 col-xs-12">
+                                                        <label>Logradouro (rua, avenida, alameda, etc.)</label>
+                                                        <input class="input-lg" ng-model="valorRua" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Número</label>
+                                                        <input class="input-lg" ng-model="valorNum" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Cidade</label>
+                                                        <input class="input-lg" ng-model="valorCidade" type="text">
+                                                    </md-input-container>
+
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Estado</label>
+                                                        <input class="input-lg" ng-model="valorEstado" type="text">
+                                                    </md-input-container>
+
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>País</label>
+                                                        <input class="input-lg" ng-model="valorPais" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-12">
+                                                        <label>Complemento</label>
+                                                        <input class="input-lg" ng-model="valorComplemento" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+                                                
+                                                <h5 class="text-muted m-b font-bold">Endereço adicional</h6>
+                                                
+                                                <span class="text-danger">Nenhum endereço adicional cadastrado.</span>
+                                                
+                                                <div class="row wrapper-xs">
+
+                                                    <button class="btn btn-default btn-lg btn-block"><i class="fa fa-map-marker pull-left"></i> Novo endereço</button>
+
+                                                </div>
+
+                                            </gx-panel-body>
+                                            
+                                        </gx-panel>
+
+                                    </div>
+                                    <span class="text-xs text-muted">
+                                        <a href back-button class="m-l md-raised btn-fw m-b-sm md-fab md-button md-default-theme md-mini">
+                                        <i class="fa fa-arrow-left"></i></a> voltar
+                                    </span>    
+                                </div>
+                                
+                        <div class="tab-pane" id="tab-2">
+                                    <div class="wrapper">
+                                        <gx-panel class="animated fadeInUp">
+                                            <gx-panel-body>
+                                                
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <h4 class="text-muted pull-left"><i class="ion-ios-toggle  pull-left m-r-sm"></i>Perfis do Agente</h4>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <span class="pull-right">
+                                                            <a href scroll-to="app" ng-click="showCustomToast()" class="btn btn-sm btn-success btn-rounded btn-icon"><i class="fa fa-check"></i>
+                                                                <md-tooltip md-direction="left">Salvar alterações</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-print"></i>
+                                                                <md-tooltip md-direction="top">Imprimir</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-download"></i>
+                                                                <md-tooltip md-direction="right">Baixar</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-copy"></i>
+                                                                <md-tooltip md-direction="right">Copiar estes dados para sua área de transferência.</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                        
+                </span>
+                                                    </div>
+                                                </div>
+
+                                                <div class="line line-dashed b-b line-lg"></div>
+                                                
+                                                <ng-include src="'modules/prototipos/views/perfis-agente-mockup.html'"></ng-include>
+
+                                            </gx-panel-body>
+                                        </gx-panel>
+
+                                    </div>
+                                </div>
+                   
+                        <div class="tab-pane" id="tab-4">
+                                    <div class="wrapper">
+                                        <gx-panel class="animated fadeInUp">
+                                            <gx-panel-body class="text-left">
+
+                                                 <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <h4 class="text-muted pull-left"><i class="ion-android-contacts pull-left m-r-sm"></i>Tipos de Contato</h4>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <span class="pull-right">
+                                                            <a href scroll-to="app" ng-click="showCustomToast()" class="btn btn-sm btn-success btn-rounded btn-icon"><i class="fa fa-check"></i>
+                                                                <md-tooltip md-direction="left">Salvar alterações</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-print"></i>
+                                                                <md-tooltip md-direction="top">Imprimir</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-download"></i>
+                                                                <md-tooltip md-direction="right">Baixar</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-copy"></i>
+                                                                <md-tooltip md-direction="right">Copiar estes dados para sua área de transferência.</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                        
+                </span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="line line-dashed b-b line-lg"></div>
+                                                
+                                                <ng-include src="'modules/prototipos/views/tipo-contato-mockup.html'"></ng-include>
+                                                
+                                            </gx-panel-body>
+                                        </gx-panel>
+
+                                    </div>
+                                </div>
+                                
+                        <div class="tab-pane" id="tab-5">
+                                    <div class="wrapper">
+                                        <gx-panel class="animated fadeInUp">
+                                            <gx-panel-body>
+                                                
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <h4 class="text-muted pull-left"><i class="fa fa-credit-card pull-left"></i>Contas bancárias</h4>
+                                                    </div>
+                                                    <div class="col-xs-6">
+                                                        <span class="pull-right">
+                                                            <a href="" ng-click="showCustomToast()" class="btn btn-sm btn-success btn-rounded btn-icon" aria-label="Salvar alterações"><i class="fa fa-check"></i>
+                                                                
+                                                            </a>
+                                                            <a href="" class="btn btn-sm btn-default btn-rounded btn-icon" aria-label="Imprimir"><i class="fa fa-print"></i>
+                                                                
+                                                            </a>
+                                                            <a href="" class="btn btn-sm btn-default btn-rounded btn-icon" aria-label="Baixar"><i class="fa fa-download"></i>
+                                                                
+                                                            
+                                                            </a>
+                                                            
+                                                        
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="line line-dashed b-b line-lg"></div>
+                                                
+                                                 <div class="row wrapper-xs">
+                                                     
+                                                     <ng-include src="'modules/prototipos/views/contas-bancarias-mockup.html'"></ng-include>
+                                                    
+                                                     <div class="line line-dashed b-b line-md"></div>
+                                                     
+                                                        
+ 
+                                                     
+                                                    <button ng-click="cadastrarConta = !cadastrarConta" class="btn btn-default btn-lg btn-block"><i class="fa fa-credit-card pull-left"></i> Nova conta bancária</button>
+                                                    
+                                                    <div ng-show="cadastrarConta" class="col-xs-12 m-t  animated fadeIn">
+                                                        
+                                                        
+                                                        <h5>Nova conta bancária</h5>
+                                                <div layout="" layout-sm="column">
+                                                    <md-input-container flex="" class="md-default-theme md-input-has-value">
+                                                        <label>Tipo de Conta</label>
+
+                                                        <md-select name="tipoConta" ng-model="favoriteTopping" placeholder="Tipo de conta" required>
+                                                            <md-optgroup label="Selecione o tipo">
+                                                                <md-option>MCP</md-option>
+                                                                <md-option>Cotas</md-option>
+                                                                <md-option>Exportação</md-option>
+                                                                </md-option-group>
+
+                                                        </md-select>
+
+
+                                                        <div class="text-xs text-info">Somente contas ainda não cadastradas.</div>
+                                                    </md-input-container>
+                                                    <md-input-container flex="" class="md-default-theme md-input-has-value">
+                                                        <label for="input_117">Banco</label>
+                                                        <input ng-model="valorBanco" class="ng-pristine ng-untouched ng-valid md-input" id="input_117" aria-invalid="false" readonly>
+                                                        <div class="text-xs text-info">Não é possível trocar o banco.</div>
+                                                    </md-input-container>
+                                                    <md-input-container flex="" class="md-default-theme md-input-has-value">
+                                                        <label for="input_118">Agência</label>
+                                                        <input ng-model="user.state" class="ng-pristine ng-untouched ng-valid md-input" id="input_118" aria-invalid="false">
+                                                    </md-input-container>
+                                                    <md-input-container flex="" class="md-default-theme md-input-has-value">
+                                                        <label for="input_119">Conta corrente</label>
+                                                        <input ng-model="user.postalCode" class="ng-pristine ng-untouched ng-valid md-input" id="input_119" aria-invalid="false">
+                                                    </md-input-container>
+                                                </div>
+
+                                                <button ng-click="cadastrar = !cadastrar" class="btn btn-success btn-lg btn-addon btn-block"><i class="fa fa-check pull-left"></i> Solicitar o cadastro da conta</button>
+                                                <button ng-click="cadastrarConta = !cadastrarConta" class="btn btn-link btn-xs btn-block m-t" ng-hide="cadastrar">
+                                                    cancelar
+                                                </button>
+
+                                                <div ng-init="cadastrar = false" ng-show="cadastrar" class="animated fadeIn text-success text-center">
+                                                    <i class="ion-thumbsup fa-2x m-r-xs text-muted block"></i>
+                                                    <span class="font-bold h5">Solicitação enviada! </span>
+                                                    <p class="text-xs">Aguarde o retorno da CCEE para confirmação do cadastro da sua conta.</p>
+                                                    <p class="text-xs">Sua nova conta aparecerá somente após esta confirmação. Acompanhe suas notificações.</p>
+                                                </div>
+                                    </div>
+
+                                </div>
+
+                                <!--
+                                                <div class="row">
+                                                    <div class="col-xs-6">
+                                                        <h4 class="text-muted pull-left"><i class="fa fa-barcode pull-left"></i>Boleto de contribuição</h4>
+                                                    </div>
+
+                                                </div>
+                                                
+                                                <div class="line line-dashed b-b line-lg"></div>
+-->
+
+                                <!--
+                                                    <p class="text-center">Receber notificação desta empresa quando houver novos boletos para emissão?
+                                                        <label class="md-switch">
+                                                            <input type="checkbox" checked disabled>
+                                                            <i class="blue-grey"></i> Ativo
+                                                        </label>
+                                                    </p>
+-->
+
+                                </gx-panel-body>
+                                </gx-panel>
+
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tab-6">
+                            <div class="wrapper">
+                                <gx-panel class="animated fadeInUp">
+                                    <gx-panel-body>
+
+                                        <div class="row">
+                                            <div class="col-xs-6">
+                                                <h4 class="text-muted pull-left"><i class="fa fa-archive pull-left m-r-sm"></i>Documentos</h4>
+                                            </div>
+                                            <div class="col-xs-6">
+                                                <span class="pull-right">
+                                                    
+                                                    
+                                                            
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-print"></i>
+                                                                <md-tooltip md-direction="top">Imprimir</md-tooltip>
+                                                            </a>
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-download"></i>
+                                                                <md-tooltip md-direction="right">Baixar</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                            <a href class="btn btn-sm btn-default btn-rounded btn-icon"><i class="fa fa-copy"></i>
+                                                                <md-tooltip md-direction="right">Copiar estes dados para sua área de transferência.</md-tooltip>
+                                                            
+                                                            </a>
+                                                            
+                                                        
+                </span>
+                                            </div>
+                                        </div>
+
+                                        <div class="line line-dashed b-b line-lg"></div>
+
+                                        <ng-include src="'modules/prototipos/views/documentos-mockup.html'"></ng-include>
+
+                                    </gx-panel-body>
+                                </gx-panel>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</form>
+</div>
+
+</div>
+
+<div class="col w-lg bg-light lter b-l bg-auto">
+
+    <div class="wrapper dk">
+        <div class="row">
+
+            <div class="col-md-10 pull-left">
+                <h4>Configurações</h4>
+                <small>ajustes do perfil da empresa</small>
+            </div>
+            <!--
+                        <div class="btn-group dropdown col-md-2 pull-right">
+                            <a href="" class="dropdown btn btn-md btn-link text-info pull-right" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-vertical"></i></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href=""><i class="fa fa-angle-double-right m-r-sm"></i>Recolher configurações</a></li>
+                                    <li><a href=""><i class="fa fa-recycle m-r-sm"></i>Restaurar padrões do sistema</a></li>
+                                </ul>
+                        </div>
+-->
+
+        </div>
+    </div>
+
+    <!-- configurações -->
+
+    <div class="wrapper lter">
+
+        <h4 class="m-t-xs m-b-xs"><i class="ion-toggle-filled m-r text-muted" aria-hidden="true"></i>Preferências</h4>
+        <desc class="text-muted text-xs">Administre as preferências do perfil de visualização da empresa.</desc>
+
+        <ul class="list-group no-bg no-borders pull-in">
+
+<!--
+            <li class="list-group-item">
+                <h5>Replicar as atribuições recebidas dos seus representados para os seus contatos?</h5>
+                <div class="clear">
+                    <p>
+                        <label class="md-switch">
+                            <input type="checkbox" checked="">
+                            <i class="blue-grey"></i> Ativo
+                        </label>
+                    </p>
+
+                </div>
+            </li>
+-->
+            <li class="list-group-item">
+                <h5>Notificar todos os contatos associados sempre que houver mudança de status deste cadastro?</h5>
+                <div class="clear">
+                    <p>
+                        <label class="md-switch">
+                            <input type="checkbox" checked="">
+                            <i class="blue-grey"></i> Ativo
+                        </label>
+                    </p>
+
+                </div>
+            </li>
+
+
+        </ul>
+
+        <div class="panel b-a">
+            <h5 class="font-thin padder"><i class="fa fa-lock m-r-sm text-warning" aria-hidden="true"></i>Manutenção do cadastro</h5>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span class="font-bold">Informações de Inandimplência</span>
+                    <p>
+                        <label class="md-switch">
+                            <input name="inadimplente" ng-model="justificar" type="checkbox" checked>
+                            <i class="yellow-700"></i> Inadimplente
+                        </label>
+                    </p>
+                    <!--
+                    <div ng-show="justificar" class="m-b">
+                        <md-button class="md-raised btn-fw m-b-sm md-button md-default-theme" ng-click="showMotivos($event)">Motivo(s)</md-button>
+                        <span class="text-muted font-bold clearfix">
+                        {{alert}}
+                    </span>
+                    </div>
+-->
+                </li>
+                
+                <li class="list-group-item">
+                    <span class="font-bold">Monitoramento</span>
+                    <p>
+                        <label class="md-switch">
+                            <input name="inadimplente" ng-model="monitoramento" type="checkbox" checked>
+                            <i class="yellow-700"></i> Em monitoramento
+                        </label>
+                    </p>
+                </li>
+
+                <li class="list-group-item md-content">
+                    <span class="font-bold">Classificação do Agente</span>
+                    <p>
+                        <label class="md-switch">
+                            <input type="checkbox" ng-model="varejista" type="checkbox" checked>
+                            <i class="yellow-700"></i> Comercializador Varejista
+                        </label>
+                    </p>
+                    <p>
+                        <label class="md-switch">
+                            <input type="checkbox" ng-model="adesao" checked>
+                            <i class="yellow-700"></i> Desligado
+                        </label>
+                    </p>
+
+
+                </li>
+
+                <li class="list-group-item md-content">
+                    <span class="font-bold">Informações de Adesão</span>
+                    <md-input-container class="w-full">
+                        <input type="text" class="input-lg" placeholder="RCA Número" ng-model="valorRca1">
+                    </md-input-container>
+
+                    <md-datepicker class="w-full" ng-model="valorDataLig" md-placeholder="Data"></md-datepicker>
+
+                </li>
+                <li class="list-group-item md-content">
+                    <span class="font-bold">Informações de Desligamento</span>
+                    <md-input-container class="w-full">
+                        <input type="text" placeholder="RCA Número" ng-model="valorRca2">
+                    </md-input-container>
+
+
+                    <md-datepicker class="w-full" ng-model="valorDataDes" md-placeholder="Data"></md-datepicker>
+
+
+                </li>
+
+                <li class="list-group-item">
+                    <md-input-container class="w-full">
+                        <label>Observações</label>
+                        <textarea></textarea>
+                    </md-input-container>
+                </li>
+
+                <li class="list-group-item">
+
+
+                    <br>
+                    <!--
+                <p>Informações adicionais deste cadastro</p>
+                <a href class="btn btn-sm btn-rounded btn-danger btn-icon"><i class="fa fa-dollar"></i>
+                    <md-tooltip md-direction="bottom">Inadimplente</md-tooltip>
+                </a>
+                <a href class="btn btn-sm btn-rounded btn-dark btn-icon"><i class="fa fa-chain-broken"></i>
+                    <md-tooltip md-direction="bottom">Desligado</md-tooltip>
+                </a>
+                <a href class="btn btn-sm btn-rounded btn-success btn-icon"><i class="fa fa-link"></i>
+                    <md-tooltip md-direction="bottom">Aderido</md-tooltip>
+                </a>
+                <a href class="btn btn-sm btn-rounded btn-warning btn-icon"><i class="fa fa-warning"></i>
+                    <md-tooltip md-direction="bottom">Com pendências</md-tooltip>
+                </a>
+                <a href class="btn btn-sm btn-rounded btn-success btn-icon"><i class="fa fa-sitemap"></i>
+                    <md-tooltip md-direction="bottom">Varejista</md-tooltip>
+                </a>
+-->
+
+                    <a scroll-to="app" ng-click="showCustomToast()" class="btn btn-sm btn-rounded btn-success btn-icon"><i class="fa fa-check"></i>
+                    <md-tooltip md-direction="bottom">Salvar alterações</md-tooltip>
+                </a>
+
+                </li>
+
+            </ul>
+        </div>
+
+        <!-- versões -->
+        <div class="panel b-a">
+            <h4 class="font-thin padder"><i class="fa fa-history m-r-sm text-warning" aria-hidden="true"></i>Versões</h4>
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <p>Edição por <a href class="text-info">Murilo Ferro</a> endereço principal </p>
+                    <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                </li>
+                <li class="list-group-item">
+                    <p>Inclusão por <a href class="text-info">Murilo Ferro</a> de endereço adicional </p>
+                    <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                </li>
+                <li class="list-group-item">
+                    <p>Edição por <a href class="text-info">Murilo Ferro</a> endereço principal </p>
+                    <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                </li>
+                <li class="list-group-item">
+                    <p>Inclusão por <a href class="text-info">Murilo Ferro</a> de endereço adicional </p>
+                    <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                </li>
+                <li class="list-group-item">
+                    <p>Edição por <a href class="text-info">Murilo Ferro</a> endereço principal </p>
+                    <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                </li>
+                <li class="list-group-item">
+                    <p>Inclusão por <a href class="text-info">Murilo Ferro</a> de endereço adicional </p>
+                    <small class="block text-muted"><i class="fa fa-fw fa-clock-o"></i> 2 anos atrás</small>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+    <div style="visibility: hidden">
+        <div class="md-dialog-container" id="myStaticDialog">
+            <md-dialog>
+                This is a pre-rendered dialog.
+            </md-dialog>
+        </div>
+    </div>
+</div>

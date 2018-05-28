@@ -1,0 +1,101 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm animated fadeIn" ng-controller="ProfileMockupController as ctrl"  class="inset" ng-cloak paddi>
+
+    <div class="col">
+        <div class="blue-grey-100 card">
+            <div class="wrapper-lg bg-white-opacity">
+                <div class="row m-t">
+
+                    <div class="col-sm-8">
+                        <span class="h5 font-bold text-muted">Dados pessoais do contato</span>
+
+                        <span>
+                            <span class="thumb-lg avatar m-t-sm pull-left m-r">
+                                <img src="images/avatar.png" class="img-full md-whiteframe-z0" alt="..."> 
+                                <i class="blue-400 no-border bottom wrapper-sm"></i>
+                                  <md-tooltip md-direction="bottom">Usuário ativo</md-tooltip>
+                            </span>
+                        </span>
+                        <div class="clear md-form-group row">
+                            <div class="m-t-sm w-full">
+                                <span class="text-black">
+                                <form name="form" required="true">
+
+                                    <md-input-container class="md-block flex-gt-sm">
+                                        <label>Nome completo</label>
+                                        <input type="text" name="fullname" ng-model="Fullname" required ng-minlength="3">
+                                        <div ng-messages="form.fullname.$error">
+                                            <span ng-show="form.fullname.$invalid" ng-message="required">obrigatório</span>
+                            </div>
+
+                            </md-input-container>
+
+                            <md-input-container class="md-block flex-gt-sm">
+                                <label>CPF</label>
+                                <input type="text" name="doc" ng-model="Doc" required ng-minlength="3" ui-mask="999.999.999-99" ui-mask-placeholder ui-mask-placeholder-char="_">
+                                <div ng-messages="form.doc.$error">
+                                    <span ng-show="form.doc.$invalid" ng-message="required">obrigatório</span>
+                                </div>
+
+                            </md-input-container>
+
+                            <md-input-container class="md-block flex-gt-sm">
+                                <label>E-mail</label>
+                                <input type="email" name="email" ng-model="Email" required>
+                                <div ng-messages="form.email.$error">
+                                    <span ng-show="form.email.$invalid" ng-message="required">obrigatório</span>
+                                </div>
+                            </md-input-container>
+
+                            <md-input-container class="md-block flex-gt-sm">
+                                <label>Telefone</label>
+                                <input type="phone" name="phone" ng-model="Phone" ng-maxlength="12" md-maxlength="12" max-length="12" required ng-minlength="3" ui-mask="(99) 99999-99999" ui-mask-placeholder ui-mask-placeholder-char="-">
+                                <div ng-messages="form.phone.$error">
+                                    <span ng-show="form.phone.$invalid" ng-message="required">insira um número válido</span>
+                                </div>
+                            </md-input-container>
+
+
+                            </form>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <span class="h5 font-bold text-muted">Tipo do contato</span>
+
+                    <md-content class="md-padding autocomplete card m-t-xs" layout="column">
+                        <md-contact-chips ng-model="ctrl.contacts" md-contacts="ctrl.querySearch($query)" md-contact-name="name" md-contact-image="image" md-contact-email="email" md-require-match="true" md-highlight-flags="i" filter-selected="ctrl.filterSelected" placeholder="Incluir">
+                        </md-contact-chips>
+
+                        <md-list class="fixedRows">
+                            <md-subheader class="md-no-sticky text-center">Selecione os tipos de contato associados a esta conta</md-subheader>
+                            <md-list-item class="md-2-line contact-item" ng-repeat="(index, contact) in ctrl.allContacts" ng-if="ctrl.contacts.indexOf(contact) < 0">
+                                <img ng-src="{{contact.image}}" class="md-avatar" alt="{{contact.name}}" />
+                                <div class="md-list-item-text compact">
+                                    <h3>{{contact.name}}</h3>
+                                    <p>{{contact.email}}</p>
+                                </div>
+                            </md-list-item>
+                            <md-list-item class="md-2-line contact-item selected" ng-repeat="(index, contact) in ctrl.contacts">
+                                <img ng-src="{{contact.image}}" class="md-avatar" alt="{{contact.name}}" />
+                                <div class="md-list-item-text compact">
+                                    <h3>{{contact.name}}</h3>
+                                    <p>{{contact.email}}</p>
+                                </div>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+
+                </div>
+
+                <div class="col-sm-12">
+                    <span class="h5 font-bold text-muted">Próximos passos</span>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

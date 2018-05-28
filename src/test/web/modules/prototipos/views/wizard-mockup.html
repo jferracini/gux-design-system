@@ -1,0 +1,360 @@
+<div class="container-fluid wrapper-xs w-auto-xs w-50">
+
+    <a class="navbar-brand block">
+        <img src="images/logo.png" class="w-md center animated fadeIn" style="max-height:none;">
+    </a>
+
+</div>
+
+<div ng-controller="WizardMockupController">
+
+    <div class="col">
+
+        <div class="container-fluid wrapper-xs w-auto-xs w-90">
+
+            <gx-panel class="wrapper-lg">
+
+                <multi-step-container steps="adesao" class="simple-prev-next" on-finish="finish()" on-cancel="cancel()" initial-step="1">
+
+                    <div class="item-overlay" ng-class="{ 'animated fadeIn active': $getActiveIndex() >= 2 }" style="position:relative;">
+
+                        <div class="col-md-4 col-xs-12 no-padder m-b-n-lg">
+                            <div class="panel padder-v item card text-center">
+                                <div class="h4 text-success font-thin h1">{{ valorRs }}</div>
+                                <span class="text-muted text-xs">Razão Social</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 hidden-xs no-padder m-b-n-lg">
+                            <div class="panel padder-v item card text-center">
+                                <div class="h4 text-success font-thin h1">{{ cnpj }}</div>
+                                <span class="text-muted text-xs">CNPJ do candidato</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-2 hidden-xs no-padder m-b-n-lg">
+                            <div class="panel padder-v item card text-center">
+                                <div class="h4 text-success font-thin h1">{{ valorSa }}</div>
+                                <span class="text-muted text-xs">Sigla</span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3 hidden-xs no-padder m-b-n-lg">
+                            <div class="panel padder-v item card text-center">
+                                <div class="h4 text-success font-thin h1">{{ valorTipo }}</div>
+                                <span class="text-muted text-xs">Tipo de empresa</span>
+                            </div>
+                        </div>
+
+                    </div>
+                    <gx-panel-body class="no-padder">
+
+                        <button pb-style="shrink" pb-direction="horizontal" progress-button="someFunctionThatReturnsPromise()" ng-disabled="$isLast() || ($getActiveStep().hasForm && !$getActiveStep().valid)" ng-click="$nextStep()" class="progress-button btn-block green-500">
+                        <span ng-hide="$isLast()">Salvar e avançar</span>
+                        <span ng-if="$isLast()" class="animated fadeIn h4">Cadastro enviado!</span>
+                    </button>
+
+
+                    </gx-panel-body>
+
+                    <div class="progress-sm progress top no-padder v-top">
+                        <div ng-model="value" class="progress-bar green-100" ng-class="{ 'green-500 animated flipInX': $getActiveIndex() >= 6 }" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" aria-valuetext="1%" style="{{items[$getActiveIndex() - 1]}}"></div>
+                    </div>
+
+                    <!--<span>Acompanhe cada passo da Adesão.</span>-->
+
+                    <gx-panel-body>
+                        <div class="text-center">
+                            <div class="row m-b-md">
+
+                                <button ng-class="{ 'teal-500 animated flipInY': $getActiveIndex() >= 1 }" class="md-btn md-fab m-b m-r-md" ng-click="$setActiveIndex(1)"><i class="ion-outlet" aria-hidden="true"></i></button>
+                                <span class="m-r text-muted h6">Dados do Candidato</span>
+
+                                <button ng-class="{ 'teal-500 animated flipInY': $getActiveIndex() >= 2 }" class="md-btn md-fab m-b m-r-md" ng-click="$setActiveIndex(2)"><i class="ion-android-attach" aria-hidden="true"></i></button>
+                                <span class="m-r text-muted h6">Documentos</span>
+
+                                <button ng-class="{ 'teal-500 animated flipInY': $getActiveIndex() >= 3}" class="md-btn md-fab m-b m-r-md" ng-click="$setActiveIndex(3)"><i class="fa fa fa-user-plus" aria-hidden="true"></i></button>
+                                <span class="m-r text-muted h6">Perfil do Agente</span>
+
+                                <button ng-class="{ 'teal-500 animated flipInY': $getActiveIndex() >= 4 }" class="md-btn md-fab m-b m-r-md" ng-click="$setActiveIndex(4)"><i class="fa fa fa-dollar" aria-hidden="true"></i></button>
+                                <span class="m-r text-muted h6">Dados Financeiros</span>
+
+                                <button ng-class="{ 'teal-500 animated flipInY': $getActiveIndex() >= 5 }" class="md-btn  md-fab m-b m-r-md" ng-click="$setActiveIndex(5)"><i class="fa fa fa-sitemap" aria-hidden="true"></i></button>
+                                <span class="m-r text-muted h6">Tipos de Contato</span>
+
+                                <button ng-class="{ 'teal-500 animated flip': $getActiveIndex() >= 6 }" class="md-btn md-fab m-b m-r-md">
+                            <i class="fa fa fa-send" aria-hidden="true"></i>
+                            </button>
+                                <span class="m-r text-muted h6">Envio</span>
+
+                            </div>
+                        </div>
+
+
+                        <main step-container>
+
+
+
+                            <!--
+                <div class="col-md-12 m-t-lg text-left bg-white m-b">
+                            <span 
+                                  class="text-muted font-thin" 
+                                  ng-bind-template="{{$getActiveIndex()}}. {{$getActiveStep().title}}"></span>  
+                </div>
+-->
+
+
+                            <div class="row">
+                                <div ng-show="termoAdesao" class="btn-group dropdown pull-left">
+                                    <a href="" class="dropdown btn btn-lg btn-info btn-addon text-info" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-file-text-o"></i> Termo de Adesão</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href=""><i class="fa fa-check m-r-sm text-success"></i>Assinar digitalmente</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href=""><i class="fa fa-eye m-r-sm"></i>Ler o Termo</a></li>
+                                        <li><a href=""><i class="fa fa-download m-r-sm"></i>Baixar versão PDF</a></li>
+                                    </ul>
+                                    <a ui-sref="home.prototipos.login" class="btn btn-xs btn-link" aria-expanded="false"><i class="glyphicon glyphicon-trash m-r-xs m-t-sm m-l"></i>cancelar este cadastro</a>
+                                </div>
+                            </div>
+
+
+                    </gx-panel-body>
+                    <div class="w-full wrapper-xs">
+                        <a ng-disabled="$isFirst()" ng-hide="$isLast()" class="md-button btn-md md-raised" ng-click="$previousStep()"><i class="fa fa-arrow-left m-r"></i>voltar</a>
+
+                        <button ng-hide="$isLast()" pb-style="shrink" pb-direction="horizontal" progress-button="someFunctionThatReturnsPromise()" ng-disabled="$isLast() || ($getActiveStep().hasForm && !$getActiveStep().valid)" ng-click="$nextStep()" class="progress-button pull-right green-500">
+                    <span ng-hide="$isLast()">Salvar e avançar</span>
+                    <span ng-if="$isLast()" class="animated fadeIn h4">Cadastro enviado com sucesso</span>
+                </div>    
+                
+        </button>
+
+                        </main>
+                        <span class="text-muted text-xs pull-right m-r-sm m-t-sm">Você está no passo <span class="text-muted font-thin" ng-bind-template="{{$getActiveIndex()}}"></span> (de 6)</span>
+
+                </multi-step-container>
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                <div class="row">
+
+                    <div class="col-md-3">
+
+                        <div class="wrapper">
+
+                            <a class="btn btn-md btn-default btn-block" ng-click="showStatusTime = !showStatusTime" ng-class="{ active: showStatusTime }">
+                                <i class="ion-android-calendar m-r-xs"></i>
+                                <span>Estimativas e ocorrências</span>
+                            </a>
+
+                            <div class="card m-t bg-light" ng-show="showStatusTime">
+
+                                <ul class="list-group alt">
+
+                                    <li class="list-group-item">
+                                        <span class="h4 text-muted">Ocorrências</span>
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <!-- streamline -->
+                                        <div class="streamline b-l m-b">
+                                            <div class="sl-item">
+                                                <div class="m-l">
+                                                    <div class="text-muted">5 minutes ago</div>
+                                                    <p><a href="" class="text-info">Jessi</a> commented your post.</p>
+                                                </div>
+                                            </div>
+                                            <div class="sl-item">
+                                                <div class="m-l">
+                                                    <div class="text-muted">11:30</div>
+                                                    <p>Join comference</p>
+                                                </div>
+                                            </div>
+                                            <div class="sl-item b-success b-l">
+                                                <div class="m-l">
+                                                    <div class="text-muted">10:30</div>
+                                                    <p>Call to customer <a href="" class="text-info">Jacob</a> and discuss the detail.</p>
+                                                </div>
+                                            </div>
+                                            <div class="bg-success wrapper-sm m-l-n m-r-n m-b r r-2x">
+                                                Enviado para análise da CCEE
+                                            </div>
+                                            <div class="sl-item b-primary b-l">
+                                                <div class="m-l">
+                                                    <div class="text-muted">Wed, 25 Mar</div>
+                                                    <p>Finished task <a href="" class="text-info">Testing</a>.</p>
+                                                </div>
+                                            </div>
+                                            <div class="sl-item b-warning b-l">
+                                                <div class="m-l">
+                                                    <div class="text-muted">Thu, 10 Mar</div>
+                                                    <p>Trip to the moon</p>
+                                                </div>
+                                            </div>
+                                            <div class="sl-item b-info b-l">
+                                                <div class="m-l">
+                                                    <div class="text-muted">Sat, 5 Mar</div>
+                                                    <p>Prepare for presentation</p>
+                                                </div>
+                                            </div>
+                                            <div class="sl-item b-l">
+                                                <div class="m-l">
+                                                    <div class="text-muted">Sun, 11 Feb</div>
+                                                    <p><a href="" class="text-info">Jessi</a> assign you a task <a href="" class="text-info">Mockup Design</a>.</p>
+                                                </div>
+                                            </div>
+                                            <div class="sl-item b-l">
+                                                <div class="m-l">
+                                                    <div class="text-muted">Thu, 17 Jan</div>
+                                                    <p>Follow up to close deal</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- / streamline -->
+                                    </li>
+
+                                </ul>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="wrapper">
+
+                            <a class="btn btn-md btn-default btn-block" ng-click="showStatusPra = !showStatusPra" ng-class="{ active: showStatusPra }">
+                                <i class="ion-clock m-r-xs"></i>
+                                <span>Seus prazos</span>
+                            </a>
+
+                            <div class="card m-t bg-light" ng-show="showStatusPra">
+
+                                <div class="h4 animated fadeIn">
+
+                                    <ul class="list-group alt">
+
+                                        <li class="list-group-item">
+                                            <span class="h4 text-muted">Informações verificadas:</span>
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <span class="h5 text-muted">Envio dos documentos</span>
+                                            <div class="progress-striped active m-t-sm progress text-left" value="60" type="info">
+                                                <div class="progress-bar blue-grey-200" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="100%" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <span class="text-success text-xs"> Aprovado</span>
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <span class="h5 text-muted">Indicação de tipos de Contato</span>
+                                            <div class="progress-striped active m-t-sm progress text-left" value="60" type="info">
+                                                <div class="progress-bar blue-grey-200" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="100%" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <span class="text-muted text-xs"> 20 dias</span>
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <span class="h5 text-muted">Dados financeiros</span>
+                                            <div class="progress-striped active m-t-sm progress text-left" value="60" type="info">
+                                                <div class="progress-bar blue-grey-200" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="100%" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <span class="text-danger text-xs"> Reprovado</span>
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <span class="h5 text-muted">Assinatura do Termo de Adesão</span>
+                                            <div class="progress-striped active m-t-sm progress text-left" value="60" type="info">
+                                                <div class="progress-bar blue-grey-200" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="100%" style="width: 100%;">
+                                                </div>
+                                            </div>
+                                            <span class="text-muted text-xs"> 20 dias</span>
+                                        </li>
+
+                                        <li class="list-group-item blue-grey-500">
+                                            <span class="h5 text-warning"><i class="ion-alert-circled"></i> Estimativas baseadas no preenchimento das informações.</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3">
+
+                        <div class="wrapper">
+
+                            <a class="btn btn-md btn-default btn-block" ng-click="showStatusCad = !showStatusCad" ng-class="{ active: showStatusCad }">
+                                <i class="ion-help-circled m-r-xs"></i>
+                                <span>Perguntas frequentes</span>
+                            </a>
+
+                            <div class="card bg-light m-t" ng-show="showStatusCad">
+
+                                <div class="h4 animated fadeIn">
+
+                                    <ul class="list-group alt">
+
+                                        <li class="list-group-item">
+                                            <span class="h4 text-muted">Situação atual do cadastro</span>
+                                            <span class="text-xs text-muted clearfix">Em preenchimento de Adesão.</span>
+
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <span class="h4 text-muted">O que acontece a partir de agora?</span>
+                                            <span class="text-xs text-muted clearfix"> Como você optou por uma nova adesão de um candidato a Agente agora é necessário que sejam enviados os dados necessários para habilitação.</span>
+                                        </li>
+
+
+                                        <li class="list-group-item">
+                                            <span class="h4 text-muted">Quando ocorre a habilitação?</span>
+                                            <span class="text-xs text-muted clearfix"> A partir do envio de todos os documentos comprobatórios.</span>
+                                        </li>
+
+                                        <li class="list-group-item">
+                                            <span class="h4 text-muted">Como consulto o status desta adesão?</span>
+                                            <span class="text-xs text-muted clearfix"> A partir do envio de todos os documentos comprobatórios.</span>
+                                        </li>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col-md-3" ng-controller="ProfileMockupController">
+                        <div class="wrapper">
+                            <a ng-click="adesaoMenu($event)" class="btn btn-md btn-default btn-block" ng-class="{ active: showFinish }">
+                                <i class="ion-gear-a m-r-xs"></i>
+                                <span>Gerenciar este processo</span>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </gx-panel>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="row m-b-lg m-l text-center w-full">
+        <span class="text-xs text-muted">
+    <!--<a href back-button class="m-l md-raised btn-fw m-b-sm md-fab md-button md-default-theme md-mini">
+        <i class="fa fa-arrow-left"></i></a> voltar-->
+    </span>
+        <a back-button class="btn btn-xs btn-link btn-addon text-info">Deseja cancelar esta adesão?</a>
+    </div>

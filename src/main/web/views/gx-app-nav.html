@@ -1,0 +1,53 @@
+<nav ui-nav class="navi clearfix">
+    <ul class="nav">
+        <li class="padder m-t m-b-sm text-muted text-xs">
+            <span>Menu</span>
+        </li>
+
+        <li ng-if="::$ctrl.isToDisplayMenu(state)" ng-init="$ctrl.initState(state)" ng-repeat="state in $ctrl.rootState.children" ng-model="navPrincipal" ng-class="{'active': state.data.expanded}">
+            <!-- ng-click="$ctrl.onMenuClick(state)" -->
+            <a md-ink-ripple ng-if="::(!state.data.menu.link && state.abstract)" class="auto">
+                <span class="pull-right text-muted">
+					<i class="ion-ios-arrow-right rotate fa fa-rotate-normal" ></i>
+                    <md-tooltip md-direction="right">abrir</md-tooltip>
+				</span>
+                <i ng-if="::!!$ctrl.getMenuIconClass(state)" class="{{::$ctrl.getMenuIconClass(state)}}"></i>
+                <span>{{::$ctrl.getMenuTitle(state)}}</span>
+            </a>
+
+            <ul ng-if="::!state.data.menu.link && !!state.children && state.children.length > 0" class="nav nav-sub bg-white">
+                <li ng-if="::$ctrl.isToDisplayMenu(state)" ng-repeat="state in state.children" class="b-b b-light">
+                    <a md-ink-ripple ng-click="$event.stopPropagation()" ui-sref="{{state.data.menu.link ? state.data.menu.link : state.name}}" data-target="#aside" ui-toggle-class="off-screen" class="sub-a">
+                        <i ng-if="::!!$ctrl.getMenuIconClass(state)" class="{{::$ctrl.getMenuIconClass(state)}}"></i>
+                        <span>{{::$ctrl.getMenuTitle(state)}}</span>
+                    </a>
+                </li>
+            </ul>
+
+            <a md-ink-ripple ng-if="::(!!state.data.menu.link || !state.abstract)" ui-sref="{{state.data.menu.link ? state.data.menu.link : state.name}}" class="auto">
+                <span class="pull-right text-muted">
+					<!--<i class="ion-android-open" ></i>-->
+				</span>
+                <i ng-if="::!!$ctrl.getMenuIconClass(state)" class="{{::$ctrl.getMenuIconClass(state)}}"></i>
+                <span>{{::$ctrl.getMenuTitle(state)}}</span>
+            </a>
+
+        </li>
+    </ul>
+
+    <div class="hidden-xs">
+        <div class="aside-settings mt-lg w-full">
+            <a href class="pull-left md-raised btn-fw m-b-sm md-fab md-button md-default-theme md-mini" ng-click="$ctrl.config.asideFolded = !$ctrl.config.asideFolded">
+                <i class="fa {{$ctrl.config.asideFolded ? 'fa-angle-double-right' : 'fa-angle-double-left'}} fa-fw text-dark"></i>
+                <md-tooltip md-direction="right" class="w-auto-folded">Expandir / Recolher menu</md-tooltip>
+            </a>
+            <!-- scroll rola para o id que esta no body -->
+
+            <a href scroll-to="app" class="pull-right md-raised btn-fw m-b-sm md-fab md-button md-default-theme md-mini">
+                <i class="ion-ios-arrow-thin-up fa-fw text-dark"></i>
+                <md-tooltip md-direction="left" class="w-auto-folded">Ir ao topo</md-tooltip>
+            </a>
+        </div>
+    </div>
+
+</nav>

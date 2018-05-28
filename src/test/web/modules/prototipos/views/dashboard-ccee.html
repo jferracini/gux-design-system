@@ -1,0 +1,538 @@
+<div class="bg-light b-b wrapper-lg">
+    <div class="row">
+        <div class="col-sm-6 col-xs-12">
+            <span class="m-n font-thin h1 text-muted">Dashboard</span>
+            <br><small class="text-muted">Última atualização em 22 de agosto de 2016 às 16h32</small>
+        </div>
+        <div class="col-sm-6 text-right hidden-xs">
+            <div class="inline m-r text-left">
+                <div class="m-b-xs">30.000 <span class="text-muted">cadastros</span></div>
+                <div></div>
+            </div>
+            <div class="inline text-left">
+                <div class="m-b-xs">4.100 <span class="text-muted">empresas</span></div>
+                <div></div>
+            </div>
+        </div>
+
+
+        <div class="btn-group dropdown pull-right">
+            <button class="btn btn-info btn-lg btn-addon md-whiteframe-z0" data-toggle="dropdown" aria-expanded="false">Iniciar um novo cadastro &nbsp;<span class="caret"></span><i class="fa fa-plus" aria-hidden="true"></i>
+                </button>
+            <ul class="dropdown-menu w-full animated fadeInRight smooth">
+                <li>
+                    <a href="" ui-sref="home.prototipos.wizard">
+                        <i class="fa fa-industry m-r" aria-hidden="true"></i> Novo Agente
+                    </a>
+                </li>
+                <li>
+                    <a href="" ui-sref="home.prototipos.wizard">
+                        <i class="fa fa-sitemap m-r" aria-hidden="true"></i> Comercializador Varejista
+                    </a>
+                </li>
+                <li>
+                    <a href="" ui-sref="home.prototipos.wizard">
+                        <i class="fa fa-users m-r" aria-hidden="true"></i> Organizações do setor
+                    </a>
+                </li>
+                <li>
+                    <a href="" ui-sref="home.prototipos.wizard">
+                        <i class="fa fa-user m-r" aria-hidden="true"></i> Novo Contato
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div class="hbox hbox-auto-xs hbox-auto-sm  animated fadeInUp">
+
+    <div class="col">
+
+        <div class="wrapper-md bg-light">
+
+            <!-- hbox -->
+            <div class="panel hbox hbox-auto-xs">
+
+
+                <div class="btn-group w-full wrapper">
+                    <p class="text-muted m-r">Filtro</p>
+                    <a class="btn btn-default btn-md active" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <i class="fa fa-industry" aria-hidden="true"></i>
+                        <span class="m-l-xs">Agentes</span>
+                        <span class="badge badge-lg v-middle bg-info lt pull-right-xs m-l-xs">4.1k</span>
+                    </a>
+                    <a class="btn btn-default btn-md active" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <i class="fa fa-sitemap" aria-hidden="true"></i>
+                        <span class="m-l-xs">Comercializador Varejista</span>
+                        <span class="badge badge-lg v-middle bg-info lt pull-right-xs m-l-xs">50</span>
+                    </a>
+                    <a class="btn btn-default btn-md active" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <i class="fa fa-users" aria-hidden="true"></i>
+                        <span class="m-l-xs">Organizações do setor</span>
+                        <span class="badge badge-lg v-middle bg-info lt pull-right-xs m-l-xs">122</span>
+                    </a>
+                    <a class="btn btn-default btn-md active" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="m-l-xs">Contato</span>
+                        <span class="badge badge-lg v-middle bg-info lt pull-right-xs m-l-xs">120</span>
+                    </a>
+
+                    <a data-toggle="dropdown" class="pull-right m-t-n-xs md-fab md-primary md-button md-ink-ripple md-mini" data-toggle="button">
+                        <i class="ion-levels" aria-hidden="true"></i>
+                        <!--                            <span class="m-l-xs"></span>-->
+                        <md-tooltip md-direction="left">Filtro avançado</md-tooltip>
+
+                    </a>
+                    <ul class="dropdown-menu no-border w-full animated fadeIn md-whiteframe-z2 wrapper row bg-light">
+
+                        <li class="col-md-12">
+                            <h4>Filtro avançado do painel de cadastros</h4>
+                        </li>
+
+                        <li class="col-md-4 col-xs-12 b-b">
+                            <label>Período</label>
+                        </li>
+                        <li class="col-md-4 col-xs-12 b-b">
+                            <label>Tipo de ordenação</label>
+                        </li>
+                        <li class="col-md-4 col-xs-12 b-b">
+                            <label>Quantidade de itens exibidos</label>
+                        </li>
+
+
+                    </ul>
+
+
+                </div>
+
+                <div class="w-full no-padder" ng-controller="AutocompleteCtrl as ctrl" ng-cloak>
+                    <md-content layout-padding layout="column">
+                        <form ng-submit="$event.preventDefault()">
+                            <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)"
+                                md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name + item.forks" md-min-length="0" placeholder="buscar pelo nome do proponente..." md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                    <span class="item-title">
+                            <!--
+                                                            <span class="thumb-xs avatar pull-left m-t-n-sm m-b-n-sm m-l-sm">
+                                                            <img src="images/profile.jpg" alt="...">
+                                                            </span> -->
+                                    <span class="h5 font-bold text-info"> {{item.name}} </span>
+                                    </span>
+                                    <span class="item-metadata">
+                                            <span class="item-metastat">no cadastro de 
+                                                <strong>{{item.watchers}}</strong> 
+                                            </span>
+                                    <span class="item-metastat">id de cadastro nº <strong>{{item.forks}}</strong></span>
+                                    <span class="item-metastat">recebido em <strong>{{item.receb}}</strong></span>
+                                    </span>
+                                </md-item-template>
+                            </md-autocomplete>
+                        </form>
+                    </md-content>
+                </div>
+
+                <!-- panel -->
+
+                <div class="panel-heading wrapper b-b b-light">
+                    <span class="text-xs text-muted pull-right">
+                            <i class="fa fa-circle text-default m-r-xs m-l-sm"></i> Em espera
+                            <i class="fa fa-circle text-info m-r-xs m-l-sm"></i> Em progresso
+                            <i class="fa fa-circle text-warning m-r-xs m-l-sm"></i> Com pendências
+                            <i class="fa fa-circle text-success m-r-xs m-l-sm"></i> Aprovado
+                            <i class="fa fa-circle text-danger m-r-xs m-l-sm"></i> Reprovado
+                            
+                    </span>
+                    <h3 class="font-thin m-t-none m-b-none text-muted"><i class="fa fa-tachometer m-r" aria-hidden="true"></i>Painel de Cadastros</h3>
+                </div>
+
+                <div class="panel-body no-padder">
+
+                    <table class="table table-responsive table-hover m-b-none">
+                        <thead>
+                            <tr>
+                                <th class="text-center"></th>
+                                <th class="text-center">Tipo</th>
+                                <th>Proponente</th>
+                                <th>Empresa</th>
+                                <th class="text-muted text-center">Envio</th>
+                                <th class="text-muted text-center">Prazo</th>
+                                <th class="text-center" style="width:300px;">Habilitação comercial</th>
+                                <th class="text-center" style="width:300px;">Habilitação técnica</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="btn-group dropdown pull-left">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i>
+                                                
+                                                <md-tooltip md-direction="top">Ações</md-tooltip>
+                                            
+                                            </a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a href=""><i class="fa fa-folder-open m-r-sm"></i>Abrir cadastro</a></li>
+                                            <li class="divider"></li>
+                                            <li><span class="text-muted m-l-md">Ações rápidas</span></li>
+                                            <li><a href=""><i class="fa fa-eye m-r-sm"></i>Espiar
+                                                    <md-tooltip md-direction="right">Visualização rápida do cadastro.
+                                                    </md-tooltip>
+                                                    </a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-star m-r-sm"></i>Acompanhar o andamento</a></li>
+                                            <li><a href=""><i class="fa fa-warning m-r-sm"></i>Verificar pendências</a></li>
+                                            <li><a href=""><i class="fa fa-clock-o m-r-sm"></i>Verificar Prazos</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href=""><i class="fa fa-thumbs-up m-r-sm"></i>Aprovar Cadastro</a></li>
+                                            <li><a href=""><i class="fa fa-thumbs-down m-r-sm"></i>Reprovar Cadastro</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fa fa-industry m-r-sm text-muted"><md-tooltip md-direction="bottom">Agente</md-tooltip></i>
+                                </td>
+                                <td>Rogerio Vilela</td>
+                                <td>Comercializadora Lorem Ipsum S.A.</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-center">
+
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-user"></i>
+                                                    <md-tooltip md-direction="bottom">Informações Cadastrais</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-file-pdf-o"></i>
+                                                    <md-tooltip md-direction="bottom">Envio de Documentos </md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-info btn-icon m-r-xs"><i class="fa fa-pencil"></i>
+                                                    <md-tooltip md-direction="bottom">Assinatura do Termo de Adesão</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-warning btn-icon m-r-xs"><i class="fa fa-users"></i>
+                                                    <md-tooltip md-direction="bottom">Indicação das representações</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active"><i class="fa fa-check"></i>
+                                                    <md-tooltip md-direction="bottom">Aprovação do Cad</md-tooltip>
+                                                </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-dot-circle-o"></i>
+                                                    <md-tooltip md-direction="bottom">Cadastro de Pontos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon m-r-xs active"><i class="fa fa-plug"></i>
+                                                    <md-tooltip md-direction="bottom">Modelagem de Ativos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active"><i class="fa fa-key"></i>
+                                                    <md-tooltip md-direction="bottom">Habilitação do cryptocard</md-tooltip>
+                                                </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="btn-group dropdown pull-left">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i>
+                                                
+                                                <md-tooltip md-direction="top">Ações</md-tooltip>
+                                            
+                                            </a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a href=""><i class="fa fa-folder-open m-r-sm"></i>Abrir cadastro</a></li>
+                                            <li class="divider"></li>
+                                            <li><span class="text-muted m-l-md">Ações rápidas</span></li>
+                                            <li><a href=""><i class="fa fa-eye m-r-sm"></i>Espiar
+                                                    <md-tooltip md-direction="right">Visualização rápida do cadastro.
+                                                    </md-tooltip>
+                                                    </a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-star m-r-sm"></i>Acompanhar o andamento</a></li>
+                                            <li><a href=""><i class="fa fa-warning m-r-sm"></i>Verificar pendências</a></li>
+                                            <li><a href=""><i class="fa fa-clock-o m-r-sm"></i>Verificar Prazos</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href=""><i class="fa fa-thumbs-up m-r-sm"></i>Aprovar Cadastro</a></li>
+                                            <li><a href=""><i class="fa fa-thumbs-down m-r-sm"></i>Reprovar Cadastro</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fa fa-user m-r-sm text-muted"><md-tooltip md-direction="bottom">Contatos</md-tooltip></i>
+                                </td>
+                                <td>Maria da Penha Barros de Souza</td>
+                                <td>Comercializadora Lorem Ipsum S.A.</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-center">
+
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-user"></i>
+                                                    <md-tooltip md-direction="bottom">Informações Cadastrais</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-warning btn-icon m-r-xs"><i class="fa fa-file-pdf-o"></i>
+                                                    <md-tooltip md-direction="bottom">Envio de Documentos </md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active m-r-xs"><i class="fa fa-pencil"></i>
+                                                    <md-tooltip md-direction="bottom">Assinatura do Termo de Adesão</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active m-r-xs"><i class="fa fa-users"></i>
+                                                    <md-tooltip md-direction="bottom">Indicação das representações</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active"><i class="fa fa-check"></i>
+                                                    <md-tooltip md-direction="bottom">Aprovação do Cad</md-tooltip>
+                                                </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon m-r-xs active"><i class="fa fa-dot-circle-o"></i>
+                                                    <md-tooltip md-direction="bottom">Cadastro de Pontos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon m-r-xs active"><i class="fa fa-plug"></i>
+                                                    <md-tooltip md-direction="bottom">Modelagem de Ativos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active"><i class="fa fa-key"></i>
+                                                    <md-tooltip md-direction="bottom">Habilitação do cryptocard</md-tooltip>
+                                                </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="btn-group dropdown pull-left">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i>
+                                                
+                                                <md-tooltip md-direction="top">Ações</md-tooltip>
+                                            
+                                            </a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a href=""><i class="fa fa-folder-open m-r-sm"></i>Abrir cadastro</a></li>
+                                            <li class="divider"></li>
+                                            <li><span class="text-muted m-l-md">Ações rápidas</span></li>
+                                            <li><a href=""><i class="fa fa-eye m-r-sm"></i>Espiar
+                                                    <md-tooltip md-direction="right">Visualização rápida do cadastro.
+                                                    </md-tooltip>
+                                                    </a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-star m-r-sm"></i>Acompanhar o andamento</a></li>
+                                            <li><a href=""><i class="fa fa-warning m-r-sm"></i>Verificar pendências</a></li>
+                                            <li><a href=""><i class="fa fa-clock-o m-r-sm"></i>Verificar Prazos</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href=""><i class="fa fa-thumbs-up m-r-sm"></i>Aprovar Cadastro</a></li>
+                                            <li><a href=""><i class="fa fa-thumbs-down m-r-sm"></i>Reprovar Cadastro</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fa fa-sitemap m-r-sm text-muted"><md-tooltip md-direction="bottom">Comercializador Varejista</md-tooltip></i>
+                                </td>
+                                <td>Marcelo Viera Vilela</td>
+                                <td>Consultoria em Negócios Cacilds e Associadis</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-center">
+
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-user"></i>
+                                                    <md-tooltip md-direction="bottom">Informações Cadastrais</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-file-pdf-o"></i>
+                                                    <md-tooltip md-direction="bottom">Envio de Documentos </md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-pencil"></i>
+                                                    <md-tooltip md-direction="bottom">Assinatura do Termo de Adesão</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-users"></i>
+                                                    <md-tooltip md-direction="bottom">Indicação das representações</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon"><i class="fa fa-check"></i>
+                                                    <md-tooltip md-direction="bottom">Aprovação do Cad</md-tooltip>
+                                                </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon m-r-xs active"><i class="fa fa-dot-circle-o"></i>
+                                                    <md-tooltip md-direction="bottom">Cadastro de Pontos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon m-r-xs active"><i class="fa fa-plug"></i>
+                                                    <md-tooltip md-direction="bottom">Modelagem de Ativos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active"><i class="fa fa-key"></i>
+                                                    <md-tooltip md-direction="bottom">Habilitação do cryptocard</md-tooltip>
+                                                </a>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    <div class="btn-group dropdown pull-left">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i>
+                                                
+                                                <md-tooltip md-direction="top">Ações</md-tooltip>
+                                            
+                                            </a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a href=""><i class="fa fa-folder-open m-r-sm"></i>Abrir cadastro</a></li>
+                                            <li class="divider"></li>
+                                            <li><span class="text-muted m-l-md">Ações rápidas</span></li>
+                                            <li><a href=""><i class="fa fa-eye m-r-sm"></i>Espiar
+                                                    <md-tooltip md-direction="right">Visualização rápida do cadastro.
+                                                    </md-tooltip>
+                                                    </a>
+                                            </li>
+                                            <li><a href=""><i class="fa fa-star m-r-sm"></i>Acompanhar o andamento</a></li>
+                                            <li><a href=""><i class="fa fa-warning m-r-sm"></i>Verificar pendências</a></li>
+                                            <li><a href=""><i class="fa fa-clock-o m-r-sm"></i>Verificar Prazos</a></li>
+                                            <li class="divider"></li>
+                                            <li><a href=""><i class="fa fa-thumbs-up m-r-sm"></i>Aprovar Cadastro</a></li>
+                                            <li><a href=""><i class="fa fa-thumbs-down m-r-sm"></i>Reprovar Cadastro</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center">
+                                    <i class="fa fa-users m-r-sm text-muted"><md-tooltip md-direction="bottom">Organização do Setor</md-tooltip></i>
+                                </td>
+                                <td>Hermes da Silva</td>
+                                <td>Secretaria da Fazenda - Governo do Estado do Piauí</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/12/2016
+                                </td>
+                                <td class="text-center">
+
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-user"></i>
+                                                    <md-tooltip md-direction="bottom">Informações Cadastrais</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-file-pdf-o"></i>
+                                                    <md-tooltip md-direction="bottom">Envio de Documentos </md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-pencil"></i>
+                                                    <md-tooltip md-direction="bottom">Assinatura do Termo de Adesão</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon m-r-xs"><i class="fa fa-users"></i>
+                                                    <md-tooltip md-direction="bottom">Indicação das representações</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-success btn-icon"><i class="fa fa-check"></i>
+                                                    <md-tooltip md-direction="bottom">Aprovação do Cad</md-tooltip>
+                                                </a>
+                                </td>
+                                <td class="text-center">
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon m-r-xs active"><i class="fa fa-dot-circle-o"></i>
+                                                    <md-tooltip md-direction="bottom">Cadastro de Pontos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon m-r-xs active"><i class="fa fa-plug"></i>
+                                                    <md-tooltip md-direction="bottom">Modelagem de Ativos</md-tooltip>
+                                                </a>
+                                    <a href class="btn btn-sm btn-rounded btn-default btn-icon active"><i class="fa fa-key"></i>
+                                                    <md-tooltip md-direction="bottom">Habilitação do cryptocard</md-tooltip>
+                                                </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+
+            <!-- hbox end -->
+
+
+            <!-- hbox -->
+            <div class="panel hbox hbox-auto-xs">
+
+                <!-- panel -->
+
+                <div class="panel-body bg-light lter">
+                    <h3 class="font-thin m-t-none m-b text-muted"><i class="fa fa-clock-o m-r" aria-hidden="true"></i> Prazos</h3>
+
+                    <div class="wrapper">Gráficos com pré-filtro para ações rápidas.</div>
+                    <div class="">
+                        <ul>
+                            <li>Existem os seguintes indicadores que precisam ser discutidos:</li>
+                            <li>- Prazo de processo de adesão (6 meses)</li>
+                            <li>- Aprovação de documento, cadastro, perfil, etc (5du)</li>
+                            <li>- Prazo para aprovação dA CCEE (Adesão) - (M -12)</li>
+                            <li>- Prazo do Conselho (Adesão) - (M -8)</li>
+                            <li>Os prazos aplicados acima podem não ser aplicados para os Não Agentes, com exceção do 5du (Aprovação dos dados pela CCEE)</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer">
+
+                    <p class="pull-left">
+                        <label class="md-switch">
+                                <input type="checkbox">
+                                <i class="blue-grey"></i> Recebimento de notificações sobre prazos expirados
+                            </label>
+                    </p>
+                </div>
+
+                <div class="col wrapper-md w-lg bg-light dk r-r">
+
+                    <h4 class="font-thin m-t-none m-b text-muted"><i class="fa fa-fire-extinguisher text-danger m-r-sm" aria-hidden="true"></i> Atrasos</h4>
+
+
+
+
+                    <div class="wrapper">
+
+                        Sinalização para ações de filtro rápido
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <!-- hbox end -->
+
+            <!-- linha -->
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <span class="label label-default pull-right m-t-sm wrapper-xs">4 recebidas hoje</span>
+                            <h4 class="font-thin m-t-sm m-b text-muted"><i class="ion-alert-circled m-r" aria-hidden="true"></i> Pendências de cadastro</h4>
+                        </div>
+                        <div class="wrapper">Tarefas do solicitante para conclusão do cadastro.</div>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <span class="label label-default pull-right m-t-sm wrapper-xs">4 atualizadas</span>
+                            <h4 class="font-thin m-t-sm m-b text-muted"><i class="fa fa-star m-r" aria-hidden="true"></i> Acompanhamentos de cadastros</h4>
+                        </div>
+                        <div class="wrapper">Favoritos.</div>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- linha end -->
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</div>

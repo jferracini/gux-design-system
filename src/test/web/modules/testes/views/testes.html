@@ -1,0 +1,72 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <div class="col w-md bg-light dk b-r bg-auto">
+        <div class="wrapper b-b bg">
+            <button class="btn btn-sm btn-default pull-right visible-sm visible-xs" ui-toggle-class="show" target="#email-menu"><i class="fa fa-bars"></i></button>
+            <a ui-sref="app.mail.compose" class="btn btn-block btn-addon btn-default font-bold"><i class="ion-code-working"></i>Aplicar teste</a>
+        </div>
+        <div class="wrapper hidden-sm hidden-xs" id="email-menu">
+            <ul class="nav nav-pills nav-stacked nav-sm">
+                <li ng-repeat="fold in folds" ui-sref-active="active">
+                    <a ui-sref="app.mail.list({fold:fold.filter})">
+            {{fold.name}}
+          </a>
+                </li>
+            </ul>
+            <div class="list-group bg-white">
+                <span class="list-group-item h5 text-muted">Lista de componentes</span>
+                <a href="" class="list-group-item">
+                    ccee-app
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-feedback-service
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-fieldset
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-form-wizard
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-input-form
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-input-form (autocomplete)
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-input-form (date-range)
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-input-form (dropdown)
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-input-form (switch)
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-input-form (text)
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-panel
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-spreadsheet
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-table
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-upload
+                </a>
+                <a href="" class="list-group-item">
+                    ccee-validator
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <div class="col">
+        <div ui-view></div>
+        <div class="wrapper">Visite nosso repositório...
+
+        </div>
+    </div>
+</div>

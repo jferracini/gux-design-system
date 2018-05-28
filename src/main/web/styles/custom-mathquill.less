@@ -1,0 +1,27 @@
+.mq-editable-field {
+    width: 100%;
+    height: 100%;
+    &, .mq-math-mode & {
+        &.mq-focused {
+            box-shadow: none;
+        }
+    }
+}
+
+.font-srcs {
+  src: url(/fonts/Symbola.eot);
+  src:
+    local("Symbola Regular"),
+    local("Symbola"),
+    url(/fonts/Symbola.woff2) format("woff2"),
+    url(/fonts/Symbola.woff) format("woff"),
+    url(/fonts/Symbola.ttf) format("truetype"),
+    url(/fonts/Symbola.otf) format("opentype"),
+    url(/fonts/Symbola.svg#Symbola) format("svg")
+  ;
+}
+
+@font-face {
+    font-family: Symbola;
+    .font-srcs;
+}

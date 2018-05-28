@@ -1,0 +1,190 @@
+<div class="container-fluid wrapper-lg w-auto-xs w-60" ng-controller="LoginController">
+
+    <a class="navbar-brand block m-t-md m-b-lg">
+        <img src="images/logo.png" class="w-md center animated fadeIn" style="max-height:none;">
+    </a>
+
+    <div class="m-b-lg">
+        <div class="wrapper-xs text-center">
+            <!--            <h4 class="text-primary">Acesso ao conteúdo exclusivo.</h4>-->
+            <div ng-hide="{{errorMsg == null}}" class="alert alert-danger " role="alert">
+                {{errorMsg}}
+            </div>
+        </div>
+        <gx-panel class="md-whiteframe-z1 no-border">
+            <div class="panel-heading text-center"><i class="ion-ios-locked h4"></i><span class="h4 m-l-sm">Acesso ao conteúdo exclusivo</span></div>
+
+            <div class="row">
+
+                <div class="col-md-12">
+
+
+                    <div class="col-md-6" ng-hide='formCad.email.$valid'>
+                        <form required="true" name="form" method="POST" action="/oam/server/auth_cred_submit">
+
+                            <gx-panel-body class="text-info text-left">
+                                <h4>Já sou cadastrado</h4>
+                                <small class="text-muted">entre com seus dados de acesso</small>
+                                <div>
+                                    <div class="list-group list-group-sm m-t animated fadeIn">
+                                        <div class="list-group-item">
+                                            <input type="text" name="nameuser" placeholder="Login" class="form-control no-border" ng-model="valorUser" ng-minlength="5" ng-maxlength="20" required>
+                                            <md-tooltip md-direction="left">Entre com o seu usuário de acesso.</md-tooltip>
+                                            <span ng-class="{'glyphicon-remove text-danger': form.nameuser.$error.minlength, 'glyphicon-ok text-success' : form.nameuser.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        </div>
+                                        <div class="list-group-item">
+                                            <input type="password" name="password" title="Senha" placeholder="Senha" class="form-control no-border" ng-model="valorPsw" required ng-minlength="4" gx-tooltip-placement="left">
+
+                                            <span ng-class="{'glyphicon-remove text-danger': form.pass3.$error.minlength, 'glyphicon-ok text-success' : form.pass3.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-center">
+                                        <a ui-sref="home" class="btn btn-lg btn-success btn-block btn-addon animated flipInY" ng-hide='form.$invalid'>
+                                            <i class="fa fa-unlock pull-right"></i>Acessar conteúdo exclusivo
+                                        </a>
+                                        <!--<p class="text-muted" ng-hide='form.$invalid' ng-show="form.doc.$valid">Você receberá um e-mail com o nome de usuário.</p>-->
+                                    </div>
+                                </div>
+                            </gx-panel-body>
+                        </form>
+                    </div>
+
+                    <div class="col-md-6" ng-show='formCad.email.$valid'>
+                        <div class="text-info text-left wrapper">
+                            <h4>Quem pode ter um cadastro na CCEE?</h4>
+
+                            <div class="m-t-md text-left text-muted" ng-show="formCad.email.$valid">
+                                <h4>Motivos do cadastro:</h4>
+                                <p>Antes de continuar informe o motivo do seu cadastro.</p>
+                                <br>
+                                <p class="font-bold">Novo Agente</p>
+                                <p class="text-muted">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI</p>
+                                <p class="font-bold">Participantes de Leilão de Energia</p>
+                                <p class="text-muted">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI</p>
+                                <p class="font-bold">Pessoas ligadas à Instituições do Setor</p>
+                                <p class="text-muted">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI</p>
+                                <p class="font-bold">Outros cadastros</p>
+                                <p class="text-muted">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-6" ng-hide='form.$valid'>
+                        <form required="true" name="formCad" method="POST">
+                            <gx-panel-body class="text-primary text-left">
+                                <h4>Ainda não sou cadastrado</h4>
+                                <small class="text-muted">Digitie um e-mail para iniciar o cadastro</small>
+                                <div>
+
+
+                                    <div class="list-group list-group-sm m-t animated fadeIn">
+
+                                        <div class="list-group-item">
+
+                                            <input type="email" name="email" placeholder="E-mail" class="form-control no-border" ng-model="valorEmail" required gx-tooltip="Apenas e-mails que não possuem cadastros na CCEE." gx-tooltip-placement="top">
+
+                                            <span ng-hide="formCad.email.$pristine" ng-class="{'ion-ios-close-empty fa-2x animated flash text-muted': formCad.email.$invalid, 'ion-thumbsup fa-2x animated fadeIn text-success' : formCad.email.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                            <!-- feedback -->
+
+                                            <span class="text-center animated fadeOut" role="alert">
+                                                <p class="text-danger m-t-md" ng-if="formCad.doc.$dirty" ng-hide="formCad.email.$valid">digite um número válido</p>
+                
+                                                <p class="text-success m-t-md" ng-show="formCad.doc.$valid">documento válido</p> 
+                                            </span>
+
+                                        </div>
+
+                                        <div class="animated shake" ng-show='formCad.email.$valid' ng-controller="MotivoCtrl">
+
+                                            <md-select name="motivador" ng-model="favoriteTopping" placeholder="motivo do seu cadastro" required>
+                                                <md-optgroup label="Adesão ao Mercado de Comercialização">
+                                                    <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'sagente' }" required>{{topping.name}}</md-option>
+                                                    </md-option-group>
+                                                    <md-optgroup label="Outros motivos">
+                                                        <md-option ng-value="topping.name" ng-repeat="topping in toppings | filter: {category: 'nagente' }">{{topping.name}}</md-option>
+                                                        </md-option-group>
+
+                                            </md-select>
+                                            <p ng-hide="formCad.$valid" class="result text-danger">{{ favoriteTopping ? 'Motivo do cadastro: ' + favoriteTopping : 'Selecione o motivo do seu cadastro'}}
+                                            </p>
+
+                                            <div class="" ng-show="formCad.motivador.$valid">
+                                                <span class="text-muted">Você selecionou: </span>
+                                                <span class="h4 text-info clear">{{ favoriteTopping }}</span>
+                                            </div>
+
+                                            </md-select>
+
+                                            <span ng-class="{'glyphicon-remove text-danger': formCad.nameuser.$error.minlength, 'glyphicon-ok text-success' : formCad.nameuser.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div>
+
+
+                                        <div class="m-t-md text-left text-muted" ng-show="formCad.motivador.$valid" ng-show="formCad.email.$invalid">
+                                            <h4>Próximos passos:</h4>
+                                            <p>Você receberá um e-mail de confirmação deste cadastro e criação de uma senha de acesso ao painel de Adesão.</p>
+                                            <desc>Feito isto, utilize seu usuário e senha para completar as informações do seu cadastro. Fique atento aos prazos.</desc>
+
+                                            <desc>Para a opção de cadastro selecionada, seguem os pré-requisitos necessários:</desc>
+                                            <br>
+                                            <ul class="m-t-md">
+                                                <li>Loren ipsum amsa</li>
+                                                <li>Processos ajhsda ahshada</li>
+                                                <li>Relatórios de cajsjcas hchashcas</li>
+                                                <li>Informações consolidadas de ahs</li>
+                                                <li>Documentos para adshasdh asdha</li>
+                                            </ul>
+                                        </div>
+
+                                        <a ui-sref="home.prototipos.wizard-pre" class="btn btn-lg btn-success btn-block btn-addon animated flipInX m-t m-b" ng-hide='formCad.$invalid'>
+                                            <i class="ion-person-add pull-right"></i>Realizar pré-cadastro
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </gx-panel-body>
+                        </form>
+                    </div>
+
+                    <div class="col-md-6" ng-show='form.$valid'>
+
+                        <h4 class="text-success dker text-left m-t-lg">Seja bem vindo.</h4>
+                        <desc>Aqui você possui acesso a todo conteúdo exclusivo da CCEE.</desc>
+                        <br>
+                        <ul>
+                            <li>Acompanhar processos de Adesão</li>
+                            <li>Visualização de Relatórios Loren Ipsun</li>
+                            <li>Relatórios de cajsjcas hchashcas</li>
+                            <li>Informações consolidadas de ahs</li>
+                            <li>Documentos para adshasdh asdha</li>
+                        </ul>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </gx-panel>
+
+        <div class="text-center m-t m-b">
+            <a ui-sref="home.gus.resetpass" class="btn btn-md btn-link">Esqueci minha Senha</a>
+            <i class="ion-help-buoy m-r m-l"></i>
+            <a ui-sref="home.gus.resetuser" class="btn btn-md btn-link">Esqueci meu Login</a>
+        </div>
+
+        <p class="text-center text-muted">
+            <small>caso tenha dificuldades para avançar acesse:</small>
+        </p>
+        <a href="#" class="btn btn-lg btn-default center-block">dúvidas frequentes</a>
+        <a href="http://www.ccee.org.br" class="btn btn-sm btn-link center-block"><i class="fa fa-arrow-left m-r-xs m-t"></i>voltar ao portal da CCEE</a>
+    </div>
+</div>

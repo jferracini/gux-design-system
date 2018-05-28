@@ -1,0 +1,49 @@
+{
+	"steps": [
+        {
+			"intro": "Bem-vindo ao SCDE - Sistema de Coleta de Dados de Energia.<br><br> Clique em <strong>Continuar</strong>",
+			"element": "[class='m-l-lg ng-scope active']"
+    },
+		{
+			"intro": "A nova interface do sistema traz novos recursos para facilitar suas ações.",
+			"element": "[ui-sref='root.cadastro.pontosMedicao.criacao.medidores']"
+    },
+        {
+			"intro": "Nesta área você sempre saberá a sua localização dentro sistema, através do título do Módulo / Funcionalidade, em todos os níveis de navegação.",
+			"element": "#intro-breadcrumb",
+            "position":"bottom"
+    },
+        {
+			"intro": "O conteúdo da aplicação estará disponível em painéis como este.",
+			"element": ".panel-default",
+            "position":"top"
+    },
+        {
+			"intro": "Foram criados alguns recursos que auxiliam sua produtividade e melhoram sua visibilidade. <br>Um exemplo destes recursos é a TELA CHEIA.",
+			"element": "[class='fa fa-expand']",
+            "position":"left"
+    },
+        {
+			"intro": "Navegar entre os módulos através do menu lateral. Este mesmo menu pode ser recolhido para favorecer a área da aplicação utilizando o ícone <i class='fa fa-dedent fa-fw'></i> em qualquer tela.<br>.",
+			"element": "[class='gx-nav navi']",
+            "position":"right"
+
+    },
+        {
+			"intro": "<h3>Barra de imersão</h3>Clicando no logotipo do sistema você estará de volta à página inicial.<br><br>",
+			"element": "[class='app-header navbar']",
+            "position":"top-middle"
+    },
+        {
+			"intro": "<h3>Barra de imersão</h3>A barra de imersão sempre traz informações globais do usuário e do sistema, como nome do usuário, ações de auxlio, busca.",
+			"element": "[class='app-header navbar']",
+            "position":"top-middle"
+    },
+     
+		{
+			"intro": "Esperamos que os novos recursos auxiliem no seu dia-a-dia. <br><br>Em caso de dúvida entre em contato conosco, mas não deixe de consultar nosso material de apoio.",
+			"element": "[class='col w-md bg-white-only b-l bg-auto no-border-xs']",
+            "position":"left"
+    }
+  ]
+}

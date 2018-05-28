@@ -1,0 +1,85 @@
+<div class="container-fluid w-xxl w-auto-xs" ng-controller="ResetPassController">
+
+    <a class="navbar-brand block m-t-md">
+        <img src="images/logo.png" class="w-md center" style="max-height:none;">
+    </a>
+
+    <div class="m-b-lg animated">
+
+        <div class="wrapper-xs text-center">
+            <h4 class="text-primary">Acesso ao conteúdo exclusivo.</h4>
+            <div class="alert alert-warning" role="alert">
+                Após a confirmação dos dados você irá receber um e-mail para definição de uma nova senha.
+            </div>
+        </div>
+        <gx-panel>
+
+            <form required="true" name="form">
+
+                <!--input name="campo1" type="text" ng-model="valorCampo1" ng-required="true" ng-class="{'bg-danger': form.campo1.$invalid}"></input-->
+
+                <gx-panel-body>
+                    <h5 class="text-primary text-center">Redefinição de senha</h5>
+                    <p class="text-muted text-center">Por se tratar de um processo de segurança precisamos que confirme alguns dados.</p>
+
+
+                    <div>
+
+                        <div class="list-group list-group-sm m-t animated fadeIn">
+                            <div class="list-group-item">
+
+                                <input type="text" name="user" placeholder="Digite o seu Login" class="form-control no-border" ng-model="valorUser" required gx-tooltip="Confirme sua credencial de acesso." gx-tooltip-placement="left">
+
+                                <span ng-class="{'glyphicon-remove text-danger': form.user.$invalid, 'glyphicon-ok text-success' : form.user.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                            </div>
+
+
+
+
+                            <div class="list-group-item">
+
+                                <input type="email" name="email" placeholder="E-mail" class="form-control no-border" ng-model="valorEmail" required gx-tooltip="E-mail cadastrado." gx-tooltip-placement="left">
+
+                                <span ng-class="{'glyphicon-remove text-danger': form.email.$invalid, 'glyphicon-ok text-success' : form.email.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                            </div>
+
+                            <div class="list-group-item" ng-show='form.email.$valid'>
+
+                                <input type="text" name="doc" placeholder="Documento de Identificação" class="form-control no-border" ng-model="pessoa.cpf" required gx-tooltip="Trata-se do número enviado pelo representa durante a Adesão na CCEE." gx-tooltip-placement="left" ng-minlength="3" ui-mask="CPF - 999.999.999-99" ui-mask-placeholder ui-mask-placeholder-char="•">
+
+
+                                <span ng-hide="form.doc.$pristine" ng-class="{'glyphicon-remove text-danger': form.doc.$invalid, 'glyphicon-ok text-success' : form.doc.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                <!-- feedback -->
+                                <span class="text-danger text-center animated fadeIn" role="alert">
+                                    <p class="text-danger" ng-if="form.doc.$dirty" ng-hide="form.doc.$valid">número inválido</p>
+                                    <p class="text-success" ng-show="form.doc.$valid">número válido</p>
+                                </span>
+
+                            </div>
+
+
+
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-lg btn-success btn-block btn-addon animated fadeIn" ng-click="cadastrar()" ng-hide='form.$invalid'><i class="fa fa-unlock-alt pull-right"></i>redefinir senha</button>
+
+                            <p class="text-muted" ng-hide='form.$invalid' ng-show="form.doc.$valid">Você receberá um e-mail com o link para redefinição de sua senha</p>
+                        </div>
+                    </div>
+
+
+
+                </gx-panel-body>
+            </form>
+
+        </gx-panel>
+
+        <div class="text-center text-muted m-b">Precisa de ajuda?</div>
+        <a href="#" class="btn btn-sm btn-default btn-block">consulte nosso tutorial</a>
+        <a ui-sref="home.gus.login" class="btn btn-xs text-info btn-link m-t-lg btn-block">voltar</a>
+    </div>
+</div>

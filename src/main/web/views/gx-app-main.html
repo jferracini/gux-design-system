@@ -1,0 +1,44 @@
+<div ng-class="{'app-content': $ctrl.displayAside === true, 'app-content-screen': $ctrl.displayAside === false}">
+
+    <a href class="off-screen-toggle hide active" ui-toggle-class="off-screen" data-target=".app-aside"></a>
+
+    <div class="app-content-body">
+
+        <div class="bg-light lter b-b b-t wrapper-md" ng-if="$ctrl.isToDisplayMasthead()">
+
+            <div ng-if="!!$ctrl.mastheadActions" class="dropdown pull-right">
+                <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle btn-lg">Ações&nbsp;<span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="action in $ctrl.mastheadActions">
+                        <a ui-sref="{{action.link}}">
+                            <i class="{{action.iconClass}}"></i>&nbsp;{{action.title}}
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <ol class="breadcrumb hidden-xs">
+                Você está em:&nbsp;
+                <li ng-repeat="breadcrumbItem in $ctrl.breadcrumbItems">
+                    <span ng-if="::breadcrumbItem.link === undefined">{{breadcrumbItem.title}}</span>
+                    <a ng-if="::breadcrumbItem.link != undefined" ui-sref="{{breadcrumbItem.link}}">{{breadcrumbItem.title}}</a>
+                </li>
+            </ol>
+
+            <h3 class="text-black font-thin m-t-sm m-b-xxs">{{$ctrl.mastheadTitle}}</h3>
+            <small class="text-muted">{{$ctrl.mastheadDescription}}</small>
+
+        </div>
+
+        <div ng-if="!!$ctrl.tabs" class="nav-tabs-alt">
+            <ul class="nav nav-tabs">
+                <li ng-repeat="tab in $ctrl.tabs" ng-class="{'active': $ctrl.isTabActive(tab), 'disabled': $ctrl.isTabDisabled(tab)}" class="m-l-lg">
+                    <a ui-sref="{{$ctrl.isTabDisabled(tab) ? '.' : tab.link}}" ng-class="{'disabled': $ctrl.isTabDisabled(tab)}">{{tab.title}}</a>
+                </li>
+            </ul>
+        </div>
+
+        <div ui-view />
+
+    </div>
+</div>

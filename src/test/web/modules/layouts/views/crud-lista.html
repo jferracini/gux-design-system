@@ -1,0 +1,99 @@
+<div class="hbox wrapper-lg animated fadeIn">
+    <span class="text-info h3">Demo app</span>
+    <p class="text-black">Demonstração de Create (Criação), Retrieve (Consulta), Update (Atualização) e Delete (Destruição).</p>
+</div>
+<gx-panel class="wrapper animated fadeInUp">
+    <gx-form gx-name="formLista" gx-submit="search()">
+        <gx-panel-header title="Pesquisa de films"></gx-panel-header>
+        <gx-panel-body class="container-fluid">
+
+            <div class="row">
+                <gx-form-group stereotype="text" label="Nome do filme" description="Nome do filme para pesquisa" example="Avatar" model="filter.filmName" class="col-md-6 col-xs-12"></gx-form-group>
+                <gx-form-group stereotype="text" label="Nome do Distribuidor" description="Nome do distribuidor filme para pesquisa" example="20th Century Fox" model="filter.filmCompany" class="col-md-6 col-xs-12"></gx-form-group>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <gx-form-button stereotype="get"></gx-form-button>
+                    <gx-form-button stereotype="clean"></gx-form-button>
+                </div>
+            </div>
+
+            <gx-fieldset title="Resultados" collapsed="false" ng-if="!!films" style="margin-top: 42px">
+
+                <div ng-if="films.length === 0" class="row">
+                    <div class="col-xs-12">
+                        <div class="well">
+                            <span class="text-muted">
+								<i class="fa fa-exclamation-triangle"></i>
+								<span>Nenhum resultado encontrado para os critérios de pesquisa acima.</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="films.length > 0" class="row">
+                    <div class="col-xs-12">
+                        <div class="pull-right">
+                            <label class="text-muted">Resultados por Página: </label>
+                            <select ng-init="pageSizes = [10, 25, 50]" ng-options="size as size for size in pageSizes" ng-model="$ctrl.paginationInfo.pageSize" ng-change="pesquisar()" class="input-sm form-control w-sm inline v-middle">
+							</select>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="films.length > 0" class="row">
+                    <div class="col-xs-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover m-b-none">
+                                <thead>
+                                    <tr>
+                                        <th>Ranking</th>
+                                        <th>Ano</th>
+                                        <th>Nome</th>
+                                        <th>Distribuidor</th>
+                                        <th>Bilheteria</th>
+                                        <th style="width: 180px">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="filme in films">
+                                        <td>{{filme.ranking}}</td>
+                                        <td>{{filme.year}}</td>
+                                        <td>{{filme.name}}</td>
+                                        <td>{{filme.company}}</td>
+                                        <td>{{filme.amount}}</td>
+                                        <td class="text-center">
+                                            <a class="btn btn-default btn-xs" ng-if="!filme.$excluir" ui-sref="home.layouts.crud.edicao({ codigo: filme.ranking })" alt="Editar" title="Editar">
+                                                <i class="fa fa-pencil"></i>&nbsp;<span class="hidden-xs">Editar</span>
+                                            </a>
+                                            <a class="btn btn-default btn-xs" ng-if="!filme.$excluir" ng-click="solicitarExclusao(filme)" alt="Remover" title="Remover">
+                                                <i class="fa fa-remove"></i>&nbsp;<span class="hidden-xs">Remover</span>
+                                            </a>
+                                            <a class="btn btn-danger btn-xs" ng-if="filme.$excluir" ng-click="excluir(filme)" alt="Confirmar" title="Confirmar">
+                                                <i class="fa fa-trash"></i>&nbsp;<span class="hidden-xs">Confirmar</span>
+                                            </a>
+                                            <a class="btn btn-default btn-xs" ng-if="filme.$excluir" ng-click="cancelarExclusao(filme)" alt="Cancelar" title="Cancelar">
+                                                <i class="fa fa-ban"></i>&nbsp;<span class="hidden-xs">Cancelar</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div ng-if="films.length > 0" class="row">
+                    <div class="col-xs-12">
+                        <paging page="paginationInfo.pageNumber" page-size="paginationInfo.pageSize" total="paginationInfo.totalItems" text-first="Primeiro" text-last="Ultimo" text-next="Próximo" text-prev="Anterior" text-title-page="Página {page}" text-title-first="Primeiro registro"
+                            text-title-last="Ultimo registro" text-title-next="Próximo registro" text-title-prev="Registro anterior" show-prev-next="true" show-first-last="true" paging-action="atualizar('paging', page - 1, pageSize, total)" class="pagination-sm pull-right">
+                        </paging>
+                    </div>
+                </div>
+
+            </gx-fieldset>
+
+        </gx-panel-body>
+    </gx-form>
+</gx-panel>

@@ -1,0 +1,52 @@
+<md-dialog class="fixed col-md-12" aria-label="Lista de Motivos">
+    <md-subheader class="md-sticky">Gerenciamento do processo</md-subheader>
+    <md-dialog-content class="wrapper-md w-full bg-white">
+
+        <div class="wrapper">
+
+        </div>
+
+
+
+    </md-dialog-content>
+
+    <md-dialog-actions>
+
+        <div class="text-center w-full">
+            <button scroll-to="app" ng-click="answer('Ok')" type="button" class="btn btn-link pull-left">
+              <i class="fa fa-arrow-left"></i> Voltar ao processo
+            </button>
+
+            <a href="/" ng-click="answer('Ok')" class="btn btn-link pull-right">
+                <i class="fa fa-tachometer"></i> Dashboard
+            </a>
+
+            <button scroll-to="app" ng-click="answer('Ok')" type="button" class="btn btn-addon btn-success pull-right m-l-sm" disabled="disabled">
+              <i class="fa fa-send"></i> Enviar processo para análise da CCEE
+            </button>
+
+            <button scroll-to="app" ng-click="answer('Ok')" type="button" class="btn btn-addon teal-600 pull-right m-l-sm">
+              <i class="fa fa-save"></i> Salvar e sair
+            </button>
+
+            <button scroll-to="app" ng-click="answer('Ok')" type="button" class="btn btn-addon btn-default pull-right ">
+              <i class="fa fa-ban"></i> Cancelar este processo
+            </button>
+
+
+
+            <!--<md-button ng-click="answer('Cancelado')" class="bg-danger md-mini">
+                Cancelar este processo
+            </md-button>
+
+            <md-button ng-click="answer('Salvo')" class="md-primary md-raised">
+                Salvar e sair
+            </md-button>-->
+
+        </div>
+
+
+
+    </md-dialog-actions>
+
+</md-dialog>

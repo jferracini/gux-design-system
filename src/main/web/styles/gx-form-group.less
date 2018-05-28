@@ -1,0 +1,37 @@
+.form-group {
+	label {
+		small i.fa-info-circle {
+			opacity: 0.3;
+		}
+	}
+	&.has-success {
+		button {
+		border-color: @state-success-text;
+		background-color: @btn-default-bg;
+		color: @state-success-text;
+			i {
+				color: @state-success-text;
+			}
+		}
+	}
+	&.has-warning {
+		button {
+		border-color: @state-warning-text;
+		background-color: @btn-default-bg;
+		color: @state-warning-text;
+			i {
+				color: @state-warning-text;
+			}
+		}
+	}
+	&.has-error {
+		button {
+		border-color: @state-danger-text;
+		background-color: @btn-default-bg;
+		color: @state-danger-text;
+			i {
+				color: @state-danger-text;
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+[{
+        "ranking": 1,
+        "year": "2009-01-01T00:00:00",
+        "name": "Avatar",
+        "company": "20th Century Fox",
+        "synopsis": "blwoind skj slkjs oi qpoijd  oqiwjd oqisj  qosijd  oqijd",
+        "amount": 2787965087,
+        "successFormula": "Success=\\frac{Sales}{Cost}",
+        "favorite": "no",
+        "like": false,
+        "dislike": false
+    },
+    {
+        "ranking": 2,
+        "year": "1997-01-01T00:00:00",
+        "name": "Titanic",
+        "company": "20th Century Fox/Paramount Pictures",
+        "amount": 2186772302,
+        "successFormula": "Success=\\frac{Sales}{Cost}",
+        "favorite": "no",
+        "like": false,
+        "dislike": false
+    }
+]

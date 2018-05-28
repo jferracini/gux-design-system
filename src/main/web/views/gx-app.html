@@ -1,0 +1,125 @@
+<!-- cockpit bar teste -->
+<span ng-if="$ctrl.displayCockpit">
+    <gx-cockpit></gx-cockpit>
+</span>
+
+<style ng-if="$ctrl.displayCockpit || false">
+    .app {
+        position: absolute;
+        margin-top: 64px;
+    }
+    
+    .off-screen {
+        position: static;
+    }
+</style>
+
+<!-- sidenav - cockpit bar -->
+<gx-sidenav></gx-sidenav>
+
+<!-- app -->
+<div class="app animated fadeIn" ng-class="{'app-aside-folded': $ctrl.config.asideFolded, 'app-header-fixed':$ctrl.config.headerFixed, 'app-aside-fixed':$ctrl.config.asideFixed, 'app-aside-dock':$ctrl.config.asideDock, 'container':$ctrl.config.container}">
+
+    <toaster-container toaster-options="{'time-out': 9000, 'close-button':true, 'animation-class': 'toast-right-center'}"></toaster-container>
+
+    <!-- header navbar - app -->
+    <div class="app-header navbar" ng-if="$ctrl.displayNavbar">
+
+        <!-- navbar esquerda - brand -->
+        <div class="navbar-header bg-light b-r lter lt">
+
+            <!-- menu mobile call ng-click="$ctrl.config.showNav = !$ctrl.config.showNav" -->
+            <button class="pull-right visible-xs" ui-toggle-class="off-screen" data-target=".app-aside">
+				<i class="fa fa-bars"></i>
+			</button>
+
+            <!-- end / menu mobile call -->
+
+            <!-- brand responsive -->
+            <a ui-sref="{{$ctrl.rootState.name}}" class="text-lt hvr-rotate">
+                <!-- brand desktop - temporario -->
+                <span class="hidden-folded hidden-xs m-l-xs center-block brand-sm">
+                        <img src="images/app-logo.svg"  class="" style="height: 60px; padding: 4px; width: 93%;" />
+                    </span>
+                <!-- brand menu recolhido -->
+                <span class="visible-folded hidden-xs center-block brand-icon">
+                        <img src="images/ccee-logo-folded.png" class="" />
+                    </span>
+                <!-- brand mobile -->
+                <span class="hidden-lg hidden-md hidden-sm m-l-xs center-block brand-xs" style="width:70%; margin-top: 8px;">
+                        <img src="images/app-logo.svg"  class="" style="width: 40%; padding: 4px;">
+                </span>
+
+            </a>
+            <!-- end / brand responsive -->
+        </div>
+
+        <!-- navbar direita -->
+        <div class="collapse pos-rlt navbar-collapse bg-white">
+            <ul ng-transclude="navbarRight" class="nav navbar-nav navbar-right">
+            </ul>
+            <ul ng-if="!!$ctrl.intro" class="nav navbar-nav navbar-right">
+                <li class="hidden-xs b-r b-light">
+                    <a ng-click="startIntro()" gx-tooltip="Tour guiado" gx-tooltip-placement="bottom">
+                        <i class="fa fa-question-circle"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!-- end -->
+
+    </div>
+
+    <!-- menu aside - app -->
+    <aside id="aside" class="app-aside hidden-xs bg-light b-r lter" ng-if="$ctrl.displayAside" ng-class="{'app-aside-folded': $ctrl.config.asideFolded}">
+        <div class="aside-wrap">
+            <div class="navi-wrap">
+                <ng-include src="'views/gx-app-nav.html'"></ng-include>
+                <div class="wrapper hidden-folded m-t">
+                    <img src="images/ccee-logo-whatermark.png" class="center-block" />
+                </div>
+            </div>
+        </div>
+    </aside>
+
+
+    <!-- view content - main app -->
+    <ng-include src="'views/gx-app-main.html'"></ng-include>
+
+    <!-- footer - app temporariamente inativo -->
+    <span ng-if="$ctrl.displayFooter">
+        <ng-include src="'views/gx-app-footer.html'"></ng-include>
+    </span>
+
+    <!-- footer mobile -->
+
+</div>
+
+<div class="app-footer navbar navbar-fixed-bottom blue-grey-50 b-t visible-xs" style="z-index: 1;">
+    <div class="row m-t-xs">
+        <div class="col-sm-8">
+            <div class="w-xl w-auto-xs center-block">
+                <div class="btn-group btn-group-justified text-center text-sm">
+                    <div class="btn-group b-r">
+                        <a class="wrapper-xs block hvr-back-pulse r r-2x" scroll-to="app">
+                            <i class="block text-md m-t-xs fa fa-user"></i>
+                            <span class="text-sm">perfil</span>
+                        </a>
+                    </div>
+                    <div class="btn-group b-r">
+                        <a href="/" class="wrapper-xs block hvr-back-pulse r r-2x">
+                            <i class="block text-md m-t-xs fa fa-home"></i>
+                            <span class="text-sm">Home</span>
+                        </a>
+                    </div>
+                    <div class="btn-group">
+                        <a class="wrapper-xs block hvr-back-pulse r r-2x">
+                            <i class="block text-md m-t-xs fa fa-share"></i>
+                            <span class="text-sm">compartilhar</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

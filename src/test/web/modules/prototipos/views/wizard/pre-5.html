@@ -1,0 +1,103 @@
+<div class="row">
+
+    <div class="col-xs-12 col-md-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin h1">{{ favoriteTopping }}</div>
+            <span class="text-muted text-xs">Motivo deste cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-user-plus text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorEmailPre }}</div>
+            <span class="text-muted text-xs">e-mail escolhido para o cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-envelope-o text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorUser }}</div>
+            <span class="text-muted text-xs">usuário pré-selecionado</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-user text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorDoc }}</div>
+            <span class="text-muted text-xs">documento para validação</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-key text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row" ng-controller="ProfileMockupController">
+
+    <div class="col-xs-12 col-md-6 animated zoomIn">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h4 text-success font-thin font-bold h1">{{ valorRs }}</div>
+            <span class="text-muted text-xs">Razão Social</span>
+
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-6 animated zoomIn">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h4 text-success font-thin font-bold">{{ cnpj }}</div>
+            <span class="text-muted text-xs">CNPJ do candidato</span>
+        </div>
+    </div>
+</div>
+
+<div class="row text-center">
+
+    <div class="col-xs-12">
+
+        <div class="panel padder-v item no-padder">
+
+
+            <span class="h3 text-success">Pré-cadastro enviado com sucesso!</span>
+
+            <br><br>
+
+            <h5>Este é o seu nº de registro: </h5>
+
+            <div class="col-md-6 col-xs-12 text-center hbox">
+                <span href="" class="block panel padder-v bg-light lter item box-shadow">
+                    <span class="h2 block text-success">008231-2016</span>
+                <span class="text-muted text-xs">nº do cadastro</span>
+                <span class="bottom text-right w-full">
+                  <i class="fa fa-check m-r-sm"></i>
+                </span>
+                </span>
+            </div>
+            <div class="row">
+
+            </div>
+            <br>
+            <p>Agora é só aguardar os próximos passos!</p>
+            <br>
+            <a ui-sref="home.prototipos.wizard" target="_blank">Ir para o portal da CCEE</a>
+            <br>
+            <em class="text-xs text-muted">A CCEE garante a resposta do seu pré-cadastro em até XX dias úteis. Caso isto não ocorra entre em contato com a nossa <strong>Central de Atendimento no 0800 10 00 08</strong>.</em>
+
+        </div>
+
+    </div>
+
+
+
+</div>
+
+<!--<div layout-align="center center" layout="row" layout-lg="column">-->

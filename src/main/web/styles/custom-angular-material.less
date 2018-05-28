@@ -1,0 +1,242 @@
+.navbar-header > button { padding: 10px 11px !important;}
+
+// custom material design
+
+md-sidenav, md-toast, .md-toast-open-top {
+    z-index: 9999;
+}
+
+md-backdrop.md-sidenav-backdrop {
+    z-index: 9998;
+}
+
+md-sidenav,
+md-backdrop {
+    position: fixed !important;
+}
+
+.md-dialog-container {
+    z-index: 9997;
+}
+
+md-backdrop.md-opaque {
+    z-index: 9996;
+    opacity: .78;
+}
+
+md-toast .md-toast-content {max-width: none;}
+
+// rack tosco por causa do bug do MAterial dEsign com o scroll-mask que ferra todo o layout com os dialogs
+
+.top-dialog {top: 0 !important;}
+
+.min-h-90 {min-height: 90px;}
+
+
+// sortable
+
+.drag-body {min-height: 65px;}
+
+.drag-body:active {background: #ffffff; border: solid 1px #eeeeee;}
+
+.as-sortable-item:active {background: white;}
+
+.as-sortable-item,
+.as-sortable-placeholder {
+    margin: 2px;
+}
+
+.as-sortable-placeholder {
+    border: dotted 1px #d9dfea; background: #e7ebf2;
+}
+
+#sortable-container {
+    display: inline-block;
+}
+
+.column {
+  border: 1px solid #000000;
+  border-radius: 5px;
+}
+
+// Calendar fixo
+
+.time-date {
+  font-size: 12px !important;
+}
+.fixed-calendar {
+  width: 280px;
+  height: 285px;
+  display: block;
+}
+
+.fixed-calendar .md-calendar-scroll-mask {
+  width: 280px !important;
+  height: 240px !important;
+}
+
+.fixed-calendar .md-virtual-repeat-scroller {
+  width: 280px !important;
+  height: 246px;
+}
+
+.fixed-calendar .md-calendar-date-selection-indicator {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+}
+
+// Mind Map
+
+html,
+body{
+  min-height: 100%;
+  font-family: "Arial";
+}
+
+.menu{
+  padding: 20px;
+  position: relative;
+}
+.menu .downloadWrap{
+  display: inline-block;
+  margin-left: 5px;
+  padding-left: 10px;
+  border-left: 5px solid #ccc;
+}
+.menu .fileName{
+  font-size: inherit;
+  padding: 6px 7px;
+  border-radius: 5px;
+  border: 1px solid #CCC;
+  outline: none;
+  vertical-align: middle;
+}
+#downloadLinkWrap{
+  display: inline-block;  
+}
+.menu .loadFile{
+  position: relative;
+}
+.menu .loadFile input{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  opacity: 0;    
+  cursor: pointer;
+}
+.minMapWrap,
+.mindMap{
+  width: 100%;
+  height: 700px;
+}
+.mindMap{
+  background: #eee;
+}
+rect {
+  fill: none;
+  pointer-events: all;
+}
+line {
+  stroke: #000;
+  stroke-width: 1.5px;
+}
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 1.5px;
+}
+.node {
+  position: relative;
+  display: inline-block;
+  font: 10px sans-serif;
+}
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 1.5px;
+}
+.function-btn{    
+  opacity: 0;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;  
+  transition: all 0.5s ease;
+}
+.function-btn.add{  
+  fill: #57D37E;  
+}
+.function-btn.remove{  
+  fill: #E97979;  
+}
+.function-btn.edit{  
+  fill: #79AFE9;  
+}
+g:hover > .function-btn{
+  opacity: 1;
+}
+.function-bg{
+  cursor: pointer;  
+}
+
+// chips
+
+.chipsdemoContactChips md-content.autocomplete {
+  min-height: 250px; }
+  .chipsdemoContactChips md-content.autocomplete input {
+    min-width: 400px; }
+
+.chipsdemoContactChips .md-item-text.compact {
+  padding-top: 8px;
+  padding-bottom: 8px; }
+
+.chipsdemoContactChips .contact-item {
+  box-sizing: border-box; }
+  .chipsdemoContactChips .contact-item.selected {
+    opacity: 0.5; }
+    .chipsdemoContactChips .contact-item.selected h3 {
+      opacity: 0.5; }
+  .chipsdemoContactChips .contact-item .md-list-item-text {
+    padding: 14px 0;
+    max-width: 190px; }
+    .chipsdemoContactChips .contact-item .md-list-item-text h3 {
+      margin: 0 !important;
+      padding: 0;
+      line-height: 1.2em !important; }
+    .chipsdemoContactChips .contact-item .md-list-item-text h3, .chipsdemoContactChips .contact-item .md-list-item-text p {
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden; }
+  @media (min-width: 960px) {
+    .chipsdemoContactChips .contact-item {
+      float: left;
+      width: 33%; } }
+
+.chipsdemoContactChips md-contact-chips {
+  margin-bottom: 10px; }
+
+.chipsdemoContactChips .md-chips {
+  padding: 5px 0 8px; }
+
+.chipsdemoContactChips .fixedRows {
+  height: 250px;
+  overflow: hidden; }
+ 
+
+.progress-button.disabled, .progress-button[disabled] {cursor: not-allowed; opacity: 0.85; box-shadow: none;}
+
+
+/* when hiding the thing */
+    
+//    .ng-hide-add {
+//        -webkit-animation: 0.5s lightSpeedOut ease;
+//        animation: 0.5s lightSpeedOut ease;
+//    }
+    /* when showing the thing */
+    
+    .ng-hide-remove {
+        -webkit-animation: 0.5s fadeIn ease;
+        animation: 0.5s fadeIn ease;
+    }

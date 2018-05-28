@@ -1,0 +1,27 @@
+<div class="row m-t-md">
+	<gx-form-group stereotype="dropdown"
+		label="Filme"
+		required="$ctrl.required"
+		example="Avatar"
+		model-options="$ctrl.films"
+		model-option-attribute-key="ranking"
+		model-option-attribute-value="name"
+		model-option-attribute-badge="year"
+		model="$ctrl.selectedFilm"
+		disabled="$ctrl.disabled"
+		class="col-sm-6"></gx-form-group>
+
+	<gx-form-group stereotype="dropdown"
+		label="Filme"
+		required="$ctrl.required"
+		example="Avatar"
+		model-options="$ctrl.films"
+		model-option-attribute-key="ranking"
+		model-option-attribute-value="name"
+		model="$ctrl.selectedFilm"
+		on-create="$ctrl.create"
+		on-update="$ctrl.update"
+		on-delete="$ctrl.delete"
+		disabled="$ctrl.disabled"
+		class="col-sm-6"></gx-form-group>
+</div>

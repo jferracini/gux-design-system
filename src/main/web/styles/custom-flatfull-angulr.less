@@ -1,0 +1,424 @@
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 300;
+    src: local('Source Sans Pro Light'), local('SourceSansPro-Light'), url('../fonts/sourcesanspro-light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url('../fonts/sourcesanspro.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'Source Sans Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'), url('../fonts/sourcesanspro-bold.woff') format('woff');
+}
+
+.has-info {
+    .i-checks input + i {
+        border-color: @state-info-text;
+        &:before {
+            background-color: @state-info-text;
+        }
+    }
+}
+
+.has-success {
+    .i-checks input + i {
+        border-color: @state-success-text;
+        &:before {
+            background-color: @state-success-text;
+        }
+    }
+}
+
+.has-warning {
+    .i-checks input + i {
+        border-color: @state-warning-text;
+        &:before {
+            background-color: @state-warning-text;
+        }
+    }
+}
+
+.has-error {
+    .i-checks input + i {
+        border-color: @state-danger-text;
+        &:before {
+            background-color: @state-danger-text;
+        }
+    }
+}
+
+// begin app.color.less
+.bg-white-opacity {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.bg-black-opacity {
+    background-color: rgba(32, 43, 54, 0.8);
+}
+
+.opacity-txt {
+    color: rgba(0, 0, 0, 0.9);
+}
+
+// end begin app.color.less
+// begin app.layout.less
+.app-header-fixed {
+    @media (max-width: @screen-sm) {
+        padding-top: 50px;
+    };
+}
+
+.app-footer{
+    z-index: -1;
+}
+
+.navbar{
+    .navbar-form-sm{
+        margin-top: 10px + 6px;
+        margin-bottom: 10px + 5px;
+    }
+}
+
+@media (min-width: 768px) {
+    .app-aside,
+    .navbar-header {
+        width: @app-aside-width;
+    }
+    .navbar-collapse,
+    .app-content,
+    .app-footer {
+        margin-left: @app-aside-width;
+    }
+    .app-aside-right {
+        position: absolute;
+        top: @app-header-height;
+        bottom: 0;
+        right: 0;
+        z-index: 1000;
+        &.pos-fix {
+            z-index: 1010;
+        }
+    }
+    .visible-folded {
+        display: none;
+    }
+    .app-aside-folded {
+        .hidden-folded {
+            display: none !important;
+        }
+        .visible-folded {
+            display: inherit;
+        }
+        .text-center-folded {
+            text-align: center;
+        }
+        .pull-none-folded {
+            float: none !important;
+        }
+        .w-auto-folded {
+            width: auto;
+        }
+        .app-aside,
+        .navbar-header {
+            width: @app-aside-folded-width;
+        }
+        .navbar-collapse,
+        .app-content,
+        .app-footer {
+            margin-left: @app-aside-folded-width + 1px;
+        }
+        .app-header {
+            .navbar-brand {
+                display: block;
+                padding: 0;
+            }
+        }
+    }
+    .app-content-screen {
+             margin-left: 0;
+    }
+
+    .app-aside-fixed {
+        .app-aside:before {
+            position: fixed;
+        }
+        .app-header {
+            .navbar-header {
+                position: fixed;
+            }
+        }
+        .aside-wrap {
+            position: fixed;
+            overflow: hidden;
+            top: @app-header-height;
+            bottom: 0;
+            left: 0;
+            width: @app-aside-width - 1;
+            z-index: 1000;
+            .navi-wrap {
+                width: @app-aside-width + @scroll-bar-width;
+                position: relative;
+                height: 100%;
+                overflow-x: hidden;
+                overflow-y: scroll;
+                -webkit-overflow-scrolling: touch;
+                &::-webkit-scrollbar {
+                    -webkit-appearance: none;
+                }
+                &::-webkit-scrollbar:vertical {
+                    width: @scroll-bar-width;
+                }
+                > * {
+                    width: @app-aside-width;
+                }
+            }
+            .smart & .navi-wrap {
+                width: @app-aside-width;
+            }
+        }
+        &.app-aside-folded {
+            .app-aside {
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                z-index: 1010;
+            }
+            .aside-wrap {
+                width: @app-aside-folded-width - 1;
+                .navi-wrap {
+                    width: @app-aside-folded-width + @scroll-bar-width;
+                    > * {
+                        width: @app-aside-folded-width;
+                    }
+                }
+                .smart & .navi-wrap {
+                    width: @app-aside-folded-width;
+                }
+            }
+        }
+    }
+    .bg-auto {
+        &:before {
+            content: "";
+            position: absolute;
+            width: inherit;
+            top: 0;
+            bottom: 0;
+            z-index: -1;
+            background-color: inherit;
+            border: inherit;
+        }
+        &.b-l:before {
+            margin-left: -1px;
+        }
+        &.b-r:before {
+            margin-right: -1px;
+        }
+    }
+    .col.show {
+        display: table-cell !important;
+    }
+}
+
+// aside button
+.aside-settings {
+    position: fixed;
+    bottom: 0;
+    left: 0px;
+    z-index: 1050;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+}
+
+.aside-settings > .btn {
+    border-right-width: 0;
+    position: absolute;
+    left: -42px;
+    top: -1px;
+    padding: 10px 15px;
+    font-size: 400;
+}
+
+.fixed {position: fixed;}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-20 {
+    width: 20%;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.w-40 {
+    width: 40%;
+}
+
+.w-50 {
+    width: 50%;
+}
+
+.w-60 {
+    width: 60%;
+}
+
+.w-70 {
+    width: 70%;
+}
+
+.w-80 {
+    width: 80%;
+}
+
+.w-90 {
+    width: 90%;
+}
+
+// w-full já compreende o full width
+// end app.layout.less
+// begin app.nav.less
+.navi {
+    ul.nav {
+        li {
+            a {
+                padding: 10px 15px;
+            }
+            li {
+                a {
+                    padding: 10px 10px;
+                }
+            }
+            span {
+                display: flex;
+            }
+            i.sub {
+                width: 25px;
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+// end app.nav.less
+// Wizard
+.sliding-steps main,
+.sliding-steps main .well {
+    min-height: 500px;
+    margin: 0;
+}
+
+.sliding-steps main {
+    position: relative;
+    margin-bottom: 1rem;
+    overflow: hidden;
+}
+
+.sliding-steps main .well {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.sliding-steps .form-step.ng-enter,
+.sliding-steps .form-step.ng-leave {
+    -webkit-transition: transform .5s ease-in-out;
+    transition: transform .5s ease-in-out;
+}
+
+.sliding-steps .step-forward .form-step.ng-enter {
+    transform: translateX(100%);
+}
+
+.sliding-steps .step-forward .form-step.ng-enter.ng-enter-active {
+    transform: translateX(0);
+}
+
+.sliding-steps .step-forward .form-step.ng-leave {
+    /*transform: translateX(100%);*/
+}
+
+.sliding-steps .step-forward .form-step.ng-leave.ng-leave-active {
+    transform: translateX(-100%);
+}
+
+.sliding-steps .step-backward .form-step.ng-enter {
+    transform: translateX(-100%);
+}
+
+.sliding-steps .step-backward .form-step.ng-enter.ng-enter-active {
+    transform: translateX(0);
+}
+
+.sliding-steps .step-backward .form-step.ng-leave {
+    /*transform: translateX(100%);*/
+}
+
+.sliding-steps .step-backward .form-step.ng-leave.ng-leave-active {
+    transform: translateX(100%);
+}
+
+
+
+li.active a span i.rotate {
+                -ms-transform: rotate(90deg);
+                /* IE 9 */
+                -webkit-transform: rotate(90deg);
+                /* Chrome, Safari, Opera */
+                transform: rotate(90deg);
+}
+
+
+.bkg-bannerA {
+  background: url('../images/banner-2-ux.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/banner-2-ux.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../images/banner-2-ux.jpg', sizingMethod='scale')";
+}
+
+ .app-aside-folded .navi > ul > li > a i {
+    line-height: 25px;
+  }
+
+
+  .bg-iphone {
+    background: url('../images/vector-iphone-6.png') no-repeat center left; 
+    height: 776px;
+    float: left;
+  }
+
+    .bg-samsung {
+    background: url('../images/vector-samsung-5.png') no-repeat center left; 
+    height: 776px;
+    float: left;
+  }
+
+   canvas {
+        width: 100%;
+        max-width: 100%;
+        height: auto !important;
+    }
+
+// begin app.variables.less
+@brand-primary: #08296C;
+@brand-info: #0073AE;
+@brand-warning: #eac61c;
+@brand-black: #072e43; //#1E2648
+@text-color: #333D42;
+@border-color: darken(@brand-light,
+10%);
+@app-header-height: @navbar-height;
+// end app.variables.less

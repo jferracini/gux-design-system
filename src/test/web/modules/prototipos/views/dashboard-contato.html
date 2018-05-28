@@ -1,0 +1,438 @@
+<div class="bg-light wrapper-lg b-b">
+    <div class="row">
+        <div class="col-xs-6" ng-controller="WizardMockupController">
+            <span class="m-n font-thin h3 text-muted hidden-xs">Olá {{ valorName }} {{ valorLastName }}</span>
+            <br><small class="text-muted hidden-xs">Este é o painel gestão dos cadastros.</small>
+            <span class="m-n font-thin h4 text-muted visible-xs">Olá {{ valorName }} {{ valorLastName }}</span>
+
+        </div>
+
+        <div class="md-fab m-r-sm pull-right" aria-hidden="false">
+            <div class="md-css-variables"></div>
+
+            <button md-ink-ripple ng-click="newCad = !newCad" ng-class="{ active: newCad }" class="md-btn md-fab m-b blue-grey-400" type="button" aria-label="menu">           
+            <i class="ion-plus"></i>
+                <md-tooltip md-direction="left">Novo cadastro</md-tooltip>
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<div ng-show="newCad" class="wrapper-lg bg-white-only text-center visible-lg">
+
+    <button ui-sref="home.prototipos.wizard" class="btn btn-success btn-lg btn-addon md-whiteframe-z1" aria-expanded="false">
+        Nova Empresa
+        <i class="fa fa-industry pull-right" aria-hidden="true"></i>
+    </button>
+
+    <span class="text-muted">&nbsp; - ou - &nbsp;</span>
+
+    <button ng-click="showNovoContato('$event')" class="btn btn-info btn-lg btn-addon md-whiteframe-z1" aria-expanded="false">
+        Novo Contato
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+    </button>
+
+</div>
+
+<div ng-show="newCad" class="wrapper-lg bg-white-only text-center hidden-lg">
+
+    <button class="btn btn-success btn-md btn-addon md-whiteframe-z1" aria-expanded="false">
+        Nova Empresa
+        <i class="fa fa-industry pull-right" aria-hidden="true"></i>
+    </button>
+
+    <span class="text-muted">&nbsp; - ou - &nbsp;</span>
+
+    <button ng-click="showNovoContato('$event')" class="btn btn-info btn-md btn-addon md-whiteframe-z1" aria-expanded="false">
+        Novo Contato
+        <i class="fa fa-user-plus" aria-hidden="true"></i>
+    </button>
+
+</div>
+
+<!--<div class="btn-group w-full wrapper bg-light lter b-b">
+
+    <a data-toggle="dropdown" class="md-fab bg-white md-button md-ink-ripple" data-toggle="button">
+        <i class="ion-levels" aria-hidden="true"></i>
+
+    </a>
+    <ul class="dropdown-menu no-border w-full animated fadeIn md-whiteframe-z2 wrapper row bg-light lter">
+
+        <li class="col-md-12">
+            <h4>Filtro avançado do seu painel</h4>
+        </li>
+
+        <li class="col-md-3 col-xs-12 b-b">
+            <label>Período</label>
+
+        </li>
+
+        <li class="col-md-3 col-xs-12 b-b">
+            <label>Tipo de ordenação</label>
+
+        </li>
+
+        <li class="col-md-3 col-xs-12 b-b">
+            <label>Tipos</label>
+
+        </li>
+
+        <li class="col-md-3 col-xs-12 b-b">
+            <label>Outros</label>
+
+        </li>
+
+
+    </ul>
+
+
+</div>-->
+
+<div class="hbox hbox-auto-xs hbox-auto-sm  animated fadeInUp">
+
+
+    <div class="col">
+
+
+        <div class="wrapper-md bg-light">
+
+            <!-- panel hbox -->
+            <div class="panel hbox hbox-auto-xs">
+
+                <div class="panel-heading wrapper b-b b-light bg-light lter">
+                    <span class="text-xs text-muted pull-right"> 
+                            <i class="fa fa-circle text-default m-r-xs m-l-sm"></i> Em espera
+                            <i class="fa fa-circle text-info m-r-xs m-l-sm"></i> Em progresso
+                            <i class="fa fa-circle text-warning m-r-xs m-l-sm"></i> Com pendências
+                            <i class="fa fa-circle text-success m-r-xs m-l-sm"></i> Aprovado
+                            <i class="fa fa-circle text-danger m-r-xs m-l-sm"></i> Reprovado
+                            
+                    </span>
+                    <span class="font-thin m-t-none m-b-none text-muted h4"><i class="ion-clipboard m-r" aria-hidden="true"></i>situação dos cadastros</span>
+                </div>
+                <div class="btn-group w-full wrapper bg-white-only">
+
+                    <p class="text-muted m-r">Filtrar</p>
+                    <a class="btn btn-default btn-md active" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <i class="fa fa-industry" aria-hidden="true"></i>
+                        <span class="m-l-xs">Agentes</span>
+                        <span class="badge badge-lg v-middle bg-info lt pull-right-xs m-l-xs">1</span>
+                    </a>
+
+                    <a class="btn btn-default btn-md active" data-toggle="button" aria-pressed="false" autocomplete="off">
+                        <i class="fa fa-user" aria-hidden="true"></i>
+                        <span class="m-l-xs">Contato</span>
+                        <span class="badge badge-lg v-middle bg-info lt pull-right-xs m-l-xs">1</span>
+                    </a>
+
+                </div>
+                <!-- Busca Autocomplete -->
+                <div class="w-full no-padder" ng-controller="AutocompleteCtrl as ctrl" ng-cloak>
+                    <md-content layout-padding layout="column">
+                        <form ng-submit="$event.preventDefault()">
+                            <md-autocomplete ng-disabled="ctrl.isDisabled" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text-change="ctrl.searchTextChange(ctrl.searchText)" md-search-text="ctrl.searchText" md-selected-item-change="ctrl.selectedItemChange(item)"
+                                md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.name + item.forks" md-min-length="0" placeholder="buscar..." md-menu-class="autocomplete-custom-template">
+                                <md-item-template>
+                                    <span class="item-title">
+                            <!--
+                                                            <span class="thumb-xs avatar pull-left m-t-n-sm m-b-n-sm m-l-sm">
+                                                            <img src="images/profile.jpg" alt="...">
+                                                            </span> -->
+                                    <span class="h5 font-bold text-info"> {{item.name}} </span>
+                                    </span>
+                                    <span class="item-metadata">
+                                            <span class="item-metastat">no cadastro de 
+                                                <strong>{{item.watchers}}</strong> 
+                                            </span>
+                                    <span class="item-metastat">id de cadastro nº <strong>{{item.forks}}</strong></span>
+                                    <span class="item-metastat">recebido em <strong>{{item.receb}}</strong></span>
+                                    </span>
+                                </md-item-template>
+                            </md-autocomplete>
+                        </form>
+                    </md-content>
+                </div>
+
+                <!-- Lista Dashboard -->
+                <div class="panel-body no-padder">
+                    <table class="table table-responsive table-hover m-b-none">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-muted text-xs">opções</th>
+                                <th class="text-center">Tipo</th>
+                                <th>Contato</th>
+                                <th>Empresa</th>
+                                <th class="text-muted text-center">envio</th>
+                                <th class="text-muted text-center">prazo</th>
+                                <th class="text-muted text-center">situação do cadastro</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <div class="btn-group dropdown text-center">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a disabled="true" ui-sref="home.prototipos.empresa-mockup"><i class="fa fa-folder-open-o m-r-sm"></i>Abrir cadastro</a></li>
+                                            <li><a ui-sref="home.prototipos.wizard"><i class="ion-clipboard m-r-sm"></i>Verificar processo de Adesão</a></li>
+                                            <li class="divider"></li>
+                                            <li><span class="text-muted m-l-md">Ações rápidas</span></li>
+                                            <li><a href=""><i class="fa fa-eye m-r-sm"></i>Espiar
+                                                    <md-tooltip md-direction="right">Visualização rápida do cadastro.
+                                                    </md-tooltip>
+                                                    </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center text-success">
+                                    <i class="fa fa-industry m-r-sm"><md-tooltip md-direction="bottom">Agente</md-tooltip></i>
+
+                                </td>
+                                <td class="text-success">William Bradley Pitt</td>
+                                <td class="text-success">Vargas Industria de Motocicletas Ltda.</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/05/2016
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 18/09/2016
+                                </td>
+                                <td>
+                                    <div class="progress-striped progress-sm dk progress m-t-sm active" value="60" type="info">
+                                        <div class="progress-bar progress-bar-info" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="60%" style="width: 60%;"></div>
+                                        <md-tooltip md-direction="bottom">Em progresso</md-tooltip>
+                                    </div>
+                                </td>
+
+                            </tr>
+                            <tr>
+                                <td class="text-center">
+                                    <div class="btn-group dropdown text-center">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a ui-sref="home.prototipos.empresa-mockup"><i class="fa fa-folder-open-o m-r-sm"></i>Abrir cadastro</a></li>
+                                            <li><a ui-sref="home.prototipos.wizard"><i class="ion-clipboard m-r-sm"></i>Verificar processo de Adesão</a></li>
+                                            <li class="divider"></li>
+                                            <li><span class="text-muted m-l-md">Ações rápidas</span></li>
+                                            <li><a href=""><i class="fa fa-eye m-r-sm"></i>Espiar
+                                                    <md-tooltip md-direction="right">Visualização rápida do cadastro.
+                                                    </md-tooltip>
+                                                    </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center text-success">
+                                    <i class="fa fa-industry m-r-sm"><md-tooltip md-direction="bottom">Agente</md-tooltip></i>
+
+                                </td>
+                                <td class="text-success">William Bradley Pitt</td>
+                                <td class="text-success">Comercializadora Lorem Ipsum S.A.</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/05/2016
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 18/09/2016
+                                </td>
+                                <td>
+                                    <div class="progress-striped progress-sm dk progress m-t-sm active" value="60" type="info">
+                                        <div class="progress-bar progress-bar-warning" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="60%" style="width: 90%;"></div>
+                                        <md-tooltip md-direction="bottom">Com pendências</md-tooltip>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                            <tr>
+                                <td class="text-center">
+                                    <div class="btn-group dropdown text-center">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a ui-sref="home.prototipos.profile-mockup"><i class="fa fa-folder-open-o m-r-sm"></i>Abrir cadastro</a></li>
+                                            <li><a ui-sref="home.prototipos.wizard"><i class="ion-clipboard m-r-sm"></i>Verificar processo de Adesão</a></li>
+                                            <li class="divider"></li>
+                                            <li><span class="text-muted m-l-md">Ações rápidas</span></li>
+                                            <li><a href=""><i class="fa fa-eye m-r-sm"></i>Espiar
+                                                    <md-tooltip md-direction="right">Visualização rápida do cadastro.
+                                                    </md-tooltip>
+                                                    </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center text-info">
+                                    <i class="fa fa-user m-r-sm"><md-tooltip md-direction="bottom">Contatos</md-tooltip></i>
+                                </td>
+                                <td class="text-info">William Bradley Pitt</td>
+                                <td class="text-info">Comercializadora Lorem Ipsum S.A.</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/05/2016
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 18/09/2016
+                                </td>
+
+                                <td>
+
+                                    <div class="progress-sm dk progress m-t-sm active" value="100" type="info">
+                                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="90" style="width: 100%;"></div>
+                                        <md-tooltip md-direction="bottom">Aprovado</md-tooltip>
+                                    </div>
+
+                                </td>
+
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <!-- end -->
+
+            </div>
+
+            <div class="row" ng-controller="ProfileMockupController">
+
+                <div class="col-xs-12">
+
+                    <div class="panel hbox hbox-auto-xs">
+                        <div class="panel-heading b-b b-light bg-light lter">
+                            <span class="label label-warning pull-right m-t-sm wrapper-xs"> pendências registradas</span>
+                            <h4 class="font-thin m-t-sm m-b text-muted"><i class="ion-settings m-r" aria-hidden="true"></i> habilitação técnica</h4>
+                        </div>
+
+                        <ul class="list-group list-group-lg m-b-none">
+
+                            <li class="list-group-item">
+
+                                <button type="button" ui-sref="home.prototipos.empresa-mockup" class="m-r-xs btn btn-icon btn-rounded btn-link" disabled="disabled">
+                                    <span class="btn btn-link btn-icon"><i class="ion-clipboard m-r fa-2x text-muted" aria-hidden="true"></i></span>
+                                    <md-tooltip md-direction="left">Abrir cadastro</md-tooltip>
+                                </button>
+
+                                <a ng-click="goStats = !goStats" ng-class="{ active: goStats }" class="btn btn-rounded btn-default btn-icon thumb-sm m-r-xs">
+                                    <i class="fa fa-industry text-success" aria-hidden="true"></i>
+                                    <md-tooltip md-direction="top">Verificar situação da Habilitação técnica</md-tooltip>
+                                </a>
+
+                                <a ng-click="goStats = !goStats" ng-class="{ active: goStats }" class="text-success h5">Comercializadora Lorem Ipsum S.A.</a>
+
+                                <span class="pull-right inline">
+
+                                                            <a ng-click="habTecnica()" class="btn btn-sm btn-default m-r m-l"><i class="ion-plus m-r-xs" aria-hidden="true"></i>Informações</a>                                   
+                                                        </span>
+
+                                <div ng-show="goStats" class="w-full">
+
+                                    <div class="progress-striped active m-t-sm progress" value="50" type="info">
+                                        <div class="progress-bar blue-800" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" aria-valuetext="50%" style="width: 50%;">
+                                            <span>em progresso</span>
+                                        </div>
+                                    </div>
+
+                                    <div class="m-b text-center">
+
+                                        <div class="wrapper-xs b-b m-b">
+                                            <div class="font-thin h5">Datas</div>
+                                        </div>
+
+                                        <div class="clearfix m-t m-b">
+                                            <span class="text-xs text-muted">Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica, permanecendo essencialmente inalterado. </span>
+                                        </div>
+
+                                        <span class="label text-base bg-info pos-rlt m-r"><i class="arrow right arrow-info"></i> 01/09/2016 00:00</span>
+
+                                        <span class="text-info">solicitada </span> x <span class="text-success"> prevista</span>
+
+                                        <span class="label text-base bg-success pos-rlt m-l"><i class="arrow left arrow-success"></i> 18/09/2016 23:59</span>
+
+                                    </div>
+
+                            </li>
+
+                        </ul>
+
+                        <div class="wrapper bg-light lter">
+                            <p>
+                                <label class="md-switch">
+                                    <input type="checkbox" checked="checked">
+                                    <i class="blue-grey "></i> Receber notificações
+                                    <md-tooltip md-direction="bottom ">Estas notificações ficarão disponíveis na sua barra de controle do sistema</md-tooltip>
+                                </label>
+                            </p>
+                        </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12">
+
+                    <div class="panel hbox hbox-auto-xs">
+                        <div class="panel-heading b-b b-light bg-light lter">
+                            <span class="label label-default pull-right m-t-sm wrapper-xs ">nenhuma pendência</span>
+                            <h4 class="font-thin m-t-sm m-b text-muted "><i class="ion-briefcase m-r " aria-hidden="true "></i> habilitação comercial</h4>
+                        </div>
+
+                        <ul class="list-group list-group-lg m-b-none ">
+
+                            <li class="list-group-item">
+
+                                <a ng-click="goStatsCom=! goStatsCom " ng-class="{ active: goStatsCom } " class="btn btn-rounded btn-default btn-icon thumb-sm m-r-xs ">
+                                    <i class="fa fa-industry text-success " aria-hidden="true "></i>
+                                    <md-tooltip md-direction="top ">Verificar situação da Habilitação Comercial</md-tooltip>
+                                </a>
+
+                                <a ui-sref="home.prototipos.empresa-mockup " class="pull-left m-r-xs ">
+                                    <span class="btn btn-link btn-icon "><i class="ion-clipboard m-r fa-2x text-muted " aria-hidden="true "></i></span>
+                                    <md-tooltip md-direction="left ">Abrir cadastro</md-tooltip>
+                                </a>
+
+                                <a ng-click="goStatsCom=! goStatsCom " ng-class="{ active: goStats } " class="text-success h5 ">
+                                    Vargas Industria de Motocicletas Ltda.
+                        </a>
+
+                                <span ng-show="goStatsCom " class="pull-right inline ">
+                                <a ng-click="habTecnica() " class="btn btn-xs btn-default m-r m-l "><i class="ion-android-checkmark-circle m-r-xs " aria-hidden="true "></i>Documentos</a>
+                                <a ng-click="habTecnica() " class="btn btn-xs btn-default m-r m-l "><i class="ion-android-checkmark-circle m-r-xs " aria-hidden="true "></i>Certidão de adesão</a>          
+                        </span>
+
+
+                                <div ng-show="goStatsCom " class="progress-striped active m-t-sm progress " value="60 " type="info ">
+                                    <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="90 " aria-valuemin="0 " aria-valuemax="100" aria-valuetext="50% " style="width: 100%; ">
+                                        <span class="text-white ">processo concluído</span>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                        </ul>
+
+                        <div class="wrapper bg-light lter ">
+                            <p>
+                                <label class="md-switch ">
+                                    <input type="checkbox " checked>
+                                    <i class="blue-grey "></i> Receber notificações
+                                    <md-tooltip md-direction="bottom ">Estas notificações ficarão disponíveis na sua barra de controle do sistema</md-tooltip>
+                                </label>
+                            </p>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+        <!-- linha end -->
+
+    </div>
+
+</div>
+
+</div>

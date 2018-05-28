@@ -1,0 +1,154 @@
+<div class="row">
+
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin h1">{{ favoriteTopping }}</div>
+            <span class="text-muted text-xs">Motivo deste cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-user-plus text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorEmailPre }}</div>
+            <span class="text-muted text-xs">e-mail escolhido para o cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-envelope-o text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorUser }}</div>
+            <span class="text-muted text-xs">usuário pré-selecionado</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-user text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorDoc }}</div>
+            <span class="text-muted text-xs">documento para validação</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-key text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    
+    <div class="col-md-6 col-xs-12">
+<div layout-align="start center" layout-gt-lg="row">
+    
+<form name="form" required="true">
+    
+        <md-input-container class="col-sm-6 col-xs-12">
+            <label>Nome</label>
+            <input type="text" 
+                   name="name" 
+                   ng-model="valorName"
+                   required
+                   > 
+                     <div ng-messages="form.name.$error">
+                        <span ng-show="form.name.$invalid" ng-message="required">obrigatório</span>
+                    </div>
+           
+        </md-input-container>
+        <md-input-container class="col-sm-6 col-xs-12">
+             <label>Sobrenome</label>
+            <input type="text" 
+                   name="lastname" 
+                   required 
+                   ng-model="valorLastName">
+                     <div ng-messages="form.lastname.$error">
+                        <span ng-show="form.lastname.$invalid" ng-message="required">obrigatório</span>
+                    </div>
+        </md-input-container>
+
+        <md-input-container class="col-sm-6 col-xs-12">
+            <label>Telefone (celular)</label>
+            <input
+                   type="text" 
+                   name="cel" 
+                   ng-model="valorCel"
+                   placeholder="Ex.(11) 99999-2222"
+                   ui-mask="(99)99999-9999"  
+                   ui-mask-placeholder 
+                   ui-mask-placeholder-char="-"
+                   readonly
+                   >
+        </md-input-container>
+        
+        <md-input-container class="col-sm-6 col-xs-12">
+            <label>Telefone (Comercial)</label>
+            <input
+                   type="text" 
+                   name="cel" 
+                   ng-model="valorCel"
+                   placeholder="Ex.(11) 99999-2222"
+                   ui-mask="(99)99999-9999"  
+                   ui-mask-placeholder 
+                   ui-mask-placeholder-char="-"
+                   readonly
+                   >
+        </md-input-container>
+        
+        <md-input-container class="col-sm-12">
+            <label>Endereço (opcional)</label>
+            <input 
+                   type="text" 
+                   name="end" 
+                   ng-minlength="3" 
+                   ng-model="valorEnd"
+                   md-minlength="5" 
+                   min-length="5"
+                   readonly
+                   >
+                    <div ng-messages="form.pass2.$error">
+                        <span ng-show="form.pass.$invalid" ng-message="required">obrigatório</span>
+                    </div>
+        </md-input-container>
+    
+    
+        <md-input-container class="col-sm-6">
+            <label>E-mail informado</label>
+            <input 
+                   type="text" 
+                   name="end" 
+                   ng-model="valorEmailPre"
+                   readonly
+                   >
+        </md-input-container>
+
+    
+</form>
+    
+</div>
+    
+    </div>
+    
+    
+    <div class="col-md-6 col-xs-12">
+        <div class="panel padder-v item text-left wrapper-lg">
+            <span class="h2 text-success">Seus dados pessoais</span>
+            <br><br>
+            <p>Para avaliação deste pré-cadastro, juntamente com o seu perfil de usuário precisamos de algumas informações pessoais. </p>
+            <br>
+            <p>Apenas as informações importantes para juntar seu perfil com o perfil da empresa que pretende aderir a CCEE.</p>
+            <br>
+            <p>Estas informações estarão constantes em seu futuro cadastro e poderão ser atualizadas a qualquer instante.</p>
+            <br><em class="text-xs text-muted">obs.: Garantimos a integridade destas informações. Seucadastro jamais será divulgado ou explorado para outros fins que não sejam a comunição entre você e a CCEE.</em>
+            
+        </div>
+    </div>
+
+</div>
+
+<!--<div layout-align="center center" layout="row" layout-lg="column">-->

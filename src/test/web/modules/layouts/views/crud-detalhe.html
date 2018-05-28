@@ -1,0 +1,59 @@
+<div class="hbox wrapper-lg">
+    <span class="text-info h3">Demo app</span>
+    <p class="text-black">Demonstração de Create (Criação), Retrieve (Consulta), Update (Atualização) e Delete (Destruição).</p>
+</div>
+<gx-panel class="wrapper">
+
+    <gx-form gx-name="formDetalhe" gx-submit="save()" gx-force="false">
+        <gx-panel-header title="Dados do filme"></gx-panel-header>
+        <gx-panel-body class="container-fluid">
+
+            <div class="row m-t-md">
+                <div class="col-xs-12">
+                    <pre>{{selectedFilmJson}}</pre>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <gx-form-group label="Nome" required="true" description="Nome do filme" example="Avatar" model="$ctrl.film.name" class="col-sm-8">
+                    <input name="teste1" ng-model="$ctrl.film.name" ng-required="true" class="form-control" autocomplete="off">
+                    <gx-form-group-validator gx-type="error" gx-key="required" gx-force="isForceValidation(film, modelValue, viewValue)" gx-message="Campo realmente obrigatório">
+                    </gx-form-group-validator>
+                    <gx-form-group-validator gx-type="warning" gx-key="test" gx-force="isForceValidation(film, modelValue, viewValue)" gx-function="validate(film, modelValue, viewValue)" gx-message="getfeedbackMessage(film, modelValue, viewValue)" gx-timeout="3000">
+                    </gx-form-group-validator>
+                </gx-form-group>
+
+                <gx-form-group stereotype="date-year" label="Ano" required="true" description="Ano de lançamento do filme" example="2009" model="$ctrl.film.year" class="col-sm-2"></gx-form-group>
+
+                <gx-form-group stereotype="text" label="Ranking" required="true" description="Posição do filme no ranking de bilheteria" example="1" model="$ctrl.film.ranking" class="col-sm-2"></gx-form-group>
+
+            </div>
+
+            <div class="row">
+
+                <gx-form-group stereotype="text" label="Distribuidor" required="true" description="Nome do distribuidor do filme" example="20th Century Fox" model="$ctrl.film.company" class="col-sm-8"></gx-form-group>
+
+                <gx-form-group stereotype="text" label="Bilheteria" required="true" description="Quantia arrecadada em USS" example="2 787 965 087" model="$ctrl.film.amount" class="col-sm-4"></gx-form-group>
+
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12">
+                    <label>
+						<small class="text-muted">(<span class="required">*</span>) Preenchimento obrigatório</small>
+					</label>
+                </div>
+            </div>
+
+        </gx-panel-body>
+
+        <gx-panel-footer>
+            <gx-form-button ng-if="isCreateMode()" stereotype="post"></gx-form-button>
+            <gx-form-button ng-if="isEditMode()" stereotype="put"></gx-form-button>
+            <gx-form-button stereotype="cancel" on-click="voltar"></gx-form-button>
+            <gx-form-button stereotype="back" on-click="voltar"></gx-form-button>
+        </gx-panel-footer>
+
+    </gx-form>
+</gx-panel>

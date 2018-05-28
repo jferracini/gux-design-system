@@ -1,0 +1,210 @@
+<div class="row" ng-controller="ProfileMockupController">
+
+    <form required="true" name="form">
+
+        <h6>Lista de documentos vinculados à esta empresa.</h6>
+
+        <div class="row">
+            <span class="pull-right col-xs-12">
+                <a href ng-click="goCards = !goCards" class="btn btn-sm btn-default btn-addon">
+                    Organização da lista
+                    <i ng-class="goCards ? 'fa fa-list' : 'fa fa-th-large'"></i>
+                    <md-tooltip md-direction="left">Organização da lista</md-tooltip>
+                </a>
+            
+            </span>
+
+        </div>
+
+        <div class="panel-heading wrapper b-b b-light bg-light lter m-b m-t">
+            <span class="text-xs text-muted pull-right"> 
+                            <i class="fa fa-circle text-default m-r-xs m-l-sm"></i> Dispensado
+                            <i class="fa fa-circle text-success m-r-xs m-l-sm"></i> Conforme
+                            <i class="fa fa-circle text-danger m-r-xs m-l-sm"></i> Não conforme
+                            
+                    </span>
+            <span class="font-thin m-t-none m-b-none text-muted h4"><i class="ion-paperclip m-r" aria-hidden="true"></i>lista de documentos</span>
+        </div>
+
+        <div class="row m-t" ng-show="goCards">
+
+            <div ng-class="goCards ? 'animated fadeIn' : 'animated fadeOut'">
+
+                <div class="col-md-6 col-xs-12 v-middle">
+
+                    <md-card class="bg-white wrapper">
+
+                        <md-card-header>
+                            <md-card-avatar>
+                                <i class="fa fa-file-pdf-o fa-2x text-danger" aria-hidden="true"></i>
+                            </md-card-avatar>
+
+                            <md-card-header-text>
+                                <span class="md-title text-success"><a ui-sref="home.prototipos.profile-mockup">Termo de Adesão à Convenção Arbitral</a></span>
+                                <span class="text-muted text-sm">12/02/2015</span>
+
+                            </md-card-header-text>
+                        </md-card-header>
+
+                        <md-card-content>
+
+                            <div class="panel bg-light lter no-padder">
+                                <div class="row">
+                                    <div class="col-xs-6 b-r">
+                                        <small class="text-muted block">Data do documento</small>
+                                        <span class="text-md text-dark">12/02/2015</span>
+                                    </div>
+                                    <div class="col-xs-6">
+                                        <small class="text-muted block">Vencimento</small>
+                                        <span class="text-md text-muted">18/09/2016</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </md-card-content>
+
+                        <md-card-actions layout="row" layout-align="center center" class="layout-align-center-center layout-row">
+
+                            <a ng-click="showVigencia($event)" class="btn btn-md btn-default btn-icon btn-rounded"><i class="ion-android-calendar"></i> 
+                                                                            <md-tooltip md-direction="bottom">Vigência</md-tooltip>
+                                                                        </a>
+
+                            <div class="btn-group dropdown">
+                                <a href="" class="dropdown btn btn-md btn-link m-r-xs" data-toggle="dropdown" aria-expanded="false">
+                                    <i class="glyphicon glyphicon-option-horizontal"></i>
+                                </a>
+                                <ul class="dropdown-menu animated fadeIn">
+                                    <li><a href><i class="ion-clipboard m-r-sm"></i>Ver documento</a></li>
+                                    <li><a href><i class="fa fa-pencil-square-o m-r-sm"></i>Assinar digitalmente</a></li>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <em class="text-xs text-muted">Situação <span class="text-success">Conforme</span></em>
+
+
+
+                        </md-card-actions>
+
+
+
+                    </md-card>
+
+                </div>
+
+
+
+            </div>
+
+
+        </div>
+
+        <div ng-hide="goCards">
+
+            <div class="no-padder v-middle m-t">
+
+                <div class="bg-white-only text-center center" ng-class="goCards ? 'animated fadeOut' : 'animated fadeIn'">
+
+                    <table class="table table-responsive table-hover m-b-none">
+                        <thead>
+                            <tr>
+                                <th class="text-center text-muted text-xs">opções</th>
+                                <th class="text-center">Tipo</th>
+                                <th>Nome</th>
+                                <th class="text-muted text-center">data do documento</th>
+                                <th class="text-muted text-center">vencimento</th>
+                                <th class="text-muted text-center">situação do documento</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="text-center">
+                                    <div class="btn-group dropdown text-center">
+                                        <a href="" class="dropdown btn btn-md btn-link text-info" data-toggle="dropdown" aria-expanded="false"><i class="glyphicon glyphicon-option-horizontal"></i></a>
+                                        <ul class="dropdown-menu animated fadeIn">
+                                            <li><a href><i class="ion-clipboard m-r-sm"></i>Ver documento</a></li>
+                                            <li><a href><i class="fa fa-pencil-square-o m-r-sm"></i>Assinar digitalmente</a></li>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td class="text-center text-danger text-lg">
+                                    <i class="fa fa-file-pdf-o m-r-sm"><md-tooltip md-direction="bottom">Agente</md-tooltip></i>
+
+                                </td>
+                                <td>Termo de Adesão à Convenção Arbitral</td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-clock-o text-info m-r-xs"></i> 12/02/2015
+                                </td>
+                                <td class="text-muted text-center">
+                                    <i class="fa fa-calendar text-info m-r-xs"></i> 18/09/2016
+                                </td>
+                                <td>
+                                    <div class="progress-striped progress-xs dk progress m-t-sm" value="60" type="info">
+                                        <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="100%" style="width: 100%;"></div>
+                                        <md-tooltip md-direction="bottom">Conforme</md-tooltip>
+                                    </div>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </form>
+
+    <div class="col-xs-12">
+
+        <form name="form" required="true">
+
+            <div class="wrapper-sm b-a blue-grey-50 m-r-xs m-b-xs">
+                <div nv-file-over="" uploader="uploader" over-class="b-danger" class="b-a b-2x b-dashed wrapper-lg lter text-center text-muted" style="height: 200px;">
+                    <br><br><br>Arraste os arquivos do seu computador para este quadro
+                </div>
+
+                <div class="wrapper-md">
+                    <table class="table bg-white-only b-a">
+                        <thead>
+                            <tr>
+                                <th width="50%">Documento</th>
+                                <th ng-show="uploader.isHTML5" aria-hidden="false" class="">tamanho</th>
+                                <th ng-show="uploader.isHTML5" aria-hidden="false" class="">progresso</th>
+                                <th>status</th>
+                                <th>ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: item in uploader.queue -->
+                        </tbody>
+                    </table>
+                    <div>
+                        <div>
+                            <div class="progress bg-light dker" style="">
+                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-addon btn-success" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length" aria-disabled="true" disabled="disabled">
+          <i class="fa fa-arrow-circle-o-up"></i> Subir todos
+        </button>
+                        <button type="button" class="btn btn-addon btn-warning" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading" aria-disabled="true" disabled="disabled">
+          <i class="fa fa-ban"></i> Cancelar todos
+        </button>
+                        <button type="button" class="btn btn-addon btn-danger" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length" aria-disabled="true" disabled="disabled">
+            <i class="fa fa-trash-o"></i> Remover todos
+        </button>
+                        <p class="text-muted m-t-xl">obs: Somente arquivos em formato PDF.</p>
+                    </div>
+                </div>
+
+        </form>
+
+        </div>
+    </div>

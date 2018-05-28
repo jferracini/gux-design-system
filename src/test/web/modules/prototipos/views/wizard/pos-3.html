@@ -1,0 +1,241 @@
+<div class="row">
+
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin h1">{{ favoriteTopping }}</div>
+            <span class="text-muted text-xs">Motivo deste cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-user-plus text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorEmailPre }}</div>
+            <span class="text-muted text-xs">e-mail escolhido para o cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-envelope-o text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorUser }}</div>
+            <span class="text-muted text-xs">usuário pré-selecionado</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-user text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-3">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h5 text-info font-thin">{{ valorDoc }}</div>
+            <span class="text-muted text-xs">documento para validação</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-key text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-xs-12">
+
+        <div class="col-xs-6">
+
+            <div class="panel padder-v item text-left no-padder">
+                <span class="h2 text-success">Cadastro da empresa</span>
+                <br>
+                <br>
+                <p>Estas são as informações importantes para aprovação do cadastro junto a CCEE.</p>
+                <p>Certifique-se de estar inserindo dados corretos.</p>
+                <p>Caso seu cadastro seja aprovado, seu usuário estará habilitado para alterar, no futuro, informações aqui inseridas.</p>
+            </div>
+
+        </div>
+
+        <div class="col-xs-6">
+
+                <br>
+                <em class="text-xs text-muted">Instruções de preenchimento: Garantimos a integridade destas informações.</em>
+                <br>
+                <br>
+                <em class="text-xs text-muted">Instruções de preenchimento: Garantimos a integridade destas informações. Seucadastro jamais será divulgado ou explorado para outros fins que não sejam a comunição entre você e a CCEE.</em>
+                <br>
+                <br>
+                <em class="text-xs text-muted">Instruções de preenchimento: Garantimos a integridade destas informações. Seucadastro jamais será divulgado ou explorado para outros fins que não sejam a comunição entre você e a CCEE.</em>
+
+        </div>
+
+
+    </div>
+
+    <div class="col-xs-12">
+
+            <form name="form" required="true">
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+                <div class="row wrapper-xs">
+
+                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                        <label>Razão Social</label>
+                        <input class="input-lg" ng-model="valorRs" type="text" md-maxlength="100">
+                    </md-input-container>
+                    <md-input-container class="md-primary col-sm-6 col-xs-12">
+                        <label>Nome Fantasia</label>
+                        <input class="input-lg" ng-model="valorNf" type="text">
+                    </md-input-container>
+
+                </div>
+
+                <div class="row wrapper-xs m-t-n-lg">
+
+                    <md-input-container class="md-primary col-xs-6">
+                        <label>CNPJ</label>
+                        <input class="input-lg" ng-model="cnpj" type="text">
+                    </md-input-container>
+                    <md-input-container class="md-primary col-xs-6">
+                        <label>Ramo de Atividade</label>
+                        <input class="input-lg" ng-model="valorRa" type="text">
+                    </md-input-container>
+
+                </div>
+
+<!--
+                <div class="row wrapper-xs">
+                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                        <label>Sigla do Agente</label>
+                        <input class="input-lg" ng-model="valorSa" type="text">
+                    </md-input-container>
+                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                        <label>Classe</label>
+                        <input class="input-lg" ng-model="valorClasse" type="text">
+                    </md-input-container>
+
+                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                        <label>Categoria</label>
+                        <input class="input-lg" ng-model="valorCat" type="text">
+                    </md-input-container>
+
+                </div>
+-->
+
+<!--
+                <div class="row wrapper-xs m-t-n-lg">
+
+                    <md-input-container class="md-primary col-xs-6">
+                        <label>CNAE</label>
+                        <input class="input-lg" ng-model="cnae" type="text">
+                    </md-input-container>
+                    <md-input-container class="md-primary col-xs-6">
+                        <label>Tipo de Empresa </label>
+                        <input class="input-lg" ng-model="valorTipo" type="text">
+                    </md-input-container>
+
+                </div>
+-->
+
+                <div class="row wrapper-xs m-t-n-lg">
+
+                    <md-input-container class="md-primary col-xs-6">
+                        <label>Endereço do Site </label>
+                        <input class="input-lg" ng-model="valorWww" type="text">
+                    </md-input-container>
+
+                    <md-input-container class="md-primary col-sm-6 col-xs-6">
+                        <label>E-mail</label>
+                        <input class="input-lg" ng-model="valorEmail3" type="email">
+                    </md-input-container>
+
+                </div>
+
+
+
+                <div class="row wrapper-xs">
+
+                    <md-input-container class="md-primary col-xs-12">
+                        <label>Telefone (comercial)</label>
+                        <input class="input-lg" ng-model="valorPhone1" type="text">
+                    </md-input-container>
+
+                    <button class="btn btn-default btn-lg btn-block m-b"><i class="fa fa-phone pull-left"></i> Novo telefone</button>
+
+                </div>
+
+
+
+
+                <h4 class="text-muted"><i class="fa fa-map-marker pull-left"></i>Endereços</h4>
+                <div class="line line-dashed b-b line-lg"></div>
+                <h5 class="text-muted m-b font-bold">Principal</h6>
+
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-8 col-xs-12">
+                                                        <label>Logradouro (rua, avenida, alameda, etc.)</label>
+                                                        <input class="input-lg" ng-model="valorRua" type="text">
+                                                    </md-input-container>
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Número</label>
+                                                        <input class="input-lg" ng-model="valorNum" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Cidade</label>
+                                                        <input class="input-lg" ng-model="valorCidade" type="text">
+                                                    </md-input-container>
+
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>Estado</label>
+                                                        <input class="input-lg" ng-model="valorEstado" type="text">
+                                                    </md-input-container>
+
+                                                    <md-input-container class="md-primary col-sm-4 col-xs-12">
+                                                        <label>País</label>
+                                                        <input class="input-lg" ng-model="valorPais" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+
+                                                <div class="row wrapper-xs">
+
+                                                    <md-input-container class="md-primary col-sm-12">
+                                                        <label>Complemento</label>
+                                                        <input class="input-lg" ng-model="valorComplemento" type="text">
+                                                    </md-input-container>
+
+                                                </div>
+                                                
+                                                <h5 class="text-muted m-b font-bold">Endereço adicional</h6>
+                                                
+                                                <span class="text-danger">Nenhum endereço adicional cadastrado.</span>
+                                                
+                                                <div class="row wrapper-xs">
+
+                                                    <button class="btn btn-default btn-lg btn-block"><i class="fa fa-map-marker pull-left"></i> Novo endereço</button>
+
+                                                </div>
+
+
+            </form>
+
+
+    </div>
+
+</div>
+
+                <div class="line line-dashed b-b line-lg"></div>
+
+
+<!--<div layout-align="center center" layout="row" layout-lg="column">-->

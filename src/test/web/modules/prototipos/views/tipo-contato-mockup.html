@@ -1,0 +1,478 @@
+<div id="grid-container" class="no-padder m-t-lg" ng-controller="GridController">
+
+<div ng-show="alert" class="alert alert-success alert-dismissable animated fadeIn" role="alert" type="success" close="closeAlert($index)">
+    <button type="button" class="close" ng-click="close('alert')" aria-hidden="false">
+        <span aria-hidden="true">×</span>
+        <span class="sr-only">Close</span>
+    </button>
+    <div>{{alert}} para a  <strong>ENEX</strong></span></div>
+
+</div>
+    
+    <span class="text-muted h5 font-bold">1º nível - representações perante a CCEE</span>
+    <div class="line line-dashed b-b line-md"></div>
+    <div class="row m-b">
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-primary font-thin h4">Representante Legal
+                    <br><small>Gestor global das representações na CCEE para <strong>ENEX</strong></small></div>
+                <!--                <span class="text-muted text-xs clearfix">Contato legalmente constituído.</span>-->
+                <span class="text-info text-sm"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Descrição detalhada do Representante Legal.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items1">
+                
+                <li ng-repeat="item in itemsList.items1" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a ng-click="showNewUser($event)" href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                    <span class="text-muted font-thin clearfix">
+                        {{alert}}
+                    </span>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-primary font-thin h4">Representante CCEE
+                    <br><small>Responsabilidade atribúida para operações na CCEE da <strong>ENEX</strong></small></div>
+                <!--                <span class="text-muted text-xs clearfix">Gestor global das operações de mercado.</span>-->
+                <span class="text-info text-sm"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Esses podem quase tudo.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items2">
+
+                <li ng-repeat="item in itemsList.items2" as-sortable-item class="list-group-item bg-white w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-primary font-thin h4">Representante financeiro</div>
+                <span class="text-muted text-xs clearfix">Contato para representação financeira da <strong>ENEX</strong>.</span>
+                <span class="text-info text-sm"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Esses pagam as contas.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items3">
+
+                <li ng-repeat="item in itemsList.items3" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+
+    <span class="text-muted h5 font-bold">2º nível - Adminsitração interna</span>
+    <div class="line line-dashed b-b line-md"></div>
+
+    <div class="row m-b">
+
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-info font-thin h4">Administrador</div>
+                <span class="text-muted text-xs clearfix">Contato legalmente constituído para representação em âmbito jurídico da <strong>ENEX</strong>.</span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Recebimento de Comunicados e Alertas de alterações.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items4">
+
+                <li ng-repeat="item in itemsList.items4" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-info font-thin h4">Procurador</div>
+                <span class="text-muted text-xs clearfix">Contato legalmente constituído para representação em  jurídica, por meio de procuração pública ou privada concedida pela <strong>ENEX</strong>.</span>
+                <span class="text-info text-sm"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Esses acessam o CliqCCEE.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items5">
+
+                <li ng-repeat="item in itemsList.items5" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+
+
+
+    </div>
+
+    <span class="text-muted h5 font-bold">3º nível - Acessos e Serviços de Sistemas</span>
+    <div class="line line-dashed b-b line-md"></div>
+
+    <div class="row m-b">
+
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-success font-thin h4">Acesso ao SCDE
+                    <br><small>Acesso integral ao sistema ao Sistema de Coleta de Dados de Energia.</small></div>
+                <span class="text-muted text-xs clearfix"></span>
+                <span class="text-info text-md"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Recebimento de Comunicados e Alertas de alterações.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items6">
+
+                <li ng-repeat="item in itemsList.items6" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="on b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-success font-thin h4">Relatórios do SCDE
+                    <br><small>Acesso limitado aos Relatórios do SCDE e ao Módulo de Análises.</small></div>
+                <span class="text-muted text-xs clearfix"></span>
+                <span class="text-info text-md"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Recebimento de Comunicados e Alertas de alterações.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items7" >
+
+                <li ng-repeat="item in itemsList.items7" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-success font-thin h4">Notificações do SCDE
+                    <br><small>Comunicação da CCEE com Agentes de Medição</small></div>
+                <span class="text-muted text-xs clearfix">Recebimento de notificações referente a atividades de Coleta.</span>
+                <span class="text-info text-md"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Recebimento de Comunicados e Alertas de alterações.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items8">
+
+                <li ng-repeat="item in itemsList.items8" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+    <span class="text-muted h5 font-bold">4º nível - Informações e Serviços</span>
+    <div class="line line-dashed b-b line-md"></div>
+    <div class="row m-b">
+        
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-muted font-thin h4">Notificação do PLD por SMS
+                    <br><small>Recebimento de notificações no celular cadastrado pelo contato.</small></div>
+                
+                <span class="text-info text-md"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Recebimento de Comunicados e Alertas de alterações.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items9">
+
+                <li ng-repeat="item in itemsList.items9" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="off b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+        
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-muted font-thin h4">Comunicados CAM
+                    <br><small>Recebimento de comunicados do tipo XPTO.</small></div>
+                <span class="text-info text-md"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Recebimento de Comunicados e Alertas de alterações.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items10">
+
+                <li ng-repeat="item in itemsList.items10" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="on b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+        
+        <div class="col-md-4 col-xs-12 m-t-md">
+            <div class="panel bg-light lter lt padder-v wrapper-md item md-whiteframe-z0 min-h-90">
+                <div class="h1 text-muted font-thin h4">Cominicados CAD/SUP
+                    <br><small>Recebimento de comunicados do tipo XPTO.</small></div>
+                <span class="text-info text-md"></span>
+                <div class="top text-right w-full">
+                    <i class="ion-help text-light m-r-sm">
+                      <md-tooltip md-direction="top">Recebimento de Comunicados e Alertas de alterações.</md-tooltip>
+                    </i>
+                </div>
+            </div>
+
+            <ul class="list-group gutter list-group-lg list-group-sp drag-body b b-dashed grey-100 wrapper-xs" as-sortable="sortableOptions" data-ng-model="itemsList.items11">
+
+                <li ng-repeat="item in itemsList.items11" as-sortable-item class="list-group-item bg-light w-full m-b md-whiteframe-z0">
+                    <span class="pull-left">
+                        <span class="pull-left thumb-xxs avatar m-r">
+                            <img src="images/avatar.png" alt="...">
+                            <i class="away b-white right"></i>
+                        </span>
+                    </span>
+                    <span class="pull-right">
+                    <a href><i class="fa fa-bars fa-fw m-r-xs"></i></a>
+                    </span>
+                    <div as-sortable-item-handle class="clear m-t-xs">
+                        <span class="text-xs">{{item.Label}}</span>
+                    </div>
+
+                </li>
+                <li class="list-group-item center text-center bg-white-only b b-dashed">
+                    <a href class="text-muted"><i class="ion-person-add fa-2x text-light m-r-sm"></i>
+                      <md-tooltip md-direction="top">Adicionar contato.</md-tooltip>
+                        
+                    </a> 
+                </li>
+            </ul>
+
+        </div>
+    
+    
+    </div>
+
+
+</div>

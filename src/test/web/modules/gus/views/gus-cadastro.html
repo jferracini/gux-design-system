@@ -1,0 +1,169 @@
+<div class="container-fluid w-xxl w-auto-xs" ng-controller="CadastroController">
+
+        <a class="navbar-brand block m-t-md">
+            <img src="images/logo.png" class="w-md center" style="max-height:none;">
+        </a>
+ 
+        <div class="m-b-lg animated fadeInUp">
+
+            <div class="wrapper-xs text-center">
+                <h4 class="text-primary">Acesso ao conteúdo exclusivo.</h4>
+                <p>Você recebeu este link através do seu e-mail cadastrado</p>
+                <div class="alert alert-info" role="alert">
+                    A partir de agora é necessário confirmar suas informações para conclusão do seu cadastro.
+                </div>
+            </div>
+            <gx-panel>
+
+                <form required="true" name="form">
+
+                    <!--input name="campo1" type="text" ng-model="valorCampo1" ng-required="true" ng-class="{'bg-danger': form.campo1.$invalid}"></input-->
+
+                    <gx-panel-body>
+                        <h5 class="text-primary text-center">Identificação</h5>
+                        <p class="text-muted text-center">Insira seu <strong>e-mail</strong> e o número do seu <strong>CPF</strong>.</p>
+
+
+                        <div class="list-group list-group-sm m-t animated fadeIn">
+                            
+                            <div class="list-group-item">
+
+                                    <input 
+                                           type="email" 
+                                           name="email" 
+                                           placeholder="E-mail" 
+                                           class="form-control no-border" 
+                                           ng-model="valorEmail" required 
+                                           gx-tooltip="Confirme o e-mail cadastrado pelo qual você recebeu este link." 
+                                           gx-tooltip-placement="left">
+
+                                <span ng-hide="form.email.$pristine" ng-class="{'glyphicon-remove text-danger': form.email.$invalid, 'glyphicon-ok text-success' : form.email.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                </div>
+                            <div class="list-group-item">
+
+                                <input 
+                                       type="text" 
+                                       name="doc" 
+                                       placeholder="Ex. 222.222.222-00" 
+                                       class="form-control no-border" 
+                                       ng-model="pessoa.cpf"
+                                       required 
+                                       gx-tooltip="Trata-se do número enviado pelo representa durante a Adesão na CCEE." 
+                                       gx-tooltip-placement="left"
+                                       ng-minlength="3" 
+                                       ui-mask="999.999.999-99"  ui-mask-placeholder ui-mask-placeholder-char="_"
+                                       >
+
+
+                                <span ng-hide="form.doc.$pristine" ng-class="{'glyphicon-remove text-danger': form.doc.$invalid, 'glyphicon-ok text-success' : form.doc.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                <!-- feedback -->
+                                <span class="text-danger text-center animated fadeIn" role="alert">
+                                    <p class="text-danger" ng-if="form.doc.$dirty" ng-hide="form.doc.$valid">número inválido</p>
+                                    <p class="text-success" ng-show="form.doc.$valid">número válido</p>
+                                </span>
+
+                            </div>
+                        </div>
+
+                        <div ng-if="!!pessoa.cpf && isCpfValido()">
+
+                            <h5 class="text-primary text-center">Dados do usuário</h5>
+                            <p class="text-muted text-center">Escolha suas credenciais de acesso.</p>
+
+                            <div class="list-group list-group-sm m-t animated fadeIn">
+
+                                <div class="list-group-item">
+
+                                    <input 
+                                       type="text" 
+                                       name="nameuser"  
+                                       placeholder="Nome do usuário" 
+                                       class="form-control no-border" 
+                                       ng-model="valorUser"  
+                                       gx-tooltip="Este será o seu usuário de acesso ao conteúdo exclusivo." 
+                                       gx-tooltip-placement="left"
+                                       ng-minlength="5" 
+                                       ng-maxlength="20"
+                                       maxlength="9"       
+                                       required>
+
+                <span ng-class="{'glyphicon-remove text-danger': form.nameuser.$error.minlength, 'glyphicon-ok text-success' : form.nameuser.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+                                    
+                <span ng-class="{'glyphicon-warning-sign text-warning': form.nameuser.$error.maxlength }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                    <!-- feedback -->
+                                    <span class="text-center animated fadeIn" role="alert">
+                                        <p class="text-danger" ng-show="form.nameuser.$error.minlength">Nome muito curto.</p>
+                                        <p class="text-info" ng-show="form.nameuser.$error.maxlength">Cuidado! Nome muito longo!</p>
+                                        <p class="text-muted small" ng-show="form.nameuser.$error.required">escolha de 5 à 9 caractéres</p>
+                                    </span>
+
+                                </div>
+
+                                <div class="list-group-item">
+
+                                    <input 
+                                           type="password" 
+                                           name="pass1" 
+                                           placeholder="Senha" 
+                                           class="form-control no-border" 
+                                           ng-model="valorPsw" required 
+                                           gx-tooltip="Escolha até 9 caracteres. Varie entre letras e números." 
+                                           ng-minlength="9" 
+                                           gx-tooltip-placement="left">
+
+                                <span ng-class="{'glyphicon-remove text-danger': form.pass1.$error.minlength, 'glyphicon-ok text-success' : form.pass1.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                </div>
+
+                                <div class="list-group-item">
+
+                                    <input 
+                                           type="password" 
+                                           name="pass2" 
+                                           placeholder="Confirmar senha" 
+                                           class="form-control no-border" 
+                                           ng-model="valorPsw2" 
+                                           required 
+                                           gx-tooltip="Repita a senha escolhida" 
+                                           ng-minlength="9" 
+                                           gx-tooltip-placement="left">
+
+                                <span ng-class="{'glyphicon-remove text-danger': form.pass2.$error.minlength, 'glyphicon-ok text-success' : form.pass2.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                </div>
+
+                            </div>
+
+
+<!--
+                            <div class="list-group-item no-border">
+
+                                <div class="progress-striped active m-b-sm progress ng-isolate-scope" value="dynamic" type="warning">
+
+                                    <div class="progress-bar progress-bar-success" ng-class="type &amp;&amp; 'progress-bar-' + type" role="progressbar" aria-valuenow="68" aria-valuemin="0" aria-valuemax="100" ng-style="{width: percent + '%'}" aria-valuetext="97%" style="width: 97%;"><span class="">força da senha </span><i ng-show="showWarning" class="" aria-hidden="false">!!! WOW !!!</i></div>
+                                    
+                                </div>
+
+                            </div>
+-->
+                            
+<!--                        <button type="submit" class="btn btn-md btn-primary btn-block" ng-click="continue()" ng-disabled='form.$invalid'>continuar o cadastro <i class="fa fa-arrow-right pull-right"></i></button>-->
+                            
+                            <button type="submit" class="btn btn-lg btn-success btn-block btn-addon animated fadeIn" ng-click="cadastrar()" ng-hide='form.$invalid'><i class="fa fa-thumbs-up pull-right"></i>concluir o cadastro</button>
+
+                        </div>
+
+                        
+
+                    </gx-panel-body>
+                </form>
+
+            </gx-panel>
+                <div class="text-center m-b">Precisa de ajuda?</div>
+                <p class="text-center text-muted"><small>caso tenha dificuldades para avançar</small></p>
+                <a href="#" class="btn btn-sm btn-default btn-block">consulte nosso tutorial</a>
+        </div>
+    </div>

@@ -1,0 +1,14 @@
+<div class="row m-t-md">
+	<gx-form-group stereotype="autocomplete"
+		label="Filme"
+		required="$ctrl.required"
+		example="Avatar"
+		model-options="$ctrl.films"
+		model-option-attribute-key="ranking"
+		model-option-attribute-value="name"
+		model-option-attribute-badge="ranking"
+		model="$ctrl.selectedFilm"
+		on-create="$ctrl.create"
+		disabled="$ctrl.disabled"
+		class="col-sm-4"></gx-form-group>
+</div>

@@ -1,0 +1,9 @@
+<fieldset>
+	<legend>
+		<span ng-if="controller.collapsible" ng-click="controller.collapsed = !controller.collapsed">
+			<i ng-class="{'fa-chevron-right': controller.collapsed, 'fa-chevron-down': !controller.collapsed}" class="fa fa-fw" style="font-size: 0.6em; vertical-align: middle;"></i>
+		</span>
+		{{controller.title}}
+	</legend>
+	<span ng-transclude ng-class="{'collapse': controller.collapsible && controller.collapsed === true}"></span>
+</fieldset>

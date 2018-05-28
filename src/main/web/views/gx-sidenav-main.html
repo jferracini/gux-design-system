@@ -1,0 +1,30 @@
+<section>
+    <md-sidenav class="md-sidenav-left bg-black-opacity" md-component-id="left" md-disable-backdrop md-whiteframe="4">
+
+        <div class="md-navbar bg-black md-whiteframe-z1 gx-cockpit-nav">
+            <ul class="nav navbar-nav w-full">
+                <li class="pull-left m-l">
+                    <h3>Menu de contexto</h3>
+                </li>
+                <li class="pull-right">
+                    <a href ng-click="$ctrl.close()">
+                        <i class="fa fa-arrow-left" aria-hidden="true"></i>
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+        <md-content>
+
+            <div flex class="aside-wrap">
+                <div class="navi-wrap">
+
+                    <ng-include src="'views/gx-sidenav-app.html'"></ng-include>
+
+                </div>
+            </div>
+
+        </md-content>
+
+    </md-sidenav>
+</section>

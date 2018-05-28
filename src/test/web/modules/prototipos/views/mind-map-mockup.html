@@ -1,0 +1,14 @@
+<div class="minMapWrap" ng-controller="mindMapController">
+    <div class="mindMap" mind-map="root"></div>
+    
+    <div class="menu">
+        <div class="btn btn-default" ng-click="new()">Novo</div>
+
+        <div class="downloadWrap">
+            <input class="fileName" type="text" ng-model="fileName">
+            <div class="btn btn-default" ng-click="save()">Salvar</div>
+            <div id="downloadLinkWrap"></div>
+        </div>
+
+    </div>
+</div>

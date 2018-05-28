@@ -1,0 +1,131 @@
+<div class="row">
+
+    <div class="col-xs-6">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h3 text-info font-thin h1">{{ favoriteTopping }}</div>
+            <span class="text-muted text-xs">Motivo deste cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-user-plus text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6">
+        <div class="panel padder-v item card text-center bg-light lter">
+            <div class="h3 text-info font-thin">{{ valorEmailPre }}</div>
+            <span class="text-muted text-xs">e-mail escolhido para o cadastro</span>
+            <div class="top text-right w-full">
+                <i class="fa fa-envelope-o text-muted m-r-sm"></i>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <div class="panel padder-v item text-left wrapper-lg">
+            <span class="h2 text-success">Situação do cadastro</span>
+            <br><br>
+            <p>Este foi o <strong>pré-cadastro</strong> enviado com as informações da empresa que pretende realizar a adesão como novo Agente na CCEE. </p>
+            <p>Os dados inseridos estão aguardando análise da CCEE.</p>
+            <br><em class="text-xs text-muted">obs.: os dados serão enviados para o seu e-mail assim que confirmados.</em>
+            
+        </div>
+    </div>
+
+<div class="col-md-6 col-xs-12">
+<div layout-align="start center" layout-gt-lg="row">
+    
+<form name="form" required="true">
+
+        <md-input-container class="md-block flex-gt-sm">
+            <label>CPF</label>
+            <input type="text" 
+                   name="doc" 
+                   ng-model="valorDoc"
+                   required 
+                   ng-minlength="3" 
+                   ui-mask="999.999.999-99"  
+                   ui-mask-placeholder 
+                   ui-mask-placeholder-char="_"
+                   readonly
+                   >
+                     <div ng-messages="form.doc.$error">
+                        <span ng-show="form.doc.$invalid" ng-message="required">obrigatório</span>
+                    </div>
+<!--                  <span class="text-success animated fadeIn" ng-show="form.doc.$valid">Perfeito!</span>-->
+<!--
+            <md-radio-group class="form-inline">
+              <md-radio-button>CPF</md-radio-button>
+              <md-radio-button>RG</md-radio-button>
+              <md-radio-button>outro</md-radio-button>
+          </md-radio-group>
+-->
+        </md-input-container>
+        
+        <md-input-container class="md-block flex-gt-sm">
+            <label>Usuário (login)</label>
+            <input
+                   type="text" 
+                   name="user" 
+                   ng-model="valorUser"
+                   required 
+                   ng-minlength="3" 
+                   ng-model="valorUser"
+                   md-maxlength="10" 
+                   max-length="10"
+                   readonly
+                   >
+                    <div ng-messages="form.user.$error">
+                        <span ng-show="form.user.$invalid" ng-message="required">obrigatório</span>
+                        <span ng-hide="form.user.$valid" ng-message="md-maxlength">No máximo 10 caracteres.</span>
+                    </div>
+        </md-input-container>
+        
+        <md-input-container class="md-block flex-gt-sm">
+            <label>Senha</label>
+            <input 
+                   type="password" 
+                   name="pass" 
+                   ng-model="valorPass"
+                   ng-minlength="5" 
+                   ng-model="valorPass"
+                   md-minlength="5" 
+                   min-length="5"
+                   required
+                   readonly
+                   >
+                    <div ng-messages="form.pass.$error">
+                        <span ng-show="form.pass.$invalid" ng-message="required">obrigatório</span>
+                        <span ng-hide="form.pass.$valid" ng-message="md-minlength">No mínimo 5 caracteres.</span>
+                    </div>
+        </md-input-container>
+        
+        <md-input-container class="md-block flex-gt-sm">
+            <label>Confirme a senha</label>
+            <input 
+                   type="password" 
+                   name="pass2" 
+                   ng-model="valorPass"
+                   ng-minlength="5" 
+                   md-minlength="5" 
+                   min-length="5"
+                   required
+                   readonly
+                   >
+                    <div ng-messages="form.pass2.$error">
+                        <span ng-show="form.pass.$invalid" ng-message="required">obrigatório</span>
+                        <span ng-hide="form.pass2.$valid" ng-message="md-minlength">No mínimo 5 caracteres.</span>
+                    </div>
+        </md-input-container>
+
+    
+</form>
+    
+</div>
+    
+    </div>
+</div>
+
+<!--<div layout-align="center center" layout="row" layout-lg="column">-->

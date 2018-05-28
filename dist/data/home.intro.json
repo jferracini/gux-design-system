@@ -1,0 +1,20 @@
+{
+	"steps": [
+        
+        {
+			"element": "[class='highlight']",
+			"intro": "Este é nosso logo."
+		},
+		{
+			"intro": "Comece a usar o Global UX!"
+		},
+		{
+			"element": ".hidden-folded",
+			"intro": "Este é nosso logo."
+		},
+		{
+			"element": "[gx-intro-id='1']",
+			"intro": "Jumbotron ! Here i am !."
+		}
+	]
+}

@@ -1,0 +1,4 @@
+<select name="{{::$ctrl.parent.elementName}}" ng-attr-ng-required="$ctrl.parent.required" ng-options="modelOption[$ctrl.parent.modelOptionAttributeValue] for modelOption in $ctrl.parent.modelOptions track by modelOption[$ctrl.parent.modelOptionAttributeKey]"
+    ng-model="$ctrl.parent.model" ng-attr-tabindex="{{$ctrl.parent.gxTabindex}}" ng-attr-ng-readonly="{{::$ctrl.parent.readonly}}" ng-attr-ng-disabled="$ctrl.parent.disabled" class="form-control">
+	<option value="">Selecione...</option>
+</select>

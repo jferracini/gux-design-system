@@ -1,0 +1,631 @@
+[
+  {
+    "ranking": 1,
+    "year": "2009-01-01T00:00:00",
+    "name": "Avatar",
+    "company": "20th Century Fox",
+    "synopsis": "blwoind skj slkjs oi qpoijd  oqiwjd oqisj  qosijd  oqijd",
+    "amount": 2787965087,
+    "successFormula": "Success=\\frac{Sales}{Cost}",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 2,
+    "year": "1997-01-01T00:00:00",
+    "name": "Titanic",
+    "company": "20th Century Fox/Paramount Pictures",
+    "amount": 2186772302,
+    "successFormula": "Success=\\frac{Sales}{Cost}",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 3,
+    "year": "2015-01-01T00:00:00",
+    "name": "Star Wars: Episódio VII - O Despertar da Força",
+    "company": "Walt Disney Pictures",
+    "amount": "1 983 226 162",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 4,
+    "year": "2015-01-01T00:00:00",
+    "name": "Jurassic World",
+    "company": "Universal Pictures",
+    "amount": "1 669 984 926",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 5,
+    "year": "2012-01-01T00:00:00",
+    "name": "Os Vingadores",
+    "company": "Walt Disney Pictures",
+    "amount": "1 519 557 910",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 6,
+    "year": "2015-01-01T00:00:00",
+    "name": "Velozes e Furiosos 7",
+    "company": "Universal Pictures",
+    "amount": "1 515 047 671",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 7,
+    "year": "2015-01-01T00:00:00",
+    "name": "Vingadores: Era de Ultron",
+    "company": "Walt Disney Pictures",
+    "amount": "1 405 035 767",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 8,
+    "year": "2011-01-01T00:00:00",
+    "name": "Harry Potter e as Relíquias da Morte – Parte 2",
+    "company": "Warner Bros",
+    "amount": "1 341 511 219",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 9,
+    "year": "2013-01-01T00:00:00",
+    "name": "Frozen",
+    "company": "Walt Disney Pictures",
+    "amount": "1 276 480 335",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 10,
+    "year": "2013-01-01T00:00:00",
+    "name": "Homem de Ferro 3",
+    "company": "Walt Disney Pictures",
+    "amount": "1 215 439 994",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 11,
+    "year": "2015-01-01T00:00:00",
+    "name": "Minions",
+    "company": "Universal Pictures",
+    "amount": "1 157 275 017",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 12,
+    "year": "2011-01-01T00:00:00",
+    "name": "Transformers: O Lado Oculto da Lua",
+    "company": "Paramount Pictures",
+    "amount": "1 123 794 079",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 13,
+    "year": "2003-01-01T00:00:00",
+    "name": "O Senhor dos Anéis: O Retorno do Rei",
+    "company": "New Line Cinema",
+    "amount": "1 119 929 521",
+    "favorite": "no"
+  },
+  {
+    "ranking": 14,
+    "year": "2012-01-01T00:00:00",
+    "name": "007 - Operação Skyfall",
+    "company": "Columbia Pictures",
+    "amount": "1 108 561 013",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 15,
+    "year": "2014-01-01T00:00:00",
+    "name": "Transformers: A Era da Extinção",
+    "company": "Paramount Pictures",
+    "amount": "1 104 054 072",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 16,
+    "year": "2012-01-01T00:00:00",
+    "name": "Batman: O Cavaleiro das Trevas Ressurge",
+    "company": "Warner Bros",
+    "amount": "1 084 939 099",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 17,
+    "year": "2006-01-01T00:00:00",
+    "name": "Piratas do Caribe: O Baú da Morte",
+    "company": "Walt Disney Pictures",
+    "amount": "1 066 179 725",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 18,
+    "year": "2010-01-01T00:00:00",
+    "name": "Toy Story 3",
+    "company": "Walt Disney Pictures",
+    "amount": "1 063 171 911",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 19,
+    "year": "2011-01-01T00:00:00",
+    "name": "Piratas do Caribe: Navegando em Águas Misteriosas",
+    "company": "Walt Disney Pictures",
+    "amount": "1 045 713 802",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 20,
+    "year": "1993-01-01T00:00:00",
+    "name": "Jurassic Park: O Parque dos Dinossauros",
+    "company": "Universal Studios",
+    "amount": "1 029 153 882",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 21,
+    "year": "1999-01-01T00:00:00",
+    "name": "Star Wars: Episódio I - A Ameaça Fantasma",
+    "company": "20th Century Fox",
+    "amount": "1 027 044 677",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 22,
+    "year": "2010-01-01T00:00:00",
+    "name": "Alice no País das Maravilhas",
+    "company": "Walt Disney Pictures",
+    "amount": "1 025 467 110",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 23,
+    "year": "2012-01-01T00:00:00",
+    "name": "O Hobbit: Uma Jornada Inesperada",
+    "company": "Warner Bros",
+    "amount": "1 021 103 568",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 24,
+    "year": "2008-01-01T00:00:00",
+    "name": "Batman - O Cavaleiro das Trevas",
+    "company": "Warner Bros",
+    "amount": "1 004 558 444",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 25,
+    "year": "1994-01-01T00:00:00",
+    "name": "O Rei Leão",
+    "company": "Walt Disney Pictures",
+    "amount": "987 483 777",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 26,
+    "year": "2001-01-01T00:00:00",
+    "name": "Harry Potter e a Pedra Filosofal",
+    "company": "Warner Bros",
+    "amount": "974 755 371",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 27,
+    "year": "2013-01-01T00:00:00",
+    "name": "Meu Malvado Favorito 2",
+    "company": "Universal Pictures",
+    "amount": "970 761 885",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 28,
+    "year": "2007-01-01T00:00:00",
+    "name": "Piratas do Caribe: No Fim do Mundo",
+    "company": "Walt Disney Pictures",
+    "amount": "963 420 425",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 29,
+    "year": "2010-01-01T00:00:00",
+    "name": "Harry Potter e as Relíquias da Morte - Parte 1",
+    "company": "Warner Bros",
+    "amount": "960 283 305",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 30,
+    "year": "2013-01-01T00:00:00",
+    "name": "O Hobbit: A Desolação de Smaug",
+    "company": "Warner Bros",
+    "amount": "958 366 855",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 31,
+    "year": "2014-01-01T00:00:00",
+    "name": "O Hobbit: A Batalha dos Cinco Exércitos",
+    "company": "Warner Bros",
+    "amount": "956 019 788",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 32,
+    "year": "2007-01-01T00:00:00",
+    "name": "Harry Potter e a Ordem da Fênix",
+    "company": "Warner Bros",
+    "amount": "939 885 929",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 33,
+    "year": "2003-01-01T00:00:00",
+    "name": "Procurando Nemo",
+    "company": "Walt Disney Pictures",
+    "amount": "936 743 261",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 34,
+    "year": "2009-01-01T00:00:00",
+    "name": "Harry Potter e o Enigma do Príncipe",
+    "company": "Warner Bros",
+    "amount": "934 416 487",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 35,
+    "year": "2002-01-01T00:00:00",
+    "name": "O Senhor dos Anéis: As Duas Torres",
+    "company": "New Line Cinema",
+    "amount": "926 047 111",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 36,
+    "year": "2004-01-01T00:00:00",
+    "name": "Shrek 2",
+    "company": "DreamWorks/Paramount Pictures",
+    "amount": "919 838 758",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 37,
+    "year": "2005-01-01T00:00:00",
+    "name": "Harry Potter e o Cálice de Fogo",
+    "company": "Warner Bros",
+    "amount": "896 911 078",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 38,
+    "year": "2007-01-01T00:00:00",
+    "name": "Homem-Aranha 3",
+    "company": "Columbia Pictures",
+    "amount": "890 871 626",
+    "favorite": "no"
+  },
+  {
+    "ranking": 39,
+    "year": "2009-01-01T00:00:00",
+    "name": "A Era do Gelo 3",
+    "company": "20th Century Fox",
+    "amount": "886 686 817",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 40,
+    "year": "2002-01-01T00:00:00",
+    "name": "Harry Potter e a Câmara Secreta",
+    "company": "Warner Bros",
+    "amount": "878 979 634",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 41,
+    "year": "2015-01-01T00:00:00",
+    "name": "007 Contra Spectre",
+    "company": "Columbia Pictures",
+    "amount": "877 668 065",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 42,
+    "year": "2012-01-01T00:00:00",
+    "name": "A Era do Gelo 4",
+    "company": "20th Century Fox",
+    "amount": "877 244 782",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 43,
+    "year": "2001-01-01T00:00:00",
+    "name": "O Senhor dos Anéis: A Sociedade do Anel",
+    "company": "New Line Cinema",
+    "amount": "871 530 324",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 44,
+    "year": "2013-01-01T00:00:00",
+    "name": "Jogos Vorazes: Em Chamas",
+    "company": "Lionsgate",
+    "amount": "865 011 746",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 45,
+    "year": "2015-01-01T00:00:00",
+    "name": "Divertida Mente",
+    "company": "Walt Disney Pictures",
+    "amount": "856 130 132",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 46,
+    "year": "2005-01-01T00:00:00",
+    "name": "Star Wars: Episódio III - A Vingança dos Sith",
+    "company": "20th Century Fox",
+    "amount": "848 754 768",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 47,
+    "year": "2009-01-01T00:00:00",
+    "name": "Transformers: A Vingança dos Derrotados",
+    "company": "Paramount Pictures",
+    "amount": "836 303 693",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 48,
+    "year": "2012-01-01T00:00:00",
+    "name": "A Saga Crepúsculo: Amanhecer - Parte 2, O Final",
+    "company": "Summit Entertainment/Lionsgate",
+    "amount": "829 746 820",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 49,
+    "year": "2010-01-01T00:00:00",
+    "name": "A Origem",
+    "company": "Warner Bros",
+    "amount": "825 532 764",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 50,
+    "year": "2002-01-01T00:00:00",
+    "name": "Homem-Aranha",
+    "company": "Columbia Pictures",
+    "amount": "821 708 551",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 51,
+    "year": "1996-01-01T00:00:00",
+    "name": "Independence Day",
+    "company": "20th Century Fox",
+    "amount": "817 400 891",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 52,
+    "year": "2007-01-01T00:00:00",
+    "name": "Shrek Terceiro",
+    "company": "DreamWorks/Paramount Pictures",
+    "amount": "798 958 162",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 53,
+    "year": "2004-01-01T00:00:00",
+    "name": "Harry Potter e o Prisioneiro de Azkaban",
+    "company": "Warner Bros",
+    "amount": "796 688 549",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 54,
+    "year": "1982-01-01T00:00:00",
+    "name": "E.T. - O Extraterrestre",
+    "company": "Universal Pictures",
+    "amount": "792 910 554",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 55,
+    "year": "2013-01-01T00:00:00",
+    "name": "Velozes e Furiosos 6",
+    "company": "Universal Pictures",
+    "amount": "788 679 850",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 56,
+    "year": "2008-01-01T00:00:00",
+    "name": "Indiana Jones e O Reino da Caveira de Cristal",
+    "company": "Paramount Pictures",
+    "amount": "786 636 033",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 57,
+    "year": "2004-01-01T00:00:00",
+    "name": "Homem-Aranha 2",
+    "company": "Columbia Pictures",
+    "amount": "783 766 341",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 58,
+    "year": "1977-01-01T00:00:00",
+    "name": "Star Wars: Episódio IV - Uma Nova Esperança",
+    "company": "20th Century Fox",
+    "amount": "775 398 007",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 59,
+    "year": "2014-01-01T00:00:00",
+    "name": "Guardiões da Galáxia",
+    "company": "Walt Disney Pictures",
+    "amount": "773 312 399",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 60,
+    "year": "2009-01-01T00:00:00",
+    "name": "2012",
+    "company": "Columbia Pictures",
+    "amount": "769 679 473",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 61,
+    "year": "2014-01-01T00:00:00",
+    "name": "Malévola",
+    "company": "Walt Disney Pictures",
+    "amount": "758 539 785",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 62,
+    "year": "2006-01-01T00:00:00",
+    "name": "O Código da Vinci",
+    "company": "Columbia Pictures",
+    "amount": "758 239 851",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  },
+  {
+    "ranking": 63,
+    "year": "2012-01-01T00:00:00",
+    "name": "O Espetacular Homem-Aranha",
+    "company": "Columbia Pictures",
+    "amount": "757 930 663",
+    "favorite": "no",
+    "like": false,
+    "dislike": false
+  }
+]

@@ -1,0 +1,139 @@
+<div class="row">
+
+    <div class="col-md-12">
+        <div class="panel padder-v item text-left wrapper">
+            <div class="col-xs-3">
+                <div class="panel padder-v item card text-center bg-light lter">
+                    <div class="h5 text-info font-thin h1">{{ favoriteTopping }}</div>
+                    <span class="text-muted text-xs">Motivo deste cadastro</span>
+                    <div class="top text-right w-full">
+                        <i class="fa fa-user-plus text-muted m-r-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="panel padder-v item card text-center bg-light lter">
+                    <div class="h5 text-info font-thin">{{ valorEmailPre }}</div>
+                    <span class="text-muted text-xs">e-mail escolhido para o cadastro</span>
+                    <div class="top text-right w-full">
+                        <i class="fa fa-envelope-o text-muted m-r-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="panel padder-v item card text-center bg-light lter">
+                    <div class="h5 text-info font-thin">{{ valorUser }}</div>
+                    <span class="text-muted text-xs">login escolhido</span>
+                    <div class="top text-right w-full">
+                        <i class="fa fa-user text-muted m-r-sm"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-3">
+                <div class="panel padder-v item card text-center bg-light lter">
+                    <div class="h5 text-info font-thin">{{ valorDoc }}</div>
+                    <span class="text-muted text-xs">documento (CPF)</span>
+                    <div class="top text-right w-full">
+                        <i class="fa fa-key text-muted m-r-sm"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row">
+
+    <div class="col-md-6 col-xs-12">
+        <div class="panel padder-v item text-left wrapper-lg">
+
+            <span class="h2 text-success">Documentos</span>
+            <br><br>
+            <p>Durante a adesão estes serão os documentos solicitados.</p>
+            <p>Para agilizar o processo é possível anexar neste momento todos os documentos comprobatórios.</p>
+            <br>
+            <span class="h3 text-muted">Quais são os documentos?</span>
+
+            <ul class="list-group alt">
+
+                <li class="list-group-item">
+                    <i class="fa fa-file-pdf-o fa-fw m-r-xs"></i>
+                    <span class="h6 text-muted">Documento Xpto</span>
+                    <span class="text-xs text-muted clearfix">Em processo de Adesão.</span>
+
+                </li>
+
+                <li class="list-group-item">
+                    <i class="fa fa-file-pdf-o fa-fw m-r-xs"></i>
+                    <span class="h6 text-muted">Documento 2</span>
+                    <span class="text-xs text-muted clearfix"> Como você optou por uma nova adesão de um candidato a Agente agora é necessário que sejam enviados os dados necessários para habilitação.</span>
+                </li>
+
+
+                <li class="list-group-item">
+                    <i class="fa fa-file-pdf-o fa-fw m-r-xs"></i>
+                    <span class="h6 text-muted">Documento 3</span>
+                    <span class="text-xs text-muted clearfix"> A partir do envio de todos os documentos comprobatórios.</span>
+                </li>
+
+                <li class="list-group-item">
+                    <i class="fa fa-file-pdf-o fa-fw m-r-xs"></i>
+                    <span class="h6 text-muted">Termo de Adesão</span>
+                    <span class="text-xs text-muted clearfix"> A partir do envio de todos os documentos comprobatórios.</span>
+                </li>
+
+        </div>
+    </div>
+
+    <div class="col-md-6 col-xs-12">
+
+        <form name="form" required="true">
+
+            <div class="wrapper-sm b-a blue-grey-50 m-r-xs m-b-xs">
+                <div nv-file-over="" uploader="uploader" over-class="b-danger" class="b-a b-2x b-dashed wrapper-lg lter text-center text-muted" style="height: 200px;">
+                    <br><br><br>Arraste os arquivos do seu computador para este quadro
+                </div>
+
+                <div class="wrapper-md">
+                    <table class="table bg-white-only b-a">
+                        <thead>
+                            <tr>
+                                <th width="50%">Documento</th>
+                                <th ng-show="uploader.isHTML5" aria-hidden="false" class="">tamanho</th>
+                                <th ng-show="uploader.isHTML5" aria-hidden="false" class="">progresso</th>
+                                <th>status</th>
+                                <th>ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- ngRepeat: item in uploader.queue -->
+                        </tbody>
+                    </table>
+                    <div>
+                        <div>
+                            <div class="progress bg-light dker" style="">
+                                <div class="progress-bar progress-bar-striped bg-info" role="progressbar" ng-style="{ 'width': uploader.progress + '%' }" style="width: 0%;"></div>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-addon btn-success" ng-click="uploader.uploadAll()" ng-disabled="!uploader.getNotUploadedItems().length" aria-disabled="true" disabled="disabled">
+          <i class="fa fa-arrow-circle-o-up"></i> Subir todos
+        </button>
+                        <button type="button" class="btn btn-addon btn-warning" ng-click="uploader.cancelAll()" ng-disabled="!uploader.isUploading" aria-disabled="true" disabled="disabled">
+          <i class="fa fa-ban"></i> Cancelar todos
+        </button>
+                        <button type="button" class="btn btn-addon btn-danger" ng-click="uploader.clearQueue()" ng-disabled="!uploader.queue.length" aria-disabled="true" disabled="disabled">
+            <i class="fa fa-trash-o"></i> Remover todos
+        </button>
+                        <p class="text-muted m-t-xl">obs: Somente arquivos em formato PDF.</p>
+                    </div>
+                </div>
+
+        </form>
+
+        </div>
+
+    </div>

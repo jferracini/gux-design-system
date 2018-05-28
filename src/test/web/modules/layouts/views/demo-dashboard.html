@@ -1,0 +1,270 @@
+<div class="hbox hbox-auto-xs hbox-auto-sm">
+    <!-- main -->
+    <div class="col">
+        <!-- / main header -->
+        <div class="wrapper-md">
+            <!-- stats -->
+            <div class="row">
+                <!--<md-content class="md-padding _md layout-xs-column layout-row" layout-xs="column" layout="row">
+                    <div flex-xs="" flex-gt-xs="50" layout="column" class="layout-column flex-xs flex-gt-xs-50">
+
+
+
+                    </div>
+                </md-content>-->
+
+                <div class="col-lg-7 col-xs-12">
+                    <div class="panel panel-default no-border">
+                        <div class="wrapper">
+                            <label class="i-switch bg-success pull-right" ng-init="showSpline=true">
+                        <input type="checkbox" ng-model="showSpline">
+                            <i></i>
+                        </label>
+                            <h4 class="font-thin m-t-none m-b text-muted">Variação do PLD</h4>
+                            <md-card md-theme="default" md-theme-watch="" class="_md md-default-theme" style="box-shadow: none;">
+                                <canvas class="chart chart-line" chart-data="data" chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>
+                            </md-card>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="row row-sm text-center">
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item card">
+                                <div class="h1 text-info font-thin h1">521</div>
+                                <span class="text-muted text-xs">Cadastros</span>
+                                <div class="top text-left">
+                                    <i class="fa fa-file-text-o m-t-sm text-muted m-l-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href class="block panel padder-v item card">
+                                <span class="text-success font-thin h1 block">930</span>
+                                <span class="text-muted text-xs">Pontos</span>
+                                <span class="top text-left">
+                                <i class="fa fa-cloud-upload text-success m-t-sm m-l-sm"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <a href class="block panel padder-v item card">
+                                <span class="text-primary font-thin h1 block">432</span>
+                                <span class="text-muted text-xs">Usuários</span>
+                                <span class="top text-left">
+                                <i class="fa fa-users text-info m-l-sm"></i>
+                                </span>
+                            </a>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel padder-v item card">
+                                <div class="font-thin h1">129</div>
+                                <span class="text-muted text-xs">Em fila</span>
+                                <div class="top text-left">
+                                    <i class="fa fa-clock-o text-info m-l-sm"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 m-b-md">
+                            <div class="r green-600 item hbox no-border md-whiteframe-z0">
+                                <div class="col w-xs v-middle hidden-md">
+                                    <i class="fa fa-money fa-3x text-light m-l-sm"></i>
+                                </div>
+                                <div class="col green padder-v r-r">
+                                    <div class="font-thin h2"><span>R$ 12.670.223,00</span></div>
+                                    <span class="text-xs">Contabilizado</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 m-b-md">
+                            <div class="r blue-600 item hbox no-border md-whiteframe-z0">
+                                <div class="col w-xs v-middle hidden-md">
+                                    <i class="fa fa-university fa-3x text-light m-l-sm"></i>
+                                </div>
+                                <div class="col blue padder-v r-r">
+                                    <div class="font-thin h2"><span>R$ 6.670.223,00</span></div>
+                                    <span class="text-xs">Liquidado</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- / stats -->
+
+            <!-- service -->
+            <div class="panel hbox hbox-auto-xs no-border">
+                <div class="col wrapper">
+                    <i class="fa fa fa-newspaper-o fa-2x text-info m-r-sm pull-left"></i>
+                    <h4 class="font-thin m-t-none m-b-none text-primary-lt">Boletins </h4>
+                    <span class="m-b block text-sm text-muted">Periódicos estratégicos para o seu negócio.</span> Conteúdo
+                </div>
+                <div class="col wrapper-lg w-lg bg-light dk r-r">
+                    <h4 class="font-thin m-t-none m-b">Números</h4>
+                    <div class="">
+                        <div class="">
+                            <span class="pull-right text-primary">60%</span>
+                            <span>Primeiro número</span>
+                        </div>
+                        <progressbar value="60" class="progress-xs m-t-sm bg-white" animate="true" type="primary"></progressbar>
+                        <div class="">
+                            <span class="pull-right text-info">35%</span>
+                            <span>Online número</span>
+                        </div>
+                        <progressbar value="35" class="progress-xs m-t-sm bg-white" animate="true" type="info"></progressbar>
+                        <div class="">
+                            <span class="pull-right text-warning">25%</span>
+                            <span>Nº de management</span>
+                        </div>
+                        <progressbar value="25" class="progress-xs m-t-sm bg-white" animate="true" type="warning"></progressbar>
+                    </div>
+                    <p class="text-muted">Dales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
+                </div>
+            </div>
+            <!-- / service -->
+
+            <!-- tasks -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="panel no-border">
+                        <div class="panel-heading wrapper b-b b-light">
+                            <span class="text-xs text-muted pull-right">
+                                <i class="fa fa-circle text-primary m-r-xs"></i> 12
+                                <i class="fa fa-circle text-info m-r-xs m-l-sm"></i> 30
+                                <i class="fa fa-circle text-warning m-r-xs m-l-sm"></i> 98
+                             </span>
+                            <h4 class="font-thin m-t-none m-b-none text-muted">Relatórios</h4>
+                        </div>
+                        <ul class="list-group list-group-lg m-b-none">
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-primary inline m-t-sm">Admin</span>
+                                <a href>Resultado da Liquidação Financeira do MCP - nov/2016r</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-info inline m-t-sm">Member</span>
+                                <a href>Tratamento de energia do PROINFA na CCEE - 130 - 12/2016</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
+                                <a href>Resultado Liquidação Financeira de Angra I e II – 10/2016</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
+                                <a href>Resultado liquidação financeira MCP - 08/2016</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-primary inline m-t-sm">Admin</span>
+                                <a href>Resultado da Liquidação Financeira do MCP - nov/2016r</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-exclamation-triangle fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-info inline m-t-sm">Member</span>
+                                <a href>Tratamento de energia do PROINFA na CCEE - 130 - 12/2016</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
+                                <a href>Resultado Liquidação Financeira de Angra I e II – 10/2016</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href class="thumb-sm m-r">
+                                    <i class="fa fa-area-chart fa-2x" aria-hidden="true"></i>
+                                </a>
+                                <span class="pull-right label bg-warning inline m-t-sm">Editor</span>
+                                <a href>Resultado liquidação financeira MCP - 08/2016</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="panel-heading wrapper b-b b-white">
+                        <h4 class="font-thin m-t-none m-b-none text-muted">Comunicados</h4>
+                    </div>
+                    <div class="list-group list-group-lg list-group-sp">
+                        <a herf class="list-group-item clearfix">
+                            <span class="pull-left m-l">
+                                <i class="ion-speakerphone fa-2x text-info" aria-hidden="true"></i>
+                            <span>
+                                <span class="text-muted clear text-ellipsis pull-right m-l m-t-xs"><small >19/09 - 500/16</small>
+ CO - Divulgação dos relatórios de desconto da Tusd/Tust - jul/16</span>
+                            </span>
+                            </span>
+                        </a>
+                        <a herf class="list-group-item clearfix">
+                            <span class="pull-left m-l">
+                                <i class="ion-speakerphone fa-2x text-info" aria-hidden="true"></i>
+                            <span>
+                                <span class="text-muted clear text-ellipsis pull-right m-l m-t-xs"><small >19/09 - 500/16</small>
+ CO - Divulgação dos relatórios de desconto da Tusd/Tust - jul/16</span>
+                            </span>
+                            </span>
+                        </a>
+                        <a herf class="list-group-item clearfix">
+                            <span class="pull-left m-l">
+                                <i class="ion-speakerphone fa-2x text-info" aria-hidden="true"></i>
+                            <span>
+                                <span class="text-muted clear text-ellipsis pull-right m-l m-t-xs"><small >19/09 - 500/16</small>
+ CO - Divulgação dos relatórios de desconto da Tusd/Tust - jul/16</span>
+                            </span>
+                            </span>
+                        </a>
+                        <a herf class="list-group-item clearfix">
+                            <span class="pull-left m-l">
+                                <i class="ion-speakerphone fa-2x text-info" aria-hidden="true"></i>
+                            <span>
+                                <span class="text-muted clear text-ellipsis pull-right m-l m-t-xs"><small >19/09 - 500/16</small>
+ CO - Divulgação dos relatórios de desconto da Tusd/Tust - jul/16</span>
+                            </span>
+                            </span>
+                        </a>
+                        <a herf class="list-group-item clearfix">
+                            <span class="pull-left m-l">
+                                <i class="ion-speakerphone fa-2x text-info" aria-hidden="true"></i>
+                            <span>
+                                <span class="text-muted clear text-ellipsis pull-right m-l m-t-xs"><small >19/09 - 500/16</small>
+ CO - Divulgação dos relatórios de desconto da Tusd/Tust - jul/16</span>
+                            </span>
+                            </span>
+                        </a>
+                        <a herf class="list-group-item clearfix">
+                            <span class="pull-left m-l">
+                                <i class="ion-speakerphone fa-2x text-info" aria-hidden="true"></i>
+                            <span>
+                                <span class="text-muted clear text-ellipsis pull-right m-l m-t-xs"><small >19/09 - 500/16</small>
+ CO - Divulgação dos relatórios de desconto da Tusd/Tust - jul/16</span>
+                            </span>
+                            </span>
+                        </a>
+
+                        <a herf class="btn btn-block btn-default">
+                            ver mais
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <!-- / tasks -->
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<md-dialog id="newuser" class="fixed col-md-10" aria-label="Novo contato" ng-controller="ProfileMockupController">
+    <md-subheader layout-align="start start" class="md-sticky h4 text-muted">Ficha de criação de um novo contato</md-subheader>
+    <md-dialog-content class="wrapper-md w-full bg-white">
+
+        <div class="no-padder">
+            <ng-include src="'modules/prototipos/views/profile-clean-mockup.html'"></ng-include>
+        </div>
+
+    </md-dialog-content>
+
+    <md-dialog-actions>
+        <div class="row" layout-align="end center">
+
+            <a href="/" ng-click="hide()" class="btn btn-link">
+                <i class="fa fa-tachometer"></i> Dashboard
+            </a>
+
+            <button scroll-to="app" ng-click="hide()" type="button" class="btn btn-addon btn-default">
+                <i class="fa fa-ban"></i> Cancelar
+                </button>
+
+            <a href ng-click="showCustomToastNewUser()" class="btn btn-addon btn-success m-l-sm">
+                <i class="fa fa-check"></i> Salvar e avançar
+            </a>
+
+        </div>
+    </md-dialog-actions>
+
+</md-dialog>

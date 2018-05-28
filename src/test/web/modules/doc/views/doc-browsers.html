@@ -1,0 +1,197 @@
+<div class="wrapper">
+    <div class="row row-sm">
+        <div class="col-xs-12">
+            <md-content class="md-padding bg-white-pnly blue-grey-50 box-shadow">
+                <form ng-submit="$event.preventDefault()" name="searchForm">
+                    <p>Tabela de compatibilidade dos sistemas da CCEE com navegadores e sistemas operacionais.</p>
+                    <div layout-gt-sm="row">
+                        <md-autocomplete flex md-input-name="autocompleteField" md-input-minlength="2" md-input-maxlength="18" md-no-cache="ctrl.noCache" md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)"
+                            md-item-text="item.display" md-floating-label="Selecione o Sistema">
+                            <md-item-template>
+                                <span md-highlight-text="ctrl.searchText">{{item.display}}</span>
+                            </md-item-template>
+                            <div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">
+                                <div ng-message="md-require-match">Please select an existing state.</div>
+                                <div ng-message="minlength">Your entry is not long enough.</div>
+                                <div ng-message="maxlength">Your entry is too long.</div>
+                            </div>
+                        </md-autocomplete>
+                    </div>
+                </form>
+
+                <div class="row row-sm m-t-lg">
+                    <div class="col-xs-12">
+                        <span class="h4 text-muted">Navegadores</span>
+                        <br/><small class="text-muted">Se você tem um navegador favorito, verifique se o sistema que utiliza é compatível e quais as versões adequada.</small>
+                    </div>
+                </div>
+
+                <div class="row row-sm text-center">
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v white item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                <i class="fa fa-chrome text-muted" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-xs m-t text-light">Google Chrome</span>
+                            <span class="bottom text-right w-full">
+                </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v white item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                <i class="fa fa-firefox text-muted" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-xs m-t text-light">Mozilla Firefox</span>
+                            <span class="bottom text-right w-full">
+                </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v white item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                <i class="fa fa-safari text-muted" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-xs m-t text-light">Safari</span>
+                            <span class="bottom text-right w-full">
+                </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v white item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                <i class="fa fa fa-internet-explorer text-muted" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-xs m-t text-light">Internet Explorer</span>
+                            <span class="bottom text-right w-full">
+                </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v white item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                <i class="fa fa fa-edge text-muted" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-xs m-t text-light">Microsoft Edge</span>
+                            <span class="bottom text-right w-full">
+                </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v white item hvr-float">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                <i class="fa fa fa-opera text-muted" aria-hidden="true"></i>
+                            </span>
+                            <span class="text-xs m-t text-light">Opera</span>
+                            <span class="bottom text-right w-full">
+                </span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="row row-sm m-t-lg m-b-lg">
+                    <div class="col-xs-12">
+                        <span class="h4 text-muted">Estatísticas</span>
+                        <br/><small class="text-muted">Dados de acesso ao ambiente Portal CCEE de 2016 em diante.</small>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-12 col-md-6">
+                        <div class="panel panel-default no-border">
+                            <div class="wrapper">
+                                <label class="i-switch bg-success pull-right" ng-init="showSpline=true">
+                        <input type="checkbox" ng-model="showSpline">
+                            <i></i>
+                        </label>
+                                <h4 class="font-thin m-t-none m-b text-muted">Browsers - acessos 2016</h4>
+                                <canvas class="chart chart-doughnut" chart-data="data2016" chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12 col-md-6">
+                        <div class="panel panel-default no-border">
+                            <div class="wrapper">
+                                <label class="i-switch bg-success pull-right" ng-init="showSpline=true">
+                        <input type="checkbox" ng-model="showSpline">
+                            <i></i>
+                        </label>
+                                <h4 class="font-thin m-t-none m-b text-muted">Browsers - acessos 2017</h4>
+                                <canvas class="chart chart-doughnut" chart-data="data2017" chart-labels="labels" chart-series="series" chart-click="onClick"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-xs-12">
+                        <div class="panel panel-default no-border">
+                            <div class="wrapper">
+                                <label class="i-switch bg-success pull-right" ng-init="showSpline=true">
+                        <input type="checkbox" ng-model="showSpline">
+                            <i></i>
+                        </label>
+                                <h4 class="font-thin m-t-none text-muted">OS desktop <small class="text-small text-muted m-b">(% de acessos)</small></h4>
+
+                                <canvas class="chart chart-bar" chart-data="dataRadar" chart-labels="labelsRadar" chart-series="seriesRadar" chart-click="onClick"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <div class="panel panel-default no-border">
+                            <div class="wrapper">
+                                <label class="i-switch bg-success pull-right" ng-init="showSpline=true">
+                        <input type="checkbox" ng-model="showSpline">
+                            <i></i>
+                        </label>
+                                <h4 class="font-thin m-t-none text-muted">OS mobile <small class="text-small text-muted m-b">(% de acessos)</small></h4>
+                                <canvas class="chart chart-bar" chart-data="dataRadar" chart-labels="labelsRadar" chart-series="seriesRadar" chart-click="onClick"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                        <div class="panel panel-default no-border">
+                            <div class="wrapper">
+                                <label class="i-switch bg-success pull-right" ng-init="showSpline=true">
+                        <input type="checkbox" ng-model="showSpline">
+                            <i></i>
+                        </label>
+                                <h4 class="font-thin m-t-none m-b text-muted">Performance - qual é o browser mais rápido?</h4>
+                                Gráfico
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-md-6">
+                        <div class="panel panel-default no-border">
+                            <div class="wrapper">
+                                <label class="i-switch bg-success pull-right" ng-init="showSpline=true">
+                        <input type="checkbox" ng-model="showSpline">
+                            <i></i>
+                        </label>
+                                <h4 class="font-thin m-t-none m-b text-muted">Radar - 2017 - tendência das preferências do usuário</h4>
+                                Gráfico
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </md-content>
+
+
+        </div>
+    </div>
+</div>

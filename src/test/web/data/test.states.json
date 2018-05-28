@@ -1,0 +1,801 @@
+{
+    "name": "home",
+    "url": "/",
+    "abstract": false,
+    "templateUrl": "modules/home/views/home.html",
+    "controller": "HomeController",
+    "controllerAs": "$ctrl",
+    "data": {
+        "intro": {
+            "url": "modules/home/intro/home.intro.json"
+        },
+        "menu": {
+            "title": "Home",
+            "description": "Tela inicial do sistema"
+        }
+    },
+    "children": [{
+            "name": "404",
+            "url": "404",
+            "templateUrl": "modules/home/views/404.html",
+            "data": {
+                "menu": {
+                    "display": false
+                }
+            }
+        },
+        {
+            "name": "doc",
+            "url": "doc",
+            "abstract": true,
+            "template": "<ui-view />",
+            "data": {
+                "menu": {
+                    "iconClass": "fa fa-book text-muted",
+                    "title": "Documentação",
+                    "display": true,
+                    "description": "Documentação"
+                },
+                "aside": {
+                    "display": true
+                },
+                "footer": {
+                    "display": true
+                },
+                "navbar": {
+                    "display": true
+                },
+                "cockpit": {
+                    "display": true
+                }
+            },
+            "children": [{
+                    "name": "sobre",
+                    "url": "/sobre",
+                    "templateUrl": "modules/doc/views/doc-sobre.html",
+                    "controller": "SobreController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Sobre",
+                            "description": "Sobre o Global UX da CCEE."
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "browsers",
+                    "url": "/browsers",
+                    "templateUrl": "modules/doc/views/doc-browsers.html",
+                    "controller": "BrowsersController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Browsers",
+                            "description": "Matriz de compabilidade referenta a utlização de browsers e sistemas operacionais da CCEE."
+                        },
+                        "masthead": {
+                            "title": "Browsers - matriz de compatibilidade"
+                        },
+                        "aside": {
+                            "display": true
+                        },
+                        "footer": {
+                            "display": false
+                        },
+                        "navbar": {
+                            "display": true
+                        },
+                        "cockpit": {
+                            "display": true
+                        }
+                    }
+                },
+                {
+                    "name": "treinamentos",
+                    "url": "/treinamentos",
+                    "templateUrl": "modules/doc/views/doc-treinamentos.html",
+                    "controller": "TreinamentosController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Treinamentos",
+                            "description": "Treinamentos, tutoriais e base de conhecimento."
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "roadmap",
+                    "url": "/roadmap",
+                    "templateUrl": "modules/doc/views/doc-roadmap.html",
+                    "controller": "RoadmapController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Roadmap",
+                            "description": "Roadmap do framework."
+                        },
+                        "masthead": {}
+                    }
+                }
+            ]
+        },
+        {
+            "name": "testes",
+            "url": "testes",
+            "abstract": false,
+            "templateUrl": "modules/testes/views/testes.html",
+            "controller": "TestesController",
+            "controllerAs": "$ctrl",
+            "data": {
+                "menu": {
+                    "iconClass": "fa fa-heartbeat text-muted",
+                    "display": false,
+                    "title": "Testes",
+                    "description": "Testes",
+                    "link": "home.testes"
+                },
+                "masthead": {
+                    "title": "Testes do GUX",
+                    "description": "Testes automatizados dos componentes do Global UX."
+                },
+                "aside": {
+                    "display": false
+                },
+                "footer": {
+                    "display": false
+                },
+                "navbar": {
+                    "display": false
+                },
+                "cockpit": {
+                    "display": true
+                }
+            }
+        },
+        {
+            "name": "gus",
+            "url": "gus",
+            "abstract": true,
+            "template": "<ui-view class='fade-in-right-big smooth' />",
+            "data": {
+                "menu": {
+                    "iconClass": "ion-unlocked text-muted",
+                    "title": "Protótipos GUS",
+                    "display": false,
+                    "description": "Telas GUS"
+                },
+                "aside": {
+                    "display": false
+                },
+                "footer": {
+                    "display": false
+                },
+                "navbar": {
+                    "display": false
+                },
+                "cockpit": {
+                    "display": false
+                }
+            },
+            "children": [{
+                    "name": "login",
+                    "url": "/login",
+                    "templateUrl": "modules/gus/views/gus-login.html",
+                    "controller": "LoginMockupController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Login",
+                            "description": "Tela de login com multiplas opções."
+                        }
+                    }
+                },
+                {
+                    "name": "cadastro",
+                    "url": "/cadastro",
+                    "templateUrl": "modules/gus/views/gus-cadastro.html",
+                    "controller": "LoginMockupController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Cadastro de Usuário",
+                            "description": "Tela de login com multiplas opções."
+                        }
+                    }
+                },
+                {
+                    "name": "minha-conta",
+                    "url": "/minha-conta",
+                    "templateUrl": "modules/gus/views/gus-minha-conta.html",
+                    "controller": "LoginMockupController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Minha conta",
+                            "description": "Tela de login com multiplas opções."
+                        }
+                    }
+                },
+                {
+                    "name": "resetpass",
+                    "url": "/resetpass",
+                    "templateUrl": "modules/gus/views/gus-resetpass.html",
+                    "controller": "LoginMockupController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Recuperação de Senha",
+                            "description": "Tela de login com multiplas opções."
+                        }
+                    }
+                },
+                {
+                    "name": "resetpass-link",
+                    "url": "/resetpass-link",
+                    "templateUrl": "modules/gus/views/gus-resetpass-link.html",
+                    "controller": "LoginMockupController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Link da Senha",
+                            "description": "Tela de login com multiplas opções."
+                        }
+                    }
+                },
+                {
+                    "name": "resetuser",
+                    "url": "/resetuser",
+                    "templateUrl": "modules/gus/views/gus-resetuser.html",
+                    "controller": "LoginMockupController",
+                    "abstract": false,
+
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-angle-right",
+                            "title": "Recuperação de Usuário",
+                            "description": "Tela de login com multiplas opções."
+                        }
+                    }
+                }
+
+            ]
+        },
+        {
+            "name": "components",
+            "url": "components",
+            "abstract": true,
+            "template": "<ui-view />",
+            "data": {
+                "menu": {
+                    "iconClass": "fa fa-puzzle-piece text-muted",
+                    "title": "Componentes",
+                    "description": "Componentes de User Interface"
+                }
+            },
+            "children": [{
+                    "name": "text",
+                    "url": "/text",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Text",
+                            "description": "Tela de exemplo do componente Text"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "button",
+                    "url": "/button",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Buttons",
+                            "description": "Tela de exemplo do componente Button"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "textarea",
+                    "url": "/textarea",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Textarea",
+                            "description": "Tela de exemplo do componente Textarea"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "number",
+                    "url": "/number",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Number",
+                            "description": "Tela de exemplo do componente Number"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "currency",
+                    "url": "/currency",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Currency",
+                            "description": "Tela de exemplo do componente Currency"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "calendar",
+                    "url": "/calendar",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Calendar",
+                            "description": "Tela de exemplo do componente Calendar"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "select",
+                    "url": "/select",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Select",
+                            "description": "Tela de exemplo do componente Select"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "dropdown",
+                    "url": "/dropdown",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Dropdown",
+                            "description": "Tela de exemplo do componente Dropdown"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "autocomplete",
+                    "url": "/autocomplete",
+                    "abstract": true,
+                    "template": "<ui-view />",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Autocomplete",
+                            "description": "Tela de exemplo do componente Autocomplete",
+                            "link": "home.components.autocomplete.simple"
+                        },
+                        "masthead": {
+                            "title": "Autocomplete"
+                        }
+                    },
+                    "children": [{
+                            "name": "simple",
+                            "url": "/simple",
+                            "templateUrl": "modules/components/views/components.html",
+                            "controller": "ComponentsController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "tab": {
+                                    "id": "simple",
+                                    "title": "Simple"
+                                }
+                            }
+                        },
+                        {
+                            "name": "advanced",
+                            "url": "/advanced",
+                            "templateUrl": "modules/components/views/components.html",
+                            "controller": "ComponentsController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "tab": {
+                                    "id": "advanced",
+                                    "title": "Advanced"
+                                }
+                            }
+                        },
+                        {
+                            "name": "creatable",
+                            "url": "/creatable",
+                            "templateUrl": "modules/components/views/components.html",
+                            "controller": "ComponentsController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "tab": {
+                                    "id": "creatable",
+                                    "title": "Creatable"
+                                }
+                            }
+                        },
+                        {
+                            "name": "updatable",
+                            "url": "/updatable",
+                            "templateUrl": "modules/components/views/components.html",
+                            "controller": "ComponentsController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "tab": {
+                                    "id": "updatable",
+                                    "title": "Updatable"
+                                }
+                            }
+                        },
+                        {
+                            "name": "deletable",
+                            "url": "/deletable",
+                            "templateUrl": "modules/components/views/components.html",
+                            "controller": "ComponentsController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "tab": {
+                                    "id": "deletable",
+                                    "title": "Deletable"
+                                }
+                            }
+                        },
+                        {
+                            "name": "full",
+                            "url": "/full",
+                            "templateUrl": "modules/components/views/components.html",
+                            "controller": "ComponentsController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "tab": {
+                                    "id": "full",
+                                    "title": "Full"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "switch",
+                    "url": "/switch",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Switch",
+                            "description": "Tela de exemplo do componente Switch"
+                        },
+                        "masthead": {}
+                    }
+                },
+                {
+                    "name": "equation",
+                    "url": "/equation",
+                    "templateUrl": "modules/components/views/components.html",
+                    "controller": "ComponentsController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa ion-android-arrow-dropright",
+                            "title": "Equation",
+                            "description": "Tela de exemplo do componente Equation"
+                        },
+                        "masthead": {}
+                    }
+                }
+            ]
+        },
+        {
+            "name": "layouts",
+            "url": "layouts",
+            "abstract": true,
+            "template": "<ui-view />",
+            "data": {
+                "menu": {
+                    "iconClass": "fa fa-code text-muted",
+                    "title": "Demos",
+                    "description": "Demos de interacões."
+                }
+            },
+            "children": [
+
+                {
+                    "name": "containers",
+                    "url": "/containers",
+                    "abstract": false,
+                    "templateUrl": "modules/layouts/views/demo-containers.html",
+                    "controller": "ContainersController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "ion-cube",
+                            "display": true
+                        },
+                        "masthead": {
+                            "title": "gx app - estrutura",
+                            "description": "Estrutura global dos blocos de composição de layout dos apps que utilizam o GUX."
+                        },
+                        "aside": {
+                            "display": false
+                        },
+                        "footer": {
+                            "display": false
+                        },
+                        "navbar": {
+                            "display": true
+                        },
+                        "cockpit": {
+                            "display": true
+                        }
+                    }
+                },
+
+                {
+                    "name": "crud",
+                    "url": "/crud",
+                    "abstract": true,
+                    "template": "<ui-view class='fade-in-left-big smooth' />",
+                    "controller": "CrudController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-check-square-o",
+                            "title": "UX Crud (simples)",
+                            "description": "Create, Read, Update e Delete",
+                            "link": "home.layouts.crud.lista"
+                        }
+                    },
+                    "children": [{
+                            "name": "lista",
+                            "url": "/lista",
+                            "abstract": false,
+                            "templateUrl": "modules/layouts/views/crud-lista.html",
+                            "controller": "CrudListaController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "masthead": {
+                                    "title": "Lista de Itens CRUD",
+                                    "description": "Tela de exemplo de CRUD",
+                                    "actions": [{
+                                        "iconClass": "fa fa-search",
+                                        "title": "Novo Item",
+                                        "link": "home.layouts.crud.criacao({codigo: 'novo'})"
+                                    }]
+                                }
+                            }
+                        },
+                        {
+                            "name": "criacao",
+                            "url": "/novo",
+                            "abstract": false,
+                            "templateUrl": "modules/layouts/views/crud-detalhe.html",
+                            "controller": "CrudDetalheController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "masthead": {
+                                    "title": "Novo item CRUD",
+                                    "description": "Tela de criação de um novo item CRUD"
+                                }
+                            }
+                        },
+                        {
+                            "name": "visualizacao",
+                            "url": "/:codigo",
+                            "abstract": false,
+                            "templateUrl": "modules/layouts/views/crud-detalhe.html",
+                            "controller": "CrudDetalheController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "masthead": {
+                                    "title": "Edição CRUD",
+                                    "description": "Tela edição de um item existente CRUD"
+                                }
+                            }
+                        },
+                        {
+                            "name": "edicao",
+                            "url": "/:codigo/editar",
+                            "abstract": false,
+                            "templateUrl": "modules/layouts/views/crud-detalhe.html",
+                            "controller": "CrudDetalheController",
+                            "controllerAs": "$ctrl",
+                            "data": {
+                                "menu": {
+                                    "display": false
+                                },
+                                "masthead": {
+                                    "title": "Edição CRUD",
+                                    "description": "Tela edição de um item existente CRUD"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "dashboard",
+                    "url": "/dashboard",
+                    "abstract": false,
+                    "templateUrl": "modules/layouts/views/demo-dashboard.html",
+                    "controller": "DashboardController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "ion-speedometer",
+                            "display": true
+                        },
+                        "masthead": {
+                            "title": "Dashboard demo",
+                            "description": "Tela de exemplo de Dashboard"
+                        }
+                    }
+                },
+                {
+                    "name": "mobile",
+                    "url": "/mobile",
+                    "abstract": false,
+                    "templateUrl": "modules/layouts/views/demo-mobile.html",
+                    "controller": "MobileController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-mobile",
+                            "display": true
+                        },
+                        "masthead": {
+                            "title": "Mobile Context",
+                            "description": "Tela de exemplo mobile."
+                        },
+                        "aside": {
+                            "display": false
+                        },
+                        "footer": {
+                            "display": false
+                        },
+                        "navbar": {
+                            "display": false
+                        },
+                        "cockpit": {
+                            "display": true
+                        }
+                    }
+                },
+                {
+                    "name": "checkout",
+                    "url": "/checkout",
+                    "abstract": false,
+                    "templateUrl": "modules/layouts/views/demo-checkout.html",
+                    "controller": "CheckoutController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-shopping-cart",
+                            "display": true
+                        },
+                        "masthead": {
+                            "title": "Multistep Checkout",
+                            "description": "Exemplo de step by step checkout."
+                        },
+                        "aside": {
+                            "display": true
+                        },
+                        "footer": {
+                            "display": false
+                        },
+                        "navbar": {
+                            "display": true
+                        },
+                        "cockpit": {
+                            "display": true
+                        }
+                    }
+                },
+                {
+                    "name": "diretivas",
+                    "url": "/diretivas",
+                    "abstract": false,
+                    "templateUrl": "modules/layouts/views/demo-directivas.html",
+                    "controller": "DiretivasController",
+                    "controllerAs": "$ctrl",
+                    "data": {
+                        "menu": {
+                            "iconClass": "fa fa-file-code-o",
+                            "display": true
+                        },
+                        "masthead": {
+                            "title": "Direticvas de apoio",
+                            "description": "Lista de directivas do GUX."
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,240 @@
+<div class="wrapper animated fadeInUp">
+    <div class="row row-sm">
+        <div class="col-xs-12">
+            <div class="wrapper blue-grey-50">
+                <span class="h4">Imersão na estrutura por trás do Global UX.</span>
+            </div>
+
+            <div class="md-padding bg-white-only white box-shadow">
+
+                <div class="hbox">
+                    <span class="text-info h3">Arquitetura principal</span>
+                    <p class="text-black">As estruturas de interface construídas a partir do GUX seguem uma estrutura principal, cujo alicerce se dá a partir da directiva principal <strong>gx-app</strong>. Por padrão está diretiva carrega os principais componentes que montam
+                        uma tela conforme o diagrama:</p>
+                </div>
+                <div class="hbox text-center hidden-xs">
+                    <img src="images/gux-models/arquitetura-principal.png" />
+                </div>
+
+                <div class="hbox">
+                    <div class="m-t-md">
+                        <div class="col-xs-12">
+                            <table class="table table-responsive">
+                                <thead>
+                                    <tr>
+                                        <th width="100">bloco</th>
+                                        <th width="20">obrigatório</th>
+                                        <th class="hidden-xs" width="100">Descrição</th>
+                                        <th class="hidden-xs" width="20">padrão</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+
+                                        <td><span class="text-muted text-md">cockpit</span></td>
+                                        <td>sim</td>
+                                        <td class="hidden-xs">Representa a barra de imersão dos sistemas. Imagine que nesta barra entra tudo o que o usuário precisa ter a mão enquanto navega pelos sistemas. Ex. Troca de senha.</td>
+                                        <td class="hidden-xs"><code> true</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><span class="text-muted text-md">navbar</span></td>
+                                        <td>não</td>
+                                        <td class="hidden-xs">Trata-se da barra de navegação inerente ao sistema que está sendo utilizado. </td>
+                                        <td class="hidden-xs"><code> true</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><span class="text-muted text-md">aside</span></td>
+                                        <td>não</td>
+                                        <td class="hidden-xs">Bloco lateral que comporta o menu de dois níveis de navegação do sistema. A barra possui nativamente a função de recolhimento.</td>
+                                        <td class="hidden-xs"><code> true</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><span class="text-muted text-md">main</span></td>
+                                        <td>sim</td>
+                                        <td class="hidden-xs">Container onde são desenvolvidas as views dos sistemas. Na prática é o bloco mais importante para o desenvolvedor que utiliza o GUX.</td>
+                                        <td class="hidden-xs"><code> true</td>
+                                    </tr>
+                                    <tr>
+
+                                        <td><span class="text-muted text-md">footer</span></td>
+                                        <td>não</td>
+                                        <td class="hidden-xs">Barra inferior do sistema. Possui apenas função estética.</td>
+                                        <td class="hidden-xs"><code> true</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hbox">
+                    <span class="text-info h3 m-t-lg">Por dentro do gx-app</span>
+                    <p class="text-black">Temos a directiva 
+                        <strong>gx-app</strong> como container principal de toda aplicação que utilize o GUX. Dentro do contexto são aplicadas as directivas dos blocks mostrados acima. Estas directivas possuem uma estrutura padrão no encaixe dos blocos.</p>
+                        </div>
+
+                        <div class="row text-center blue-grey-300 b b-dashed b-dark">
+                            <div class="col-xs-12 hvr-hang">
+                                <div class="wrapper">
+                                    <code>gx-app</code>
+                        </div>
+                        <div class="col-md-12 m-t">
+                            <div class="panel no-border white">
+                                <div class="hbox panel-heading blue-900 lt hvr-bob box-shadow">
+                                    <div class="text-left">
+                                        <small class="text-light block">true (only)</small>
+                                        <code>gx-cockpit</code>
+                                    </div>
+                                </div>
+                                <div class="hbox wrapper bg-light dker text-left hvr-bob box-shadow">
+                                    <div>
+                                        <small class="text-muted block">true / false</small>
+                                        <code>gx-navbar</code>
+                                    </div>
+                                </div>
+                                <div class="hbox text-left">
+                                    <div class="col grey-100 wrapper hvr-backward box-shadow">
+                                        <small class="text-muted block">true / false</small>
+                                        <code>gx-aside</code>
+                                    </div>
+                                    <div class="hbox wrapper hvr-grow box-shadow blue-grey-50" style="height: 300px;">
+                                        <small class="text-muted block">true (only)</small>
+                                        <code>gx-main</code>
+                                    </div>
+
+                                </div>
+                                <div class="panel-footer wrapper text-left blue-grey-100 box-shadow hvr-hang hbox">
+                                    <div class="row">
+                                        <div class="hvr-bob">
+                                            <small class="text-muted block">true / false</small>
+                                            <span class="text-md"><code>gx-footer</code></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row row-sm m-t-lg">
+                    <div class="col-xs-12">
+                        <span class="h4 text-muted">Compatibilidade com navegadores (desktop)</span>
+                    </div>
+                </div>
+
+                <div class="row row-sm hidden-xs">
+                    <div class="col-xs-12 m-t">
+                        <span class="text-xs text-muted pull-left">
+                        <span class="label inline green m-r-xs wapper-xs" style="height: 10px;"></span> compatível
+                        <span class="label inline lime m-r-xs m-l" style="height: 10px;"></span> compatível com ressalvas
+                        <span class="label inline amber m-r-xs m-l" style="height: 10px;"></span> incompatível
+                        <span class="label inline blue-grey-200 m-r-xs m-l" style="height: 10px;"></span> não testado
+                        </span>
+                    </div>
+                </div>
+
+
+
+                <div class="row row-sm text-center">
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v green item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                        <i class="fa fa-chrome text-light" aria-hidden="true"></i>
+                                    </span>
+                            <span class="text-xs m-t text-white">Google Chrome</span>
+                            <span class="bottom text-right w-full">
+                                    </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v green item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                        <i class="fa fa-firefox text-light" aria-hidden="true"></i>
+                                    </span>
+                            <span class="text-xs m-t text-white">Mozilla Firefox</span>
+                            <span class="bottom text-right w-full">
+                                    </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v green item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                        <i class="fa fa-safari text-light" aria-hidden="true"></i>
+                                    </span>
+                            <span class="text-xs m-t text-white">Safari</span>
+                            <span class="bottom text-right w-full">
+                                    </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v green item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                        <i class="fa fa fa-internet-explorer text-light" aria-hidden="true"></i>
+                                    </span>
+                            <span class="text-xs m-t text-white">Internet Explorer 9+</span>
+                            <span class="bottom text-right w-full">
+                                    </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v blue-grey-200 item hvr-bob">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                        <i class="fa fa fa-edge text-white" aria-hidden="true"></i>
+                                    </span>
+                            <span class="text-xs m-t text-white">Microsoft Edge</span>
+                            <span class="bottom text-right w-full">
+                                    </span>
+                        </a>
+                    </div>
+
+                    <div class="col-md-2 m-t">
+                        <a href="" class="block panel padder-v amber-300 item hvr-float">
+                            <span class="text-white font-thin h1 block wrapper-xs">
+                                        <i class="fa fa fa-opera text-white" aria-hidden="true"></i>
+                                    </span>
+                            <span class="text-xs m-t text-white">Opera</span>
+                            <span class="bottom text-right w-full">
+                                    </span>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="row row-sm visible-xs">
+                    <div class="col-xs-12 m-t">
+                        <ul>
+                            <li>
+                                <span class="label inline green m-r-xs wapper-xs" style="height: 10px;"></span> compatível
+                            </li>
+                            <li>
+                                <span class="label inline lime m-r-xs" style="height: 10px;"></span> compatível com ressalvas
+                            </li>
+                            <li>
+                                <span class="label inline amber m-r-xs" style="height: 10px;"></span> incompatível
+                            </li>
+                            <li>
+                                <span class="label inline blue-grey-200 m-r-xs" style="height: 10px;"></span> não testado
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xs-12">
+                        <span class="text-xs text-muted">GUX release 0.3.0</span>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

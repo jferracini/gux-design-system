@@ -1,0 +1,87 @@
+<div class="dropdown gx-form-group-autocomplete">
+	<div ng-class="{'input-group': $ctrl.isUpdateable}">
+		<div style="position: relative">
+			<span ng-if="$ctrl.isSearchable && $ctrl.isLoading" class="form-control-feedback">
+				<i class="fa fa-spinner fa-pulse"></i>
+			</span>
+			<span ng-if="!$ctrl.isLoading && $ctrl.showBadge()" class="badge input-badge">
+				{{$ctrl.parent.getBadgeValue($ctrl.parent.model)}}
+			</span>
+			<input type="text"
+				name="{{::$ctrl.parent.elementName}}"
+				ng-attr-ng-required="$ctrl.parent.required"
+				ng-attr-placeholder="{{::$ctrl.parent.example}}"
+				ng-attr-ui-mask="{{::$ctrl.parent.mask}}"
+				ng-attr-ui-mask-placeholder="{{::$ctrl.parent.example || $ctrl.parent.mask ? '' : undefined}}"
+				ng-model="$ctrl.modelAutocomplete"
+				ng-model-options="$ctrl.gxModelOptions"
+				ng-attr-minlength="{{::$ctrl.parent.gxMinlength}}"
+				ng-attr-maxlength="{{::$ctrl.parent.gxMaxlength}}"
+				ng-attr-min="{{::$ctrl.parent.gxMin}}"
+				ng-attr-max="{{::$ctrl.parent.gxMax}}"
+				ng-attr-tabindex="{{::$ctrl.parent.gxTabindex}}"
+				ng-attr-ng-readonly="{{::$ctrl.parent.readonly}}"
+				ng-attr-ng-disabled="$ctrl.parent.disabled"
+				class="form-control"
+				autocomplete="off">
+			
+		</div>
+		<div class="input-group-btn" ng-if="$ctrl.isUpdateable">
+			<button type="button"
+				ng-if="$ctrl.viewMode"
+				ng-click="$ctrl.edit($event)"
+				ng-disabled="$ctrl.isEditDisabled()"
+				gx-tooltip="Editar item selecionado"
+				class="btn btn-default">
+				<i class="fa fa-pencil"></i>
+			</button>
+			<button type="button"
+				ng-if="$ctrl.editMode"
+				ng-click="$ctrl.cancel($event)"
+				gx-tooltip="Cancelar edição"
+				class="btn btn-default">
+				<i class="fa fa-ban"></i>
+			</button>
+			<button type="button"
+				ng-if="$ctrl.editMode"
+				ng-click="$ctrl.update($event)"
+				ng-disabled="$ctrl.isUpdateDisabled()"
+				gx-tooltip="{{$ctrl.isUpdateDisabled() ? 'Altere o valor para habilitar a gravação' : 'Gravar item editado'}}"
+				class="btn btn-default">
+				<i class="fa fa-save"></i>
+			</button>
+		</div>
+	</div>
+	<ul ng-if="$ctrl.viewMode" class="form-control dropdown-menu" role="menu" data-toggle="dropdown">
+		<li ng-repeat="modelOption in $ctrl.modelFilteredOptions">
+			<a href="javascript:void(0)" ng-click="$ctrl.selectOption(modelOption)">
+				{{modelOption[$ctrl.parent.modelOptionAttributeValue]}}
+				<span ng-if="$ctrl.isDeletable"
+					ng-click="$ctrl.delete(modelOption, $event); $event.stopPropagation();"
+					class="pull-right">
+					<i class="fa fa-remove"></i>
+				</span>
+				<span ng-if="!!$ctrl.parent.modelOptionAttributeBadge"
+					class="badge pull-right m-r-xs"
+					style="margin-top: 1px">
+					{{$ctrl.parent.getBadgeValue(modelOption)}}
+				</span>
+			</a>
+		</li>
+		<li ng-if="$ctrl.showBeginSerach()">
+			<a>Digite para pesquisar.</a>
+		</li>
+		<li ng-if="$ctrl.showNoDataFound()">
+			<a>Nenhum item encontrado.</a>
+		</li>
+		<li ng-if="$ctrl.isCreatable && !$ctrl.itemFound && !!$ctrl.modelAutocomplete">
+			<a href="javascript:void(0)"
+				ng-click="$ctrl.create($event)"
+				gx-tooltip="Criar novo item">
+				<i class="fa fa-plus"></i>&nbsp;&nbsp;
+				<strong>{{$ctrl.modelAutocomplete}}</strong>&nbsp;&nbsp;
+				<span class="text-muted">(Novo)</span>
+			</a>
+		</li>
+	</ul>
+</div>

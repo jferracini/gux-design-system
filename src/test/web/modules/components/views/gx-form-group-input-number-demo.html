@@ -1,0 +1,20 @@
+<div class="row m-t-md">
+	<gx-form-group stereotype="number"
+		label="Filme"
+		required="$ctrl.required"
+		description="Ranking do filme"
+		example="Avatar"
+		model="$ctrl.selectedFilm.ranking"
+		disabled="$ctrl.disabled"
+		class="col-sm-6"></gx-form-group>
+	<gx-form-group stereotype="number"
+		label="{{$ctrl.label}}"
+		required="$ctrl.required"
+		description="{{$ctrl.description}}"
+		example="{{$ctrl.example}}"
+		model="$ctrl.selectedFilm.ranking"
+		gx-max="5"
+		gx-min="2"
+		disabled="$ctrl.disabled"
+		class="col-sm-6"></gx-form-group>
+</div>

@@ -1,0 +1,55 @@
+<gx-panel class="wrapper">
+    <gx-form gx-name="formComponents" gx-submit="$ctrl.submit()">
+        <gx-panel-header title="Componentes do GUX"></gx-panel-header>
+        <gx-panel-body class="container-fluid">
+
+
+            <div class="row m-t-md">
+                <div class="col-xs-12">
+                    <span class="text-muted h4">Exemplos</span>
+                    <ng-include src="$ctrl.sourceUrl"></ng-include>
+                </div>
+            </div>
+
+            <div class="row m-t-md">
+                <div class="col-xs-12">
+                    <pre>{{$ctrl.selectedFilmJson}}</pre>
+                </div>
+            </div>
+
+
+            <div class="row m-t-md">
+                <div class="col-xs-12">
+                    <div class="btn-group" role="group">
+                        <!-- button type="button" ng-click="$ctrl.resetTabs()" class="btn btn-default btn-group-lg">Reset tab</button>
+                        <button type="button" ng-click="$ctrl.disableBasicTab()" class="btn btn-default btn-group-lg">Disable tab</button>
+                        <button type="button" ng-click="$ctrl.enableBasicTab()" class="btn btn-default btn-group-lg">Enable tab</button -->
+                        <button type="button" ng-click="$ctrl.toggleDisabled()" class="btn btn-default btn-group-lg">Disable all</button>
+                        <button type="button" ng-click="$ctrl.toggleRequired()" class="btn btn-default btn-group-lg">Require all</button>
+                        <button type="button" ng-click="$ctrl.setFirstFilm()" class="btn btn-default btn-group-lg">First Film</button>
+                        <button type="button" ng-click="$ctrl.setNextFilm()" ng-disabled="$ctrl.disableNextFilm()" class="btn btn-default btn-group-lg">Next Film</button>
+                        <button type="button" ng-click="$ctrl.setPreviousFilm()" ng-disabled="$ctrl.disablePreviousFilm()" class="btn btn-default btn-group-lg">Previous Film</button>
+                        <button type="button" ng-click="$ctrl.setNull()" class="btn btn-default btn-group-lg">Clear</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row m-t-md">
+                <div class="col-xs-12">
+                    <span class="text-muted h4">Source code</span>
+                    <ui-codemirror ui-codemirror-opts="$ctrl.htmlEditorOptions" ng-model="$ctrl.source"></ui-codemirror>
+                </div>
+                <p class="text-muted">HTML utilizado no exemplo.</p>
+            </div>
+
+        </gx-panel-body>
+
+        <gx-panel-footer>
+            <gx-form-button stereotype="post"></gx-form-button>
+            <gx-form-button stereotype="put"></gx-form-button>
+            <gx-form-button stereotype="cancel" on-click="voltar"></gx-form-button>
+            <gx-form-button stereotype="back" on-click="voltar"></gx-form-button>
+        </gx-panel-footer>
+
+    </gx-form>
+</gx-panel>

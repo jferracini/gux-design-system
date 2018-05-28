@@ -1,0 +1,10 @@
+<div>
+	<button ng-attr-type="{{::$ctrl.type}}"
+		ng-if="$ctrl.show()"
+		ng-disabled="$ctrl.disabled()"
+		ng-click="$ctrl.click($event)"
+		class="btn btn-addon {{::$ctrl.buttonClass}}"
+		style="width: 112px">
+		<i class="fa {{::$ctrl.iconClass}}"></i>{{::$ctrl.label}}
+	</button>
+</div>

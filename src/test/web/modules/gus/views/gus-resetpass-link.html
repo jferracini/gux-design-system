@@ -1,0 +1,94 @@
+<div class="container-fluid w-xxl w-auto-xs" ng-controller="ResetPassLinkController">
+
+        <a class="navbar-brand block m-t-md">
+            <img src="images/logo.png" class="w-md center" style="max-height:none;">
+        </a>
+ 
+        <div class="m-b-lg animated">
+
+            <div class="wrapper-xs text-center">
+                <h4 class="text-primary">Acesso ao conteúdo exclusivo.</h4>
+                <div class="alert alert-warning" role="alert">
+                    Redefinição da senha de acesso ao conteúdo exclusivo.
+                </div>
+            </div>
+            <gx-panel>
+
+                <form required="true" name="form">
+
+                    <!--input name="campo1" type="text" ng-model="valorCampo1" ng-required="true" ng-class="{'bg-danger': form.campo1.$invalid}"></input-->
+
+                    <gx-panel-body>
+                        <h5 class="text-primary text-center">Confirme seu login</h5>
+<!--                        <p class="text-muted text-center">Insira o número do seu <span>CPF</span>.</p>-->
+
+
+                        <div class="list-group-item">
+
+                                <input type="text" name="nameuser" placeholder="Login" class="form-control no-border" ng-model="valorUser2" gx-tooltip="Entre com o seu usuário de acesso." gx-tooltip-placement="left" ng-minlength="5" ng-maxlength="20" required>
+
+                                <span ng-class="{'glyphicon-remove text-danger': form.nameuser.$error.minlength, 'glyphicon-ok text-success' : form.nameuser.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                            </div>
+                        
+                        
+                        <div>
+                                
+                            
+                            
+                            </div>
+
+
+                            <div class="list-group list-group-sm m-t animated fadeIn">
+                            <h5 class="text-primary text-center">Redefinição de Senha</h5>
+                                <p class="text-muted text-center">Utilize os campos abaixo para definir sua nova senha:</p>
+                                <div class="list-group-item">
+
+                                    <input 
+                                           type="password" 
+                                           name="pass1" 
+                                           placeholder="Senha" 
+                                           class="form-control no-border" 
+                                           ng-model="valorPsw" required 
+                                           gx-tooltip="Escolha até 9 caracteres. Varie entre letras e números." 
+                                           ng-minlength="9" 
+                                           gx-tooltip-placement="left">
+
+                                <span ng-class="{'glyphicon-remove text-danger': form.pass1.$error.minlength, 'glyphicon-ok text-success' : form.pass1.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                </div>
+
+                                <div class="list-group-item">
+
+                                    <input 
+                                           type="password" 
+                                           name="pass2" 
+                                           placeholder="Confirmar senha" 
+                                           class="form-control no-border" 
+                                           ng-model="valorPsw2" 
+                                           required 
+                                           gx-tooltip="Repita a senha escolhida" 
+                                           ng-minlength="9" 
+                                           gx-tooltip-placement="left">
+
+                                <span ng-class="{'glyphicon-remove text-danger': form.pass2.$error.minlength, 'glyphicon-ok text-success' : form.pass2.$valid }" class="m-t-xs glyphicon form-control-feedback" aria-hidden="true"></span>
+
+                                </div>
+
+                            </div>
+                                                        
+                            <button type="submit" class="btn btn-lg btn-success btn-block btn-addon animated fadeIn" ng-click="cadastrar()" ng-hide='form.$invalid'><i class="fa fa-unlock pull-right"></i>confirmar alteração de senha</button>
+
+                        </div>
+
+                        
+
+                    </gx-panel-body>
+                </form>
+
+            </gx-panel>
+                <div class="text-center m-b">Precisa de ajuda?</div>
+                <p class="text-center text-muted"><small>caso tenha dificuldades para avançar</small></p>
+                <a href="#" class="btn btn-sm btn-default btn-block">consulte nosso tutorial</a>
+        </div>
+    </div>

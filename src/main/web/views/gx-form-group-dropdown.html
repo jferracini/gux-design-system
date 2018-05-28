@@ -1,0 +1,33 @@
+<div class="dropdown gx-form-group-dropdown">
+	<input type="hidden"
+		name="{{::$ctrl.parent.elementName}}"
+		ng-model="$ctrl.parent.model"
+		ng-attr-ng-required="$ctrl.parent.required">
+	<button type="button"
+		ng-attr-tabindex="{{::$ctrl.parent.gxTabindex}}"
+		ng-attr-ng-readonly="{{::$ctrl.parent.readonly}}"
+		ng-attr-ng-disabled="$ctrl.parent.disabled"
+		data-toggle="dropdown"
+		class="btn btn-default dropdown-toggle form-control"
+		ng-class="{'disabled': $ctrl.parent.disabled}">
+		{{$ctrl.parent.model[$ctrl.parent.modelOptionAttributeValue]}}
+		<span ng-if="$ctrl.showBadge()" class="badge input-badge">
+			{{$ctrl.parent.getBadgeValue($ctrl.parent.model)}}
+		</span>
+	</button>
+	<span class="form-control-feedback">
+		<i class="fa fa-caret-down fa-lg"></i>
+	</span>
+	<ul ng-if='::!$ctrl.parent.readonly' class="form-control dropdown-menu">
+		<li ng-repeat="modelOption in $ctrl.parent.modelOptions track by $index">
+			<a href="javascript:void(0)" ng-click="$ctrl.parent.setModel(modelOption)">
+				{{modelOption[$ctrl.parent.modelOptionAttributeValue]}}
+				<span ng-if="::!!$ctrl.parent.modelOptionAttributeBadge"
+					class="badge pull-right m-r-xs"
+					style="margin-top: 1px">
+					{{$ctrl.parent.getBadgeValue(modelOption)}}
+				</span>
+			</a>
+		</li>
+	</ul>
+</div>

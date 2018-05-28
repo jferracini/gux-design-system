@@ -1,0 +1,43 @@
+<div class="form-group gx-form-group" ng-class="{'has-success': $ctrl.hasSuccess(), 'has-warning': $ctrl.hasWarning(), 'has-error': $ctrl.hasError()}">
+
+    <div>
+        <label ng-if="::$ctrl.label" ng-attr-gx-tooltip="{{$ctrl.description}}" class="control-label">
+            {{::$ctrl.label}}
+            <span ng-if="$ctrl.required" class="required">*</span>
+            <small ng-if="$ctrl.description">
+                &nbsp;<i class="fa fa-info-circle"></i>
+            </small>
+        </label>
+    </div>
+
+    <gx-form-group-input-number ng-if="::$ctrl.isInputNumber"></gx-form-group-input-number>
+
+    <gx-form-group-input-currency ng-if="::$ctrl.isCurrency"></gx-form-group-input-currency>
+
+    <gx-form-group-input ng-if="::$ctrl.isInput"></gx-form-group-input>
+
+    <gx-form-group-textarea ng-if="::$ctrl.isTextarea"></gx-form-group-textarea>
+
+    <gx-form-group-calendar ng-if="::$ctrl.isCalendar"></gx-form-group-calendar>
+
+    <gx-form-group-select ng-if="::$ctrl.isSelect"></gx-form-group-select>
+
+    <gx-form-group-dropdown ng-if="::$ctrl.isDropdown"></gx-form-group-dropdown>
+
+    <gx-form-group-autocomplete ng-if="::$ctrl.isAutocomplete"></gx-form-group-autocomplete>
+
+    <gx-form-group-switch ng-if="::$ctrl.isSwitch"></gx-form-group-switch>
+
+    <gx-form-group-equation ng-if="::$ctrl.isEquation"></gx-form-group-equation>
+
+    <div ng-if="::$ctrl.isCustom">
+        <ng-transclude></ng-transclude>
+    </div>
+
+    <span ng-repeat="feedbackMessage in $ctrl.feedbackMessages" class="help-block">
+        <span>{{feedbackMessage.text}}</span>
+    </span>
+
+    <ng-transclude ng-transclude-slot="gxFormGroupValidator" class="hide"></ng-transclude>
+
+</div>

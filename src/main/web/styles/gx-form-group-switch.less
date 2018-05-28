@@ -1,0 +1,59 @@
+.gx-form-group {
+	.gx-form-group-switch {
+		input {
+			display: none;
+			&.gx-form-group-switch-on + span {
+				padding: 1px 1px 1px 20px;
+				background: @state-success-text;
+			}
+		}
+		span {
+			display: inline-block;
+			cursor: pointer;
+			padding: 1px 20px 1px 1px;
+			transition: all ease 0.2s;
+			border-radius: 20px;
+			border: 1px solid #cecece;
+			margin: 0 7px -8px 7px;
+			&:before {
+				display: block;
+				content: '';
+				width: 22px;
+				height: 22px;
+				border-radius: 22px;
+				background: #fff;
+				box-shadow: 0px 1px 2px rgba(0, 0, 0, .7);
+			}
+		}
+	}
+	&.has-success {
+		label {
+			color: @state-success-text;
+		}
+		input {
+			&.gx-form-group-switch-on + span {
+				background: @state-success-text;
+			}
+		}
+	}
+	&.has-warning {
+		label {
+			color: @state-warning-text;
+		}
+		input {
+			&.gx-form-group-switch-on + span {
+				background: @state-warning-text;
+			}
+		}
+	}
+	&.has-error {
+		label {
+			color: @state-danger-text;
+		}
+		input {
+			&.gx-form-group-switch-on + span {
+				background: @state-danger-text;
+			}
+		}
+	}
+}
