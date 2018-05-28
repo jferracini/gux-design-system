@@ -2,9 +2,9 @@
     "name": "@jferracini/gux-toolbox",
     "main": [
         "dist/icons/favicon.ico",
-        "dist/images/ccee-logo.svg",
-        "dist/images/ccee-logo-folded.png",
-        "dist/images/ccee-logo-whatermark.png",
+        "dist/images/logo.svg",
+        "dist/images/logo-folded.png",
+        "dist/images/logo-whatermark.png",
         "dist/images/gx-app-init.gif",
         "dist/images/gx-app-loading.gif",
         "dist/FontAwesome.otf",

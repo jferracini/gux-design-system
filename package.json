@@ -13,7 +13,7 @@
     "url": "https://github.com/jferracini/gux-framework"
   },
   "authors": [
-    "Julio Ferracini <julio.ferracini@ccee.org.br>"
+    "Julio Ferracini <jferracini@gmail.com>"
   ],
   "engines": {
     "node": "~6.9.0",
