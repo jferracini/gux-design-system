@@ -94,11 +94,11 @@
             function loadContacts() {
                 var contacts = [
                     'Representante Legal',
-                    'Representante CCEE',
+                    'Representante',
                     'Representante Financeiro',
                     'Administrador',
                     'Procurador',
-                    'CliqCCEE Editor',
+                    'Editor',
                     'XPTO',
                     'XPTO 123',
                     'XPTO ABC 123'

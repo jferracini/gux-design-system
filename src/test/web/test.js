@@ -31,7 +31,7 @@
 
     angular.injector(['ng'])
         .get('$http')
-        //.get('http://bitbucketold/pages/GUX/ccee-gux-toolbox/master/browse/dist/data/test.states.json')
+        //.get('http://bitbucketold/pages/GUX/GUX-gux-toolbox/master/browse/dist/data/test.states.json')
         .get('./data/test.states.json')
         .then(applicationStatesResponseHandler)
         .then(applicationBootstrap);

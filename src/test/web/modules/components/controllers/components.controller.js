@@ -8,7 +8,7 @@
             "ranking": 1,
             "year": 2017,
             "name": value,
-            "company": "CCEE",
+            "company": "GUX",
             "amount": "100"
         }
     }

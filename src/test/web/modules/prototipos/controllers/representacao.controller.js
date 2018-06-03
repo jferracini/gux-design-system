@@ -33,7 +33,7 @@ angular.module('gux.toolbox').controller('GridController', ['$scope', function (
     }
 
     for (i = 0; i <= 5; i += 1) {
-        $scope.itemsList.items2.push({'Id': i, 'Label': 'João CCEE_' + i});
+        $scope.itemsList.items2.push({'Id': i, 'Label': 'João GUX_' + i});
     }
 
     for (i = 0; i <= 5; i += 1) {

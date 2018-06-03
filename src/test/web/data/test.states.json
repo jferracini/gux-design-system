@@ -59,7 +59,7 @@
                         "menu": {
                             "iconClass": "fa fa-angle-right",
                             "title": "Sobre",
-                            "description": "Sobre o Global UX da CCEE."
+                            "description": "Sobre o Global UX."
                         },
                         "masthead": {}
                     }
@@ -76,7 +76,7 @@
                         "menu": {
                             "iconClass": "fa fa-angle-right",
                             "title": "Browsers",
-                            "description": "Matriz de compabilidade referenta a utlização de browsers e sistemas operacionais da CCEE."
+                            "description": "Matriz de compabilidade referenta a utlização de browsers e sistemas operacionais da GUX."
                         },
                         "masthead": {
                             "title": "Browsers - matriz de compatibilidade"
