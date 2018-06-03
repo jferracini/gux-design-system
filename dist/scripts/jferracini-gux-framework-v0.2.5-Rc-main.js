@@ -1,332 +1,3 @@
-(function(angular) {
-    'use strict';
-
-    angular.module('gux.flatfull', [])
-        .directive('setNgAnimate', ['$animate', function($animate) {
-            return {
-                link: function($scope, $element, $attrs) {
-                    $scope.$watch(function() {
-                        return $scope.$eval($attrs.setNgAnimate, $scope);
-                    }, function(valnew, valold) {
-                        $animate.enabled(!!valnew, $element);
-                    });
-                }
-            };
-        }])
-        .directive('uiNav', ['$timeout', function($timeout) {
-            return {
-                restrict: 'AC',
-                link: function(scope, el, attr) {
-                    var _window = $(window),
-                        _mb = 768,
-                        wrap = $('.app-aside'),
-                        next,
-                        backdrop = '.dropdown-backdrop';
-                    // unfolded
-                    el.on('click', 'a', function(e) {
-                        next && next.trigger('mouseleave.nav');
-                        var _this = $(this);
-                        _this.parent().siblings(".active").toggleClass('active');
-                        _this.next().is('ul') && _this.parent().toggleClass('active') && e.preventDefault();
-                        // mobile
-                        _this.next().is('ul') || ((_window.width() < _mb) && $('.app-aside').removeClass('show off-screen'));
-                    });
-
-                    // folded & fixed
-                    el.on('mouseenter', 'a', function(e) {
-                        next && next.trigger('mouseleave.nav');
-                        $('> .nav', wrap).remove();
-                        if (!$('.app-aside-fixed.app-aside-folded').length || (_window.width() < _mb) || $('.app-aside-dock').length) return;
-                        var _this = $(e.target),
-                            top, w_h = $(window).height(),
-                            offset = 50,
-                            min = 150;
-
-                        !_this.is('a') && (_this = _this.closest('a'));
-                        if (_this.next().is('ul')) {
-                            next = _this.next();
-                        } else {
-                            return;
-                        }
-
-                        _this.parent().addClass('active');
-                        top = _this.parent().position().top + offset;
-                        next.css('top', top);
-                        if (top + next.height() > w_h) {
-                            next.css('bottom', 0);
-                        }
-                        if (top + min > w_h) {
-                            next.css('bottom', w_h - top - offset).css('top', 'auto');
-                        }
-                        next.appendTo(wrap);
-
-                        next.on('mouseleave.nav', function(e) {
-                            $(backdrop).remove();
-                            next.appendTo(_this.parent());
-                            next.off('mouseleave.nav').css('top', 'auto').css('bottom', 'auto');
-                            _this.parent().removeClass('active');
-                        });
-
-                        $('.smart').length && $('<div class="dropdown-backdrop"/>').insertAfter('.app-aside').on('click', function(next) {
-                            next && next.trigger('mouseleave.nav');
-                        });
-
-                    });
-
-                    wrap.on('mouseleave', function(e) {
-                        next && next.trigger('mouseleave.nav');
-                        $('> .nav', wrap).remove();
-                    });
-                }
-            };
-        }])
-        .directive('uiToggleClass', ['$timeout', '$document', function($timeout, $document) {
-            return {
-                restrict: 'AC',
-                link: function(scope, el, attr) {
-                    el.on('click', function(e) {
-                        e.preventDefault();
-                        var classes = attr.uiToggleClass.split(','),
-                            targets = (attr.target && attr.target.split(',')) || Array(el),
-                            key = 0;
-                        angular.forEach(classes, function(_class) {
-                            var target = targets[(targets.length && key)];
-                            (_class.indexOf('*') !== -1) && magic(_class, target);
-                            $(target).toggleClass(_class);
-                            key++;
-                        });
-                        $(el).toggleClass('active');
-
-                        function magic(_class, target) {
-                            var patt = new RegExp('\\s' +
-                                _class.replace(/\*/g, '[A-Za-z0-9-_]+').split(' ').join('\\s|\\s') +
-                                '\\s', 'g');
-                            var cn = ' ' + $(target)[0].className + ' ';
-                            while (patt.test(cn)) {
-                                cn = cn.replace(patt, ' ');
-                            }
-                            $(target)[0].className = $.trim(cn);
-                        }
-                    });
-                }
-            };
-        }])
-        .directive('uiScrollTo', ['$location', '$anchorScroll', function($location, $anchorScroll) {
-            return {
-                restrict: 'AC',
-                link: function(scope, el, attr) {
-                    el.on('click', function(e) {
-                        $location.hash(attr.uiScrollTo);
-                        $anchorScroll();
-                    });
-                }
-            };
-        }]);
-
-}(window.angular));
-(function (angular, $) {
-	'use strict';
-
-	angular.module('gux.tooltip', [])
-		.directive('gxTooltip', ['$timeout',
-			function (timeout, parse) {
-
-				function GXTooltipLink(scope, element, attributes, controller) {
-					attributes.$observe('gxTooltip', function (title) {
-						timeout(function () {
-							$(element)
-								.tooltip({
-									'placement': attributes.gxTooltipPlacement ? attributes.gxTooltipPlacement : 'top'
-								})
-								.attr('data-original-title', attributes.gxTooltip);
-						});
-					});
-				}
-
-				return {
-					restrict: 'A',
-					link: GXTooltipLink
-				};
-
-			}]);
-
-} (window.angular, window.$));
-
-(function(angular, $) {
-    'use strict';
-
-    angular.module('gux.sidenav', [])
-        .directive('gxSidenav', [
-            function() {
-
-                function GXSidenavController() {
-
-                }
-
-                return {
-                    restrict: 'E',
-                    replace: true,
-                    template:'<section><md-sidenav class="md-sidenav-left bg-black-opacity" md-component-id="left" md-disable-backdrop md-whiteframe="4"><div class="md-navbar bg-black md-whiteframe-z1 gx-cockpit-nav"><ul class="nav navbar-nav w-full"><li class="pull-left m-l"><h3>Menu de contexto</h3></li><li class="pull-right"><a href ng-click="$ctrl.close()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li></ul></div><md-content><div flex class="aside-wrap"><div class="navi-wrap"><div ng-cloak><md-content><md-tabs class="blue-grey-50" md-no-select-click md-dynamic-height md-center-tabs md-swipe-content md-align-tabs="top" md-stretch-tabs="always"><md-tab label="Por assunto"><md-content class="bg-black-opacity"><h1>Assuntos</h1></md-content></md-tab><md-tab label="Por sistema"><md-content class="bg-black-opacity"><h1>Sistemas</h1></md-content></md-tab></md-tabs></md-content></div></div></div></md-content></md-sidenav></section>', // dentro dele o sidenav app
-                    transclude: true,
-                    controller: GXSidenavController,
-                    controllerAs: 'controller',
-                    scope: false
-                };
-            }
-        ]);
-
-}(window.angular, window.$));
-(function (angular) {
-	'use strict';
-
-	angular.module('gux.panel', ['gux.panelHeader', 'gux.panelBody', 'gux.panelFooter'])
-		.directive('gxPanel', [
-			function () {
-
-				return {
-					restrict: 'E',
-					replace: true,
-					template:'<div><div ng-transclude ngsf-fullscreen class="panel panel-default no-border"></div></div>',
-					transclude: true,
-					scope: false
-				};
-			}]);
-
-} (window.angular));
-
-(function (angular) {
-	'use strict';
-
-	angular.module('gux.panelHeader', ['angularScreenfull'])
-		.directive('gxPanelHeader', [
-			function () {
-
-				function GXPanelHeaderController() {
-
-				}
-
-				return {
-					restrict: 'E',
-					replace: true,
-					template:'<div class="panel-heading font-bold"><a ngsf-toggle-fullscreen class="text-muted text-lg pull-right"><i class="fa fa-expand"></i></a> <span class="h4">{{controller.title}}</span></div>',
-					scope: false,
-					controller: GXPanelHeaderController,
-					controllerAs: 'controller',
-					bindToController: {
-						title: '@',
-					}
-				};
-			}]);
-
-} (window.angular));
-
-(function (angular) {
-	'use strict';
-
-	angular.module('gux.panelFooter', [])
-		.directive('gxPanelFooter', [
-			function () {
-
-				return {
-					restrict: 'E',
-					replace: true,
-					template:'<div ng-transclude class="panel-footer text-right bg-light lter"></div>',
-					transclude: true,
-					scope: false
-				};
-			}]);
-
-} (window.angular));
-
-(function (angular) {
-	'use strict';
-
-	angular.module('gux.panelBody', [])
-		.directive('gxPanelBody', [
-			function () {
-
-				return {
-					restrict: 'E',
-					replace: true,
-					template:'<div ng-transclude class="panel-body"></div>',
-					transclude: true,
-					scope: false
-				};
-			}]);
-
-} (window.angular));
-
-(function (angular) {
-	'use strict';
-
-	angular.module('gux.fieldset', [])
-		.directive('gxFieldset', [
-			function () {
-
-				function GXFieldsetController($scope) {
-
-					if ($scope.controller.collapsed == undefined) {
-
-						$scope.controller.collapsible = false;
-
-					} else {
-
-						$scope.controller.collapsible = true;
-
-						if ($scope.controller.collapsed === null
-							|| $scope.controller.collapsed === 'false'
-							|| $scope.controller.collapsed === false) {
-							$scope.controller.collapsed = false;
-						} else {
-							$scope.controller.collapsed = true;
-						}
-					}
-				}
-
-				return {
-					restrict: 'E',
-					replace: true,
-					template:'<fieldset><legend><span ng-if="controller.collapsible" ng-click="controller.collapsed = !controller.collapsed"><i ng-class="{\'fa-chevron-right\': controller.collapsed, \'fa-chevron-down\': !controller.collapsed}" class="fa fa-fw" style="font-size: 0.6em; vertical-align: middle;"></i></span> {{controller.title}}</legend><span ng-transclude ng-class="{\'collapse\': controller.collapsible && controller.collapsed === true}"></span></fieldset>',
-					transclude: true,
-					scope: true,
-					controller: ['$scope', GXFieldsetController],
-					controllerAs: 'controller',
-					bindToController: {
-						title: '@',
-						collapsed: '='
-					}
-				};
-			}]);
-
-} (window.angular));
-
-(function(angular, $) {
-    'use strict';
-
-    angular.module('gux.cockpit', [])
-        .directive('gxCockpit', [
-            function() {
-
-                function GXCockpitController() {
-
-                }
-
-                return {
-                    restrict: 'E',
-                    replace: true,
-                    template:'<div class="md-navbar blue-900 md-whiteframe-z1 gx-cockpit-nav header-fixed" ng-cloak><ul class="nav navbar-nav navbar-left"><li class><a href ng-click="$ctrl.toggleLeft(\'cockpit-menu\')" class="pull-left"><i class="ion ion-grid text-white m-l-xs font-bold" style="font-size: 22px;"></i></a> <span class="pull-right m-r-n-xxl hidden-lg hidden-md hidden-sm"><a class="gx-cockpit-brand no-padder" href="/"><img src="images/logo-app-cockpit.png"></a></span></li><li class="hide-xs hide-sm m-l-xs"><a class="gx-cockpit-brand no-padder" href="/"><img src="images/logo-app-cockpit.png"></a></li><li class="dropdown m-l-sm pos-stc" dropdown><a href class="dropdown-toggle dker hvr-underline-from-center" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bookmark fa-fw text-warning"></i> <span class="text-white">apps favoritos</span></a><div class="dropdown-menu w-full bg-white animated fadeIn"><div class="panel"><div class="panel-heading b-light bg-light"><strong>Favoritos</strong></div><div class="list-group"><span href class="list-group-item blue-grey-10"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><strong>Olá!</strong><br><span>Estes são seus favoritos. Tenha sempre acesso rápido!</span></span></span> <span class="row list-group-item blue-grey-300"><div class="col-md-2 col-xs-12"><md-card><md-card-header><md-card-avatar><img src="images/bookmark.png"></md-card-avatar><md-card-header-text><span class="h5">CliqCCEE <a href class="pull-right"><i class="ion-ios-close-outline pull-right"></i><md-tooltip md-direction="right" class="w-auto-folded">remover</md-tooltip></a></span><p class="text-muted text-xs">Sistema de contabilização e Liquidação</p></md-card-header-text></md-card-header><md-card-actions layout="row" layout-align="start left"><a ui-sref="home" class="btn btn-block btn-default btn-xs">entrar</a></md-card-actions></md-card></div><div class="col-md-2 col-xs-12"><md-card><md-card-header><md-card-avatar><img src="images/bookmark.png"></md-card-avatar><md-card-header-text><span class="h5">SigaCCEE <a href class="pull-right"><i class="ion-ios-close-outline pull-right"></i><md-tooltip md-direction="right" class="w-auto-folded">remover</md-tooltip></a></span><p class="text-muted text-xs">Sistema integrado de gestão de ativos</p></md-card-header-text></md-card-header><md-card-actions layout="row" layout-align="start left"><a ui-sref="home" class="btn btn-block btn-default btn-xs">entrar</a></md-card-actions></md-card></div><div class="col-md-2 col-xs-12"><md-card><md-card-header><md-card-avatar><img src="images/bookmark.png"></md-card-avatar><md-card-header-text><span class="h5">S.C.D.E. <a href class="pull-right"><i class="ion-ios-close-outline pull-right"></i><md-tooltip md-direction="right" class="w-auto-folded">remover</md-tooltip></a></span><p class="text-muted text-xs">Sistema de coleta de dados de energia</p></md-card-header-text></md-card-header><md-card-actions layout="row" layout-align="start left"><a ui-sref="home" class="btn btn-block btn-default btn-xs">entrar</a></md-card-actions></md-card></div></span> <a href class="list-group-item blue-grey-50 clear"><span class="pull-left m-r"><i class="fa fa-close text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger font-bold">fechar</span></a></div></div></div></li></ul><ul class="nav navbar-nav navbar-right m-r-xs gx-cockpit-link hidden-xs"><li class="dropdown" dropdown><a href class="dropdown-toggle hvr-underline-from-center" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-user fa-fw text-white"></i> <span class="text-white">Julio Ferracini</span></a><div class="dropdown-menu w-xl animated fadeIn"><div class="panel bg-white"><div class="panel-heading b-light bg-light"><strong>Seu cadastro</strong></div><div class="list-group"><span href class="list-group-item blue-grey-10"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><strong>Julio</strong><br><span>Por aqui você administra seu cadastro.</span></span></span> <a ui-sref="home.prototipos.profile-mockup" class="list-group-item"><span class="pull-left m-r"><i class="fa fa-user fa-2x" aria-hidden="true"></i></span> <span class="clear block m-b-none">Configurações da sua conta<br><small class="text-muted">Dados cadastrais do usuário ativo, troca de senha e configuração do perfil (notificações e preferências gerais).</small></span></a> <a ui-sref="home.gus.minha-conta" class="list-group-item"><span class="pull-left m-r"><i class="fa fa-key fa-2x" aria-hidden="true"></i></span> <span class="clear block m-b-none">Troca de senha e e-mail pessoal<br><small class="text-muted">Alterar dados de acesso como senha e e-mail pessoal.</small></span></a> <a ui-sref="home.prototipos.profile-mockup" class="list-group-item"><span class="pull-left m-r"><i class="fa fa-lock fa-2x" aria-hidden="true"></i></span> <span class="clear block m-b-none">Atribuições e permissões de acesso<br><small class="text-muted">Visualizar e gerenciar preferências de acesso a sistemas na CCEE.</small></span></a> <a href class="list-group-item text-warning"><span class="pull-left m-r text-warning"><i class="fa fa-gear fa-2x text-warning" aria-hidden="true"></i></span> <span class="clear block m-b-none">Administração do sistema de cadastro<br><small class="text-muted">Gerenciar preferências globais do sistema de cadastro.</small></span></a> <a href class="list-group-item blue-grey-50"><span class="pull-left m-r"><i class="fa fa-sign-out text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger font-bold">Sair do ambiente CCEE</span></a></div></div></div></li><li class="dropdown" dropdown gx-tooltip="Notificações gerais" gx-tooltip-placement="bottom"><a href class="dropdown-toggle hvr-underline-from-center" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bell fa-fw text-white"></i> <span class="badge badge-sm up bg-danger dk pull-right-xs md-whiteframe-z2">30</span></a><div class="dropdown-menu w-xl animated fadeIn"><div class="panel bg-white"><div class="panel-heading b-light bg-light"><strong>Você possui <span>30</span> notificações</strong></div><div class="list-group"><span href class="list-group-item bg-light dk"><span class="pull-left m-r thumb-sm"><img src="images/profile.jpg" alt="..." class="img-circle"></span> <span class="clear block m-b-none text-light"><i class="fa fa-user"></i> <strong>Julio Ferracini</strong><br><small class="text-muted">notificações referentes a este perfil</small></span></span> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa-check text-info" aria-hidden="true"></i></span> <span class="clear block m-b-none">Cadastro <span class="badge blue-grey-200">20120</span> aprovado para sua avaliação.<br><small class="text-muted">1 hora atrás referente à</small> <small class="text-info">Renato Tegão</small></span></a> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa-file-pdf-o text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none">Envio de documentos pendentes para o cadastro <span class="badge blue-grey-200">20120</span><br><small class="text-muted">2 hora atrás referente à</small> <small class="text-info">COMERCIAL XPT</small></span></a> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa fa-refresh fa-spin text-light" aria-hidden="true"></i></span> <span class="clear block m-b-none">Julio, sua empresa possui solicitações de cadastro estão em análise. Fique atento às notificações.<br><small class="text-muted">2 hora atrás enviado pela</small> <small class="text-warning">CCEE</small></span></a> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa fa-bullhorn text-warning" aria-hidden="true"></i></span> <span class="clear block m-b-none"><span class="badge amber">28</span> Novos comunicados recebidos.<br><small class="text-muted">4 hora atrás enviado pela</small> <small class="text-warning">CCEE</small></span></a></div><div class="panel-footer text-sm"><a href class="pull-right"><i class="fa fa-bell"></i></a> <a href="#notes" data-toggle="class:show animated fadeInRight">Todas as notificações do perfil ativo</a></div></div></div></li><li class="dropdown pos-stc" dropdown><a href class="dropdown-toggle hvr-underline-from-right" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-tasks fa-fw text-white"></i> <span class="text-white hidden-sm hiddem-xs">Tarefas</span></a><div class="dropdown-menu bg-white animated fadeInRight md-whiteframe-z4"><div class="panel bg-white"><div class="panel-heading blue-grey-100 no-border"><h4 class="font-thin">Tarefas</h4></div><div class="list-group"><span href class="list-group-item blue-grey-10"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><strong>Julio</strong><br><span>Estas são atividades vinculadas ao seu perfil.</span></span></span><div class="list-group-item"><div class="row"><div class="col-md-12"><div class="center text-center"><i class="ion-coffee fa-5x fa-fw text-muted"></i><p>Você não possui nenhuma tarefa para realizar no momento.</p></div><div class="panel panel-default hide"><div class="panel-heading"><span class="label label-default pull-right m-t-sm wrapper-xs">4 recebidas hoje</span><h4 class="font-thin m-t-sm m-b text-muted"><i class="fa fa-tasks m-r" aria-hidden="true"></i> Tarefas</h4></div><div class="wrapper">Tarefas gerais do usuário.</div><ul><li>Links de atividades rotineiras</li><li>• Declaração de Sobras e Deficits (MCSD)</li><li>• Registro de contratos</li><li>• Etc.</li></ul></div></div></div></div><a href class="list-group-item blue-grey-50"><span class="pull-left m-r"><i class="fa fa-close text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger">fechar painel</span></a></div></div></div></li><li class="dropdown pos-stc" dropdown><a href class="dropdown-toggle hvr-underline-from-right" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-calendar fa-fw text-white"></i> <span class="text-white hidden-sm hiddem-xs"></span></a><div class="dropdown-menu w-xxl bg-white animated fadeInRight b-l"><div class="panel bg-white"><div class="panel-heading blue-grey-100 no-border"><h4 class="font-thin">Calendário de operações</h4></div><div class="list-group"><span class="list-group-item bg-light"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><span class="pull-left"><strong>Julio</strong><br><span>Fique atento a estes prazos. Eles são importantes para a operação do Mercado e pode afetar o seu dia-a-dia.</span></span> <span class="pull-left"><span class="font-thin text-muted">Hoje</span> <small class="text-primary">{{CurrentDate | date: \'dd/MM/yyyy\'}}</small> <small class="text-muted">às</small> <small class="text-primary">{{CurrentDate | date: \'hh:mm\'}}</small></span></span></span><div class="list-group-item bg-light lter"><md-datepicker class="w-full" ng-model="valorDataDes" md-placeholder="Data"></md-datepicker></div><div class="list-group-item" style="overflow:auto; height:500px;"><div class="row"><div class="list-item col-md-12 no-border-xs"><a href class="text-muted pull-right text-lg"><i class="icon-arrow-right"></i></a><div class="panel-body no-padder"><div class="md-list md-whiteframe-z0 bg-white m-b"><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para Registro e Validação dos montantes de Cessão de Energia de Reserva para usinas de fonte eólica - 1° quadriênio correspondente ao 2° LER</h3><small class="font-thin">X+5du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle blue-grey"><span class="text-lg"><i class="fa fa-line-chart text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Divulgação dos resultados da liquidação financeira do MCSD - set/16</h3><small class="font-thin">X+2du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para disponibilizar os Relatórios do Processamento da Contabilização - jul/16</h3><small class="font-thin">MS+21du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para divulgar os relatórios de pré-liquidação de penalidades - ago/16</h3><small class="font-thin">MS+22du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para disponibilizar os Relatórios do Processamento da Contabilização - jul/16</h3><small class="font-thin">MS+21du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para divulgar os relatórios de pré-liquidação de penalidades - ago/16</h3><small class="font-thin">MS+22du</small></div></div></div></div></div></div></div><a href class="list-group-item blue-grey-50"><span class="pull-left m-r"><i class="fa fa-close text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger">fechar painel</span></a></div></div></div></li><li><a ng-click="startIntro()" gx-tooltip="Tour guiado" gx-tooltip-placement="bottom" class="hvr-underline-from-center"><i class="fa fa-question-circle fa-fw text-white"></i></a></li><li><a ngsf-toggle-fullscreen gx-tooltip="Tela cheia" gx-tooltip-placement="bottom"><i class="fa fa-expand fa-fw text-white"></i> <i class="fa fa-compress fa-fw text-active"></i></a></li></ul></div>',
-                    transclude: true,
-                    controller: GXCockpitController,
-                    controllerAs: 'controller',
-                    scope: false,
-                    link: function(scope, element, attributes) {
-                        element.addClass('customClass');
-                    }
-                };
-            }
-        ]);
-
-}(window.angular, window.$));
 (function($, angular) {
 
     'use strict';
@@ -2616,6 +2287,335 @@
         .run(['$state', '$stateParams', gxAppRun]);
 
 }(window.$, window.angular));
+(function(angular) {
+    'use strict';
+
+    angular.module('gux.flatfull', [])
+        .directive('setNgAnimate', ['$animate', function($animate) {
+            return {
+                link: function($scope, $element, $attrs) {
+                    $scope.$watch(function() {
+                        return $scope.$eval($attrs.setNgAnimate, $scope);
+                    }, function(valnew, valold) {
+                        $animate.enabled(!!valnew, $element);
+                    });
+                }
+            };
+        }])
+        .directive('uiNav', ['$timeout', function($timeout) {
+            return {
+                restrict: 'AC',
+                link: function(scope, el, attr) {
+                    var _window = $(window),
+                        _mb = 768,
+                        wrap = $('.app-aside'),
+                        next,
+                        backdrop = '.dropdown-backdrop';
+                    // unfolded
+                    el.on('click', 'a', function(e) {
+                        next && next.trigger('mouseleave.nav');
+                        var _this = $(this);
+                        _this.parent().siblings(".active").toggleClass('active');
+                        _this.next().is('ul') && _this.parent().toggleClass('active') && e.preventDefault();
+                        // mobile
+                        _this.next().is('ul') || ((_window.width() < _mb) && $('.app-aside').removeClass('show off-screen'));
+                    });
+
+                    // folded & fixed
+                    el.on('mouseenter', 'a', function(e) {
+                        next && next.trigger('mouseleave.nav');
+                        $('> .nav', wrap).remove();
+                        if (!$('.app-aside-fixed.app-aside-folded').length || (_window.width() < _mb) || $('.app-aside-dock').length) return;
+                        var _this = $(e.target),
+                            top, w_h = $(window).height(),
+                            offset = 50,
+                            min = 150;
+
+                        !_this.is('a') && (_this = _this.closest('a'));
+                        if (_this.next().is('ul')) {
+                            next = _this.next();
+                        } else {
+                            return;
+                        }
+
+                        _this.parent().addClass('active');
+                        top = _this.parent().position().top + offset;
+                        next.css('top', top);
+                        if (top + next.height() > w_h) {
+                            next.css('bottom', 0);
+                        }
+                        if (top + min > w_h) {
+                            next.css('bottom', w_h - top - offset).css('top', 'auto');
+                        }
+                        next.appendTo(wrap);
+
+                        next.on('mouseleave.nav', function(e) {
+                            $(backdrop).remove();
+                            next.appendTo(_this.parent());
+                            next.off('mouseleave.nav').css('top', 'auto').css('bottom', 'auto');
+                            _this.parent().removeClass('active');
+                        });
+
+                        $('.smart').length && $('<div class="dropdown-backdrop"/>').insertAfter('.app-aside').on('click', function(next) {
+                            next && next.trigger('mouseleave.nav');
+                        });
+
+                    });
+
+                    wrap.on('mouseleave', function(e) {
+                        next && next.trigger('mouseleave.nav');
+                        $('> .nav', wrap).remove();
+                    });
+                }
+            };
+        }])
+        .directive('uiToggleClass', ['$timeout', '$document', function($timeout, $document) {
+            return {
+                restrict: 'AC',
+                link: function(scope, el, attr) {
+                    el.on('click', function(e) {
+                        e.preventDefault();
+                        var classes = attr.uiToggleClass.split(','),
+                            targets = (attr.target && attr.target.split(',')) || Array(el),
+                            key = 0;
+                        angular.forEach(classes, function(_class) {
+                            var target = targets[(targets.length && key)];
+                            (_class.indexOf('*') !== -1) && magic(_class, target);
+                            $(target).toggleClass(_class);
+                            key++;
+                        });
+                        $(el).toggleClass('active');
+
+                        function magic(_class, target) {
+                            var patt = new RegExp('\\s' +
+                                _class.replace(/\*/g, '[A-Za-z0-9-_]+').split(' ').join('\\s|\\s') +
+                                '\\s', 'g');
+                            var cn = ' ' + $(target)[0].className + ' ';
+                            while (patt.test(cn)) {
+                                cn = cn.replace(patt, ' ');
+                            }
+                            $(target)[0].className = $.trim(cn);
+                        }
+                    });
+                }
+            };
+        }])
+        .directive('uiScrollTo', ['$location', '$anchorScroll', function($location, $anchorScroll) {
+            return {
+                restrict: 'AC',
+                link: function(scope, el, attr) {
+                    el.on('click', function(e) {
+                        $location.hash(attr.uiScrollTo);
+                        $anchorScroll();
+                    });
+                }
+            };
+        }]);
+
+}(window.angular));
+(function (angular, $) {
+	'use strict';
+
+	angular.module('gux.tooltip', [])
+		.directive('gxTooltip', ['$timeout',
+			function (timeout, parse) {
+
+				function GXTooltipLink(scope, element, attributes, controller) {
+					attributes.$observe('gxTooltip', function (title) {
+						timeout(function () {
+							$(element)
+								.tooltip({
+									'placement': attributes.gxTooltipPlacement ? attributes.gxTooltipPlacement : 'top'
+								})
+								.attr('data-original-title', attributes.gxTooltip);
+						});
+					});
+				}
+
+				return {
+					restrict: 'A',
+					link: GXTooltipLink
+				};
+
+			}]);
+
+} (window.angular, window.$));
+
+(function(angular, $) {
+    'use strict';
+
+    angular.module('gux.sidenav', [])
+        .directive('gxSidenav', [
+            function() {
+
+                function GXSidenavController() {
+
+                }
+
+                return {
+                    restrict: 'E',
+                    replace: true,
+                    template:'<section><md-sidenav class="md-sidenav-left bg-black-opacity" md-component-id="left" md-disable-backdrop md-whiteframe="4"><div class="md-navbar bg-black md-whiteframe-z1 gx-cockpit-nav"><ul class="nav navbar-nav w-full"><li class="pull-left m-l"><h3>Menu de contexto</h3></li><li class="pull-right"><a href ng-click="$ctrl.close()"><i class="fa fa-arrow-left" aria-hidden="true"></i></a></li></ul></div><md-content><div flex class="aside-wrap"><div class="navi-wrap"><div ng-cloak><md-content><md-tabs class="blue-grey-50" md-no-select-click md-dynamic-height md-center-tabs md-swipe-content md-align-tabs="top" md-stretch-tabs="always"><md-tab label="Por assunto"><md-content class="bg-black-opacity"><h1>Assuntos</h1></md-content></md-tab><md-tab label="Por sistema"><md-content class="bg-black-opacity"><h1>Sistemas</h1></md-content></md-tab></md-tabs></md-content></div></div></div></md-content></md-sidenav></section>', // dentro dele o sidenav app
+                    transclude: true,
+                    controller: GXSidenavController,
+                    controllerAs: 'controller',
+                    scope: false
+                };
+            }
+        ]);
+
+}(window.angular, window.$));
+(function (angular) {
+	'use strict';
+
+	angular.module('gux.panel', ['gux.panelHeader', 'gux.panelBody', 'gux.panelFooter'])
+		.directive('gxPanel', [
+			function () {
+
+				return {
+					restrict: 'E',
+					replace: true,
+					template:'<div><div ng-transclude ngsf-fullscreen class="panel panel-default no-border"></div></div>',
+					transclude: true,
+					scope: false
+				};
+			}]);
+
+} (window.angular));
+
+(function (angular) {
+	'use strict';
+
+	angular.module('gux.panelHeader', ['angularScreenfull'])
+		.directive('gxPanelHeader', [
+			function () {
+
+				function GXPanelHeaderController() {
+
+				}
+
+				return {
+					restrict: 'E',
+					replace: true,
+					template:'<div class="panel-heading font-bold"><a ngsf-toggle-fullscreen class="text-muted text-lg pull-right"><i class="fa fa-expand"></i></a> <span class="h4">{{controller.title}}</span></div>',
+					scope: false,
+					controller: GXPanelHeaderController,
+					controllerAs: 'controller',
+					bindToController: {
+						title: '@',
+					}
+				};
+			}]);
+
+} (window.angular));
+
+(function (angular) {
+	'use strict';
+
+	angular.module('gux.panelFooter', [])
+		.directive('gxPanelFooter', [
+			function () {
+
+				return {
+					restrict: 'E',
+					replace: true,
+					template:'<div ng-transclude class="panel-footer text-right bg-light lter"></div>',
+					transclude: true,
+					scope: false
+				};
+			}]);
+
+} (window.angular));
+
+(function (angular) {
+	'use strict';
+
+	angular.module('gux.panelBody', [])
+		.directive('gxPanelBody', [
+			function () {
+
+				return {
+					restrict: 'E',
+					replace: true,
+					template:'<div ng-transclude class="panel-body"></div>',
+					transclude: true,
+					scope: false
+				};
+			}]);
+
+} (window.angular));
+
+(function (angular) {
+	'use strict';
+
+	angular.module('gux.fieldset', [])
+		.directive('gxFieldset', [
+			function () {
+
+				function GXFieldsetController($scope) {
+
+					if ($scope.controller.collapsed == undefined) {
+
+						$scope.controller.collapsible = false;
+
+					} else {
+
+						$scope.controller.collapsible = true;
+
+						if ($scope.controller.collapsed === null
+							|| $scope.controller.collapsed === 'false'
+							|| $scope.controller.collapsed === false) {
+							$scope.controller.collapsed = false;
+						} else {
+							$scope.controller.collapsed = true;
+						}
+					}
+				}
+
+				return {
+					restrict: 'E',
+					replace: true,
+					template:'<fieldset><legend><span ng-if="controller.collapsible" ng-click="controller.collapsed = !controller.collapsed"><i ng-class="{\'fa-chevron-right\': controller.collapsed, \'fa-chevron-down\': !controller.collapsed}" class="fa fa-fw" style="font-size: 0.6em; vertical-align: middle;"></i></span> {{controller.title}}</legend><span ng-transclude ng-class="{\'collapse\': controller.collapsible && controller.collapsed === true}"></span></fieldset>',
+					transclude: true,
+					scope: true,
+					controller: ['$scope', GXFieldsetController],
+					controllerAs: 'controller',
+					bindToController: {
+						title: '@',
+						collapsed: '='
+					}
+				};
+			}]);
+
+} (window.angular));
+
+(function(angular, $) {
+    'use strict';
+
+    angular.module('gux.cockpit', [])
+        .directive('gxCockpit', [
+            function() {
+
+                function GXCockpitController() {
+
+                }
+
+                return {
+                    restrict: 'E',
+                    replace: true,
+                    template:'<div class="md-navbar blue-900 md-whiteframe-z1 gx-cockpit-nav header-fixed" ng-cloak><ul class="nav navbar-nav navbar-left"><li class><a href ng-click="$ctrl.toggleLeft(\'cockpit-menu\')" class="pull-left"><i class="ion ion-grid text-white m-l-xs font-bold" style="font-size: 22px;"></i></a> <span class="pull-right m-r-n-xxl hidden-lg hidden-md hidden-sm"><a class="gx-cockpit-brand no-padder" href="/"><img src="images/logo-app-cockpit.png"></a></span></li><li class="hide-xs hide-sm m-l-xs"><a class="gx-cockpit-brand no-padder" href="/"><img src="images/logo-app-cockpit.png"></a></li><li class="dropdown m-l-sm pos-stc" dropdown><a href class="dropdown-toggle dker hvr-underline-from-center" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bookmark fa-fw text-warning"></i> <span class="text-white">apps favoritos</span></a><div class="dropdown-menu w-full bg-white animated fadeIn"><div class="panel"><div class="panel-heading b-light bg-light"><strong>Favoritos</strong></div><div class="list-group"><span href class="list-group-item blue-grey-10"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><strong>Olá!</strong><br><span>Estes são seus favoritos. Tenha sempre acesso rápido!</span></span></span> <span class="row list-group-item blue-grey-300"><div class="col-md-2 col-xs-12"><md-card><md-card-header><md-card-avatar><img src="images/bookmark.png"></md-card-avatar><md-card-header-text><span class="h5">CliqCCEE <a href class="pull-right"><i class="ion-ios-close-outline pull-right"></i><md-tooltip md-direction="right" class="w-auto-folded">remover</md-tooltip></a></span><p class="text-muted text-xs">Sistema de contabilização e Liquidação</p></md-card-header-text></md-card-header><md-card-actions layout="row" layout-align="start left"><a ui-sref="home" class="btn btn-block btn-default btn-xs">entrar</a></md-card-actions></md-card></div><div class="col-md-2 col-xs-12"><md-card><md-card-header><md-card-avatar><img src="images/bookmark.png"></md-card-avatar><md-card-header-text><span class="h5">SigaCCEE <a href class="pull-right"><i class="ion-ios-close-outline pull-right"></i><md-tooltip md-direction="right" class="w-auto-folded">remover</md-tooltip></a></span><p class="text-muted text-xs">Sistema integrado de gestão de ativos</p></md-card-header-text></md-card-header><md-card-actions layout="row" layout-align="start left"><a ui-sref="home" class="btn btn-block btn-default btn-xs">entrar</a></md-card-actions></md-card></div><div class="col-md-2 col-xs-12"><md-card><md-card-header><md-card-avatar><img src="images/bookmark.png"></md-card-avatar><md-card-header-text><span class="h5">S.C.D.E. <a href class="pull-right"><i class="ion-ios-close-outline pull-right"></i><md-tooltip md-direction="right" class="w-auto-folded">remover</md-tooltip></a></span><p class="text-muted text-xs">Sistema de coleta de dados de energia</p></md-card-header-text></md-card-header><md-card-actions layout="row" layout-align="start left"><a ui-sref="home" class="btn btn-block btn-default btn-xs">entrar</a></md-card-actions></md-card></div></span> <a href class="list-group-item blue-grey-50 clear"><span class="pull-left m-r"><i class="fa fa-close text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger font-bold">fechar</span></a></div></div></div></li></ul><ul class="nav navbar-nav navbar-right m-r-xs gx-cockpit-link hidden-xs"><li class="dropdown" dropdown><a href class="dropdown-toggle hvr-underline-from-center" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-user fa-fw text-white"></i> <span class="text-white">Julio Ferracini</span></a><div class="dropdown-menu w-xl animated fadeIn"><div class="panel bg-white"><div class="panel-heading b-light bg-light"><strong>Seu cadastro</strong></div><div class="list-group"><span href class="list-group-item blue-grey-10"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><strong>Julio</strong><br><span>Por aqui você administra seu cadastro.</span></span></span> <a ui-sref="home.prototipos.profile-mockup" class="list-group-item"><span class="pull-left m-r"><i class="fa fa-user fa-2x" aria-hidden="true"></i></span> <span class="clear block m-b-none">Configurações da sua conta<br><small class="text-muted">Dados cadastrais do usuário ativo, troca de senha e configuração do perfil (notificações e preferências gerais).</small></span></a> <a ui-sref="home.gus.minha-conta" class="list-group-item"><span class="pull-left m-r"><i class="fa fa-key fa-2x" aria-hidden="true"></i></span> <span class="clear block m-b-none">Troca de senha e e-mail pessoal<br><small class="text-muted">Alterar dados de acesso como senha e e-mail pessoal.</small></span></a> <a ui-sref="home.prototipos.profile-mockup" class="list-group-item"><span class="pull-left m-r"><i class="fa fa-lock fa-2x" aria-hidden="true"></i></span> <span class="clear block m-b-none">Atribuições e permissões de acesso<br><small class="text-muted">Visualizar e gerenciar preferências de acesso a sistemas na CCEE.</small></span></a> <a href class="list-group-item text-warning"><span class="pull-left m-r text-warning"><i class="fa fa-gear fa-2x text-warning" aria-hidden="true"></i></span> <span class="clear block m-b-none">Administração do sistema de cadastro<br><small class="text-muted">Gerenciar preferências globais do sistema de cadastro.</small></span></a> <a href class="list-group-item blue-grey-50"><span class="pull-left m-r"><i class="fa fa-sign-out text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger font-bold">Sair do ambiente CCEE</span></a></div></div></div></li><li class="dropdown" dropdown gx-tooltip="Notificações gerais" gx-tooltip-placement="bottom"><a href class="dropdown-toggle hvr-underline-from-center" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-bell fa-fw text-white"></i> <span class="badge badge-sm up bg-danger dk pull-right-xs md-whiteframe-z2">30</span></a><div class="dropdown-menu w-xl animated fadeIn"><div class="panel bg-white"><div class="panel-heading b-light bg-light"><strong>Você possui <span>30</span> notificações</strong></div><div class="list-group"><span href class="list-group-item bg-light dk"><span class="pull-left m-r thumb-sm"><img src="images/profile.jpg" alt="..." class="img-circle"></span> <span class="clear block m-b-none text-light"><i class="fa fa-user"></i> <strong>Julio Ferracini</strong><br><small class="text-muted">notificações referentes a este perfil</small></span></span> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa-check text-info" aria-hidden="true"></i></span> <span class="clear block m-b-none">Cadastro <span class="badge blue-grey-200">20120</span> aprovado para sua avaliação.<br><small class="text-muted">1 hora atrás referente à</small> <small class="text-info">Renato Tegão</small></span></a> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa-file-pdf-o text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none">Envio de documentos pendentes para o cadastro <span class="badge blue-grey-200">20120</span><br><small class="text-muted">2 hora atrás referente à</small> <small class="text-info">COMERCIAL XPT</small></span></a> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa fa-refresh fa-spin text-light" aria-hidden="true"></i></span> <span class="clear block m-b-none">Julio, sua empresa possui solicitações de cadastro estão em análise. Fique atento às notificações.<br><small class="text-muted">2 hora atrás enviado pela</small> <small class="text-warning">CCEE</small></span></a> <a href class="list-group-item"><span class="pull-left m-r"><i class="fa fa fa-bullhorn text-warning" aria-hidden="true"></i></span> <span class="clear block m-b-none"><span class="badge amber">28</span> Novos comunicados recebidos.<br><small class="text-muted">4 hora atrás enviado pela</small> <small class="text-warning">CCEE</small></span></a></div><div class="panel-footer text-sm"><a href class="pull-right"><i class="fa fa-bell"></i></a> <a href="#notes" data-toggle="class:show animated fadeInRight">Todas as notificações do perfil ativo</a></div></div></div></li><li class="dropdown pos-stc" dropdown><a href class="dropdown-toggle hvr-underline-from-right" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-tasks fa-fw text-white"></i> <span class="text-white hidden-sm hiddem-xs">Tarefas</span></a><div class="dropdown-menu bg-white animated fadeInRight md-whiteframe-z4"><div class="panel bg-white"><div class="panel-heading blue-grey-100 no-border"><h4 class="font-thin">Tarefas</h4></div><div class="list-group"><span href class="list-group-item blue-grey-10"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><strong>Julio</strong><br><span>Estas são atividades vinculadas ao seu perfil.</span></span></span><div class="list-group-item"><div class="row"><div class="col-md-12"><div class="center text-center"><i class="ion-coffee fa-5x fa-fw text-muted"></i><p>Você não possui nenhuma tarefa para realizar no momento.</p></div><div class="panel panel-default hide"><div class="panel-heading"><span class="label label-default pull-right m-t-sm wrapper-xs">4 recebidas hoje</span><h4 class="font-thin m-t-sm m-b text-muted"><i class="fa fa-tasks m-r" aria-hidden="true"></i> Tarefas</h4></div><div class="wrapper">Tarefas gerais do usuário.</div><ul><li>Links de atividades rotineiras</li><li>• Declaração de Sobras e Deficits (MCSD)</li><li>• Registro de contratos</li><li>• Etc.</li></ul></div></div></div></div><a href class="list-group-item blue-grey-50"><span class="pull-left m-r"><i class="fa fa-close text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger">fechar painel</span></a></div></div></div></li><li class="dropdown pos-stc" dropdown><a href class="dropdown-toggle hvr-underline-from-right" data-toggle="dropdown" aria-expanded="true"><i class="fa fa-calendar fa-fw text-white"></i> <span class="text-white hidden-sm hiddem-xs"></span></a><div class="dropdown-menu w-xxl bg-white animated fadeInRight b-l"><div class="panel bg-white"><div class="panel-heading blue-grey-100 no-border"><h4 class="font-thin">Calendário de operações</h4></div><div class="list-group"><span class="list-group-item bg-light"><span class="pull-left m-r thumb-sm"></span> <span class="clear block m-b-none text-light"><span class="pull-left"><strong>Julio</strong><br><span>Fique atento a estes prazos. Eles são importantes para a operação do Mercado e pode afetar o seu dia-a-dia.</span></span> <span class="pull-left"><span class="font-thin text-muted">Hoje</span> <small class="text-primary">{{CurrentDate | date: \'dd/MM/yyyy\'}}</small> <small class="text-muted">às</small> <small class="text-primary">{{CurrentDate | date: \'hh:mm\'}}</small></span></span></span><div class="list-group-item bg-light lter"><md-datepicker class="w-full" ng-model="valorDataDes" md-placeholder="Data"></md-datepicker></div><div class="list-group-item" style="overflow:auto; height:500px;"><div class="row"><div class="list-item col-md-12 no-border-xs"><a href class="text-muted pull-right text-lg"><i class="icon-arrow-right"></i></a><div class="panel-body no-padder"><div class="md-list md-whiteframe-z0 bg-white m-b"><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para Registro e Validação dos montantes de Cessão de Energia de Reserva para usinas de fonte eólica - 1° quadriênio correspondente ao 2° LER</h3><small class="font-thin">X+5du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle blue-grey"><span class="text-lg"><i class="fa fa-line-chart text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Divulgação dos resultados da liquidação financeira do MCSD - set/16</h3><small class="font-thin">X+2du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para disponibilizar os Relatórios do Processamento da Contabilização - jul/16</h3><small class="font-thin">MS+21du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para divulgar os relatórios de pré-liquidação de penalidades - ago/16</h3><small class="font-thin">MS+22du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para disponibilizar os Relatórios do Processamento da Contabilização - jul/16</h3><small class="font-thin">MS+21du</small></div></div><div class="md-list-item"><div class="md-list-item-left img-circle orange"><span class="text-lg"><i class="ion-ios-flame text-white"></i></span></div><div class="md-list-item-content"><h3 class="text-sm">Data limite para divulgar os relatórios de pré-liquidação de penalidades - ago/16</h3><small class="font-thin">MS+22du</small></div></div></div></div></div></div></div><a href class="list-group-item blue-grey-50"><span class="pull-left m-r"><i class="fa fa-close text-danger" aria-hidden="true"></i></span> <span class="clear block m-b-none text-danger">fechar painel</span></a></div></div></div></li><li><a ng-click="startIntro()" gx-tooltip="Tour guiado" gx-tooltip-placement="bottom" class="hvr-underline-from-center"><i class="fa fa-question-circle fa-fw text-white"></i></a></li><li><a ngsf-toggle-fullscreen gx-tooltip="Tela cheia" gx-tooltip-placement="bottom"><i class="fa fa-expand fa-fw text-white"></i> <i class="fa fa-compress fa-fw text-active"></i></a></li></ul></div>',
+                    transclude: true,
+                    controller: GXCockpitController,
+                    controllerAs: 'controller',
+                    scope: false,
+                    link: function(scope, element, attributes) {
+                        element.addClass('customClass');
+                    }
+                };
+            }
+        ]);
+
+}(window.angular, window.$));
 (function(angular) {
 
     'use strict';

@@ -972,8 +972,6 @@ a.list-group-item.hover {
 .panel-group .panel-heading + .panel-collapse .panel-body {
   border-top: 1px solid #eaedef;
 }
-.table > tbody > tr > th,
-.table > tfoot > tr > th,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 8px 15px;
@@ -1329,7 +1327,7 @@ body {
   background-color: transparent;
 }
 .navbar-brand {
-  float: none !important;
+  float: none;
   text-align: center;
   font-size: 20px;
   font-weight: 700;
@@ -1485,19 +1483,10 @@ body {
   }
 }
 @media (max-width: 767px) {
-  body {
-    height: auto;
-    min-height: 100%;
-  }
-  .navbar-fixed-bottom {
-    position: fixed;
-  }
   .app-aside {
     float: none;
   }
   .app-content-full {
-    position: relative;
-    top: 0;
     width: 100% !important;
   }
   .hbox-auto-xs {
@@ -1698,7 +1687,7 @@ html.bg {
   }
   .app-aside-folded .navi > ul > li > a i {
     width: auto;
-    float: none !important;
+    float: none;
     display: block;
     font-size: 16px;
     margin: 0;
@@ -1753,10 +1742,6 @@ html.bg {
   }
 }
 @media (max-width: 767px) {
-  html,
-  body {
-    overflow-x: hidden !important;
-  }
   .app {
     overflow-x: hidden;
   }
@@ -1764,7 +1749,7 @@ html.bg {
     transition: transform 0.2s ease;
   }
   .off-screen {
-    position: fixed;
+    position: absolute;
     top: 50px;
     bottom: 0;
     width: 75%;
@@ -1782,7 +1767,7 @@ html.bg {
     backface-visibility: hidden;
     transform: translate3d(75%, 0px, 0px);
     overflow: hidden;
-    position: fixed;
+    position: absolute;
     width: 100%;
     top: 0;
     bottom: 0;
@@ -1810,8 +1795,7 @@ html.bg {
 @media (min-width: 992px) {
   .app-aside-dock .app-content,
   .app-aside-dock .app-footer {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    margin-left: 0;
   }
   .app-aside-dock .app-aside-footer ~ div {
     padding-bottom: 0;
@@ -2964,7 +2948,7 @@ fieldset[disabled] .btn-black.active {
   top: 120px;
   right: -240px;
   width: 240px;
-  transition: all 0.2s;
+  transition: right 0.2s;
 }
 .settings.active {
   right: -1px;
@@ -3178,7 +3162,6 @@ fieldset[disabled] .btn-black.active {
   width: 12em;
   text-align: center;
   margin-left: 2px;
-  margin-right: 2px;
 }
 .timeline-center .tl-item {
   margin-left: 50%;
@@ -3418,8 +3401,7 @@ fieldset[disabled] .i-checks input + i:before {
   left: 0;
   z-index: 0;
 }
-#flotTip,
-.flotTip {
+#flotTip {
   padding: 4px 10px;
   background-color: rgba(0, 0, 0, 0.8);
   border: solid 1px #000 !important;
@@ -6466,7 +6448,7 @@ a.text-black:hover {
   font-weight: normal;
 }
 .md-navbar {
-  min-height: 60px !important;
+  min-height: 60px;
   position: relative;
   z-index: 50;
 }
@@ -6514,9 +6496,6 @@ a.text-black:hover {
   .off-screen.md-content + * {
     padding-top: 60px;
     z-index: 30;
-  }
-  .off-screen.md-content + * > .md-content {
-    overflow: hidden;
   }
 }
 .md-form-group {
